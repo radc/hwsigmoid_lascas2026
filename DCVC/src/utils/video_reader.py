@@ -8,15 +8,17 @@ from PIL import Image
 
 
 class PNGReader():
-    def __init__(self, src_path, width, height, start_num=1):
+    def __init__(self, src_path, width, height, start_num=1, prefix="frame_"):
         self.eof = False
         self.src_path = src_path
         self.width = width
         self.height = height
+        self.prefix = prefix
         pngs = os.listdir(self.src_path)
-        if 'im1.png' in pngs:
+
+        if f'{prefix}1.png' in pngs:
             self.padding = 1
-        elif 'im00001.png' in pngs:
+        elif f'{prefix}00001.png' in pngs:
             self.padding = 5
         else:
             raise ValueError('unknown image naming convention; please specify')
@@ -28,7 +30,7 @@ class PNGReader():
             return None
 
         png_path = os.path.join(self.src_path,
-                                f"im{str(self.current_frame_index).zfill(self.padding)}.png"
+                                f"{self.prefix}{str(self.current_frame_index).zfill(self.padding)}.png"
                                 )
         if not os.path.exists(png_path):
             self.eof = True

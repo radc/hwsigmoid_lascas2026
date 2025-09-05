@@ -1,0 +1,17 @@
+{
+    "root_path": "/data/Datasets/TestVideo_V2/raw_video_1080",
+    "test_classes": {                       
+        "HEVC_B": {
+            "test": 1,
+            "base_path": "HEVC-B",
+            "src_type": "png",
+            "sequences": {
+                "BQTerrace_1920x1080_60":       {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "BasketballDrive_1920x1080_50": {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "Cactus_1920x1080_50":          {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "Kimono1_1920x1080_24":         {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "ParkScene_1920x1080_24":       {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32}
+            }
+        }       
+    }
+}

@@ -203,134 +203,84 @@ from typing import List, Tuple
 #         return (x_q * y_sigmoid).to(self.out_dtype)
 
 
-# class WSiLU(nn.Module):
-#     def __init__(self):
-#         super().__init__()
-
-#     def forward(self, x):
-#         y = torch.sigmoid(4.0 * x) * x
-#         return y
-
-# Uniform-noise addition
 class WSiLU(nn.Module):
-    # ===== Class-level (static) attributes =====
-    _noise_enabled: bool = False
-    _noise_amp: float = 1e-8
-    _noise_intervals: List[Tuple[float, float]] = []  # closed intervals [low, high]
-
     def __init__(self):
         super().__init__()
 
-    # ===== Static methods (enable/disable) =====
-    @staticmethod
-    def enable_noise() -> None:
-        """Globally enable noise injection."""
-        WSiLU._noise_enabled = True
-
-    @staticmethod
-    def disable_noise() -> None:
-        """Globally disable noise injection."""
-        WSiLU._noise_enabled = False
-
-    @staticmethod
-    def is_noise_enabled() -> bool:
-        """Check if noise is globally enabled."""
-        return WSiLU._noise_enabled
-
-    # ===== Static methods (getters/setters) =====
-    @staticmethod
-    def set_noise_amp(amp: float) -> None:
-        """Set the global noise amplitude."""
-        if amp < 0:
-            raise ValueError("noise_amp must be >= 0.")
-        WSiLU._noise_amp = float(amp)
-
-    @staticmethod
-    def get_noise_amp() -> float:
-        """Return the global noise amplitude."""
-        return WSiLU._noise_amp
-
-    @staticmethod
-    def set_noise_intervals(intervals: List[Tuple[float, float]]) -> None:
-        """Set the global list of intervals [low, high] where noise will be applied."""
-        checked = []
-        for low, high in intervals:
-            low = float(low); high = float(high)
-            if high < low:
-                raise ValueError(f"Invalid interval: ({low}, {high})")
-            checked.append((low, high))
-        WSiLU._noise_intervals = checked
-
-    @staticmethod
-    def add_noise_interval(low: float, high: float) -> None:
-        """Add a single interval [low, high] to the global list of intervals."""
-        if high < low:
-            raise ValueError(f"Invalid interval: ({low}, {high})")
-        WSiLU._noise_intervals.append((float(low), float(high)))
-
-    @staticmethod
-    def clear_noise_intervals() -> None:
-        """Remove all noise intervals."""
-        WSiLU._noise_intervals = []
-
-    @staticmethod
-    def get_noise_intervals() -> List[Tuple[float, float]]:
-        """Return the current global list of noise intervals."""
-        return list(WSiLU._noise_intervals)
-
-    # ===== Forward pass =====
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        # Base SiLU-like activation
+    def forward_normal(self, x):
         y = torch.sigmoid(4.0 * x) * x
-
-        # Conditions where no noise is applied
-        if (not WSiLU._noise_enabled) or (WSiLU._noise_amp == 0.0) or (len(WSiLU._noise_intervals) == 0):
-            return y
-
-        # Boolean mask: True where x falls into any defined interval
-        mask = torch.zeros_like(x, dtype=torch.bool)
-        for low, high in WSiLU._noise_intervals:
-            mask |= (x >= low) & (x <= high)
-
-        if mask.any():
-            noise = torch.zeros_like(y)
-            noise[mask] = torch.empty_like(y[mask]).uniform_(-WSiLU._noise_amp, WSiLU._noise_amp)
-            y = y + noise
-
         return y
     
     # def forward_polinomial(self, x): #GRAU 6
-    # def forward(self, x):
-    #     # parte polinomial
-    #     poly = (
-    #         0.004546
-    #         + 0.5 * x
-    #         + 0.859845 * x**2
-    #         - 0.553798 * x**4
-    #         + 0.168839 * x**6
-    #     )
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # aloca a saída
+        y = torch.empty_like(x)
 
-    #     # aplica as condições em cada ponto
-    #     return torch.where(
-    #         x < -1.2,
-    #         torch.zeros_like(x),  # se x < -1.2
-    #         torch.where(x > 1.2, x, poly)  # se x > 1.2 → x, senão → poly
-    #     )
+        # x < -2  -> 0
+        m = (x < -2)
+        y[m] = 0.0
 
-    # def wsilu_polinomial_forward(x: torch.Tensor) -> torch.Tensor: #GRAU 16
-    # def forward(self, x) :
-    #     x2 = x * x
-    #     poly_even = (
-    #         (((((((( -0.00047333 * x2 + 0.0083775) * x2 - 0.06236471) * x2
-    #                 + 0.25503359) * x2 - 0.63088907) * x2 + 0.99181597) * x2
-    #             - 1.04954556) * x2 + 0.96917012) * x2 + 0.00059508
-    #         )
-    #     )
-    #     poly = poly_even + 0.5 * x
-    #     return torch.where(x < -2, torch.zeros_like(x),
-    #         torch.where(x > 2, x, poly))
-        
-    
+        # -2 <= x < -1.5
+        m = (x >= -2) & (x < -1.5)
+        xm = x[m]
+        y[m] = -0.04077822 - 0.03895519*xm - 0.00946458*xm**2
+
+        # -1.5 <= x < -1
+        m = (x >= -1.5) & (x < -1)
+        xm = x[m]
+        y[m] = -0.10496491 - 0.12680174*xm - 0.03961572*xm**2
+
+        # -1 <= x < -0.5
+        m = (x >= -1) & (x < -0.5)
+        xm = x[m]
+        y[m] = -0.12970709 - 0.16552587*xm - 0.05347109*xm**2
+
+        # -0.5 <= x < -0.25
+        m = (x >= -0.5) & (x < -0.25)
+        xm = x[m]
+        y[m] = -0.03668002 + 0.20407026*xm + 0.31848767*xm**2
+
+        # -0.25 <= x < 0
+        m = (x >= -0.25) & (x < 0)
+        xm = x[m]
+        y[m] = -0.00038846 + 0.48311933*xm + 0.87066946*xm**2
+
+        # 0 <= x < 0.25
+        m = (x >= 0) & (x < 0.25)
+        xm = x[m]
+        y[m] = -0.00038846 + 0.51688067*xm + 0.87066946*xm**2
+
+        # 0.25 <= x < 0.5
+        m = (x >= 0.25) & (x < 0.5)
+        xm = x[m]
+        y[m] = -0.03668002 + 0.79592974*xm + 0.31848767*xm**2
+
+        # 0.5 <= x < 1
+        m = (x >= 0.5) & (x < 1)
+        xm = x[m]
+        y[m] = -0.12970709 + 1.16552587*xm - 0.05347109*xm**2
+
+        # 1 <= x < 1.5
+        m = (x >= 1) & (x < 1.5)
+        xm = x[m]
+        y[m] = -0.10496491 + 1.12680174*xm - 0.03961572*xm**2
+
+        # 1.5 <= x < 2
+        m = (x >= 1.5) & (x < 2)
+        xm = x[m]
+        y[m] = -0.04077822 + 1.03895519*xm - 0.00946458*xm**2
+
+        # x >= 2  -> identidade
+        m = (x >= 2)
+        y[m] = x[m]
+
+        return y
+
+# Uniform-noise addition
+import torch
+import torch.nn as nn
+from typing import List, Tuple
+
 
 
 class WSiLUChunkAdd(nn.Module):

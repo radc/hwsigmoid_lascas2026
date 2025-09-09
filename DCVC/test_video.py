@@ -25,6 +25,7 @@ from src.utils.video_writer import PNGWriter, YUV420Writer
 from src.utils.metrics import calc_psnr, calc_msssim, calc_msssim_rgb
 from src.utils.transforms import rgb2ycbcr, ycbcr2rgb, yuv_444_to_420, ycbcr420_to_444_np
 
+from src.layers.layers import WSiLU
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Example testing script")
@@ -52,6 +53,11 @@ def parse_args():
     parser.add_argument('--output_path', type=str, required=True)
     parser.add_argument('--verbose_json', type=str2bool, default=False)
     parser.add_argument('--verbose', type=int, default=0)
+
+    parser.add_argument("--wsilu_inject_noise", type=str2bool, default=False)
+    parser.add_argument("--wsilu_noise_amp", type=int, default=-1, help="1eN of noise amplitude")
+    parser.add_argument("--wsilu_noise_low_interval", type=int, default=-100)
+    parser.add_argument("--wsilu_noise_high_interval", type=int, default=+100)
 
     args = parser.parse_args()
     return args
@@ -412,6 +418,12 @@ def init_func(args, gpu_num):
         p_frame_net.eval()
         p_frame_net.update(args.force_zero_thres)
         p_frame_net.half()
+
+    if args.wsilu_inject_noise:
+        WSiLU.enable_noise()
+        WSiLU.set_promote_activations(False)
+        WSiLU.set_noise_amp(10 ** args.wsilu_noise_amp)
+        WSiLU.add_noise_interval(args.wsilu_noise_low_interval, args.wsilu_noise_high_interval)
 
 
 def main():

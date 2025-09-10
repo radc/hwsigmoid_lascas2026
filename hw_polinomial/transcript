@@ -1,0 +1,127 @@
+# Loading project hw
+vsim work.getintervalo
+# vsim work.getintervalo 
+# Start time: 03:26:05 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.getintervalo(arquitetura)
+# ** Warning: Design size of 22641 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/getintervalo/x \
+sim:/getintervalo/intervalo \
+sim:/getintervalo/valorFloat32 \
+sim:/getintervalo/valorFloat16
+run
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /getintervalo
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /getintervalo
+force -freeze sim:/getintervalo/valorFloat32 00111111111100110011001100110011 0
+force -freeze sim:/getintervalo/x 00111111111100110011001100110011 0
+run
+force -freeze sim:/getintervalo/x 00111111111100111011001100110011 0
+run
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd failed with 1 errors.
+# 7 compiles, 1 failed with 1 error.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# 7 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.getintervalo(arquitetura)
+# ** Fatal: (vsim-3420) Array lengths do not match. Left is 15 (4 downto -10). Right is 32 (8 downto -23).
+#    Time: 0 ps  Iteration: 0  Instance: /getintervalo File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd Line: 16
+# FATAL ERROR while loading design
+vsim work.getintervalo
+# vsim work.getintervalo 
+# Start time: 03:26:05 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.getintervalo(arquitetura)
+# ** Fatal: (vsim-3420) Array lengths do not match. Left is 15 (4 downto -10). Right is 32 (8 downto -23).
+#    Time: 0 ps  Iteration: 0  Instance: /getintervalo File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd Line: 16
+# FATAL ERROR while loading design
+# Error loading design
+# End time: 03:36:11 on Sep 10,2025, Elapsed time: 0:10:06
+# Errors: 1, Warnings: 1
+# Compile of getIntervalo.vhd was successful.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# 7 compiles, 0 failed with no errors.
+vsim work.getintervalo
+# vsim work.getintervalo 
+# Start time: 03:36:52 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.getintervalo(arquitetura)
+# ** Warning: Design size of 22653 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+add wave -position insertpoint  \
+sim:/getintervalo/x \
+sim:/getintervalo/intervalo \
+sim:/getintervalo/limiteInferiorS1 \
+sim:/getintervalo/limiteSuperiorS1 \
+sim:/getintervalo/limiteInferiorS2 \
+sim:/getintervalo/limiteSuperiorS2
+run
+force -freeze sim:/getintervalo/x 11000000000110011001100110011010 0
+run
+force -freeze sim:/getintervalo/x 10111111101100110011001100110011 0
+run
+force -freeze sim:/getintervalo/x 10111110110011001100110011001101 0
+run
+# Compile of getIntervalo.vhd was successful.
+run
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.getintervalo(arquitetura)
+# ** Warning: Design size of 22653 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+run
+noforce sim:/getintervalo/limiteSuperiorS1
+# Error while executing: noforce
+# Usage: noforce <object_name> ...
+force -freeze sim:/getintervalo/x 10111111100000000000000000000000 0
+run

@@ -7,9 +7,9 @@ use work.float_pkg.all;
 
 entity multiplicador is
 	port (
-		a			:	in 	float32;
-		b 			:	in 	float32;
-		x			:	out	float32
+		a			:	in 	float16;
+		b 			:	in 	float16;
+		x			:	out	float16
 	);
 end multiplicador;
 

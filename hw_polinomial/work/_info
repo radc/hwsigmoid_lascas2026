@@ -13,7 +13,7 @@ Pfixed_pkg
 Z0 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z1 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-!i122 189
+!i122 469
 Z3 w1708368951
 Z4 d/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial
 Z5 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd
@@ -25,9 +25,9 @@ V7J7Ci3NLF4AYWdA[NF9_J0
 Z7 OV;C;2020.1;71
 32
 b1
-Z8 !s110 1757486207
+Z8 !s110 1757542168
 !i10b 1
-Z9 !s108 1757486207.000000
+Z9 !s108 1757542168.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd|
 Z11 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd|
 !i113 1
@@ -39,7 +39,7 @@ Z15 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
 R0
 R1
 R2
-!i122 189
+!i122 469
 l0
 L1471 1
 VVTU20iXjIXcGa2bc5CW1:0
@@ -59,7 +59,7 @@ R14
 R0
 R1
 R2
-!i122 190
+!i122 470
 Z16 w1757483294
 R4
 Z17 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/float_pkg_c.vhd
@@ -85,7 +85,7 @@ R14
 R0
 R1
 R2
-!i122 190
+!i122 470
 l0
 L1040 1
 VkTX;^QY2`RI[AW>>nbEN83
@@ -101,7 +101,7 @@ R20
 R12
 R13
 Egetintervalo
-Z22 w1757486440
+Z22 w1757536914
 R14
 R21
 R0
@@ -109,21 +109,45 @@ Z23 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z24 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 R2
 R1
-!i122 196
+!i122 475
 R4
 Z25 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd
 Z26 F/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd
 l0
 L7 1
-V`GXh3lET89NUVH0ZD7KBF2
-!s100 UQ2SkI]6TQa>dCf``hPi]0
+V1@ZeRcJUiS^Fa:4IX`Uh[2
+!s100 O9;Yof6;<on[L_cMIL74Y1
 R7
 32
-Z27 !s110 1757486448
+R8
 !i10b 1
-Z28 !s108 1757486448.000000
-Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd|
-Z30 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd|
+R9
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd|
+Z28 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd|
+!i113 1
+R12
+R13
+Agetintervalo_architecture
+R14
+R21
+R0
+R23
+R24
+R2
+R1
+DEx4 work 12 getintervalo 0 22 1@ZeRcJUiS^Fa:4IX`Uh[2
+!i122 475
+l64
+L14 72
+V;65Oa_F`8612bhzmOY@183
+!s100 ^MfO9HXX6W7bfGjzIdJL@2
+R7
+32
+R8
+!i10b 1
+R9
+R27
+R28
 !i113 1
 R12
 R13
@@ -135,47 +159,48 @@ R23
 R24
 R2
 R1
-Z31 DEx4 work 12 getintervalo 0 22 `GXh3lET89NUVH0ZD7KBF2
+DEx4 work 12 getintervalo 0 22 `GXh3lET89NUVH0ZD7KBF2
 !i122 196
 l21
-Z32 L14 13
+L14 13
 Vb_?5?8N3G6[ZERmOSl=h=0
 !s100 Q0X]Ka8R2=RRRACA`iOAM0
 R7
 32
-R27
+!s110 1757486448
 !i10b 1
+!s108 1757486448.000000
+R27
 R28
-R29
-R30
 !i113 1
 R12
 R13
+w1757486440
 Emultiplicador
-Z33 w1757451100
+Z29 w1757534942
 R14
 R21
 R15
 R0
 R23
-Z34 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+Z30 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
 R2
 R1
-!i122 191
+!i122 471
 R4
-Z35 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd
-Z36 F/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd
+Z31 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd
+Z32 F/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd
 l0
 L8 1
-V8<O[0LezmI^VPmD=gBY9L0
-!s100 02^5B>ofjAS;eHTb9W>^M3
+Va<=8j4hDz_LzcPTAgn3;E1
+!s100 17;`h8ClHFaAb<gMSiJB<3
 R7
 32
 R8
 !i10b 1
 R9
-Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd|
-Z38 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd|
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd|
+Z34 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd|
 !i113 1
 R12
 R13
@@ -185,11 +210,11 @@ R21
 R15
 R0
 R23
-R34
+R30
 R2
 R1
-DEx4 work 13 multiplicador 0 22 8<O[0LezmI^VPmD=gBY9L0
-!i122 191
+DEx4 work 13 multiplicador 0 22 a<=8j4hDz_LzcPTAgn3;E1
+!i122 471
 l18
 L16 7
 VfhU]=^[H84^Z?e3[afigS2
@@ -199,36 +224,87 @@ R7
 R8
 !i10b 1
 R9
-R37
-R38
+R33
+R34
 !i113 1
 R12
 R13
-Esomador
-Z39 w1757451107
+Emux
+Z35 w1757536886
 R14
 R21
-R15
 R0
 R23
-R34
+R24
 R2
 R1
-!i122 192
+!i122 476
 R4
-Z40 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd
-Z41 F/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd
+Z36 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd
+Z37 F/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd
 l0
-L8 1
-V<L9=9]JeCj4jN1<NGgb4m3
-!s100 7964W6E3NCVQUV0LM^i>40
+L7 1
+V1NmP=7<B91:HQJ8aFJ4Gl0
+!s100 ER=hlEWQ4>f20zeCzgI4O3
 R7
 32
 R8
 !i10b 1
 R9
-Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd|
-Z43 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd|
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd|
+Z39 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd|
+!i113 1
+R12
+R13
+Amux_architecture
+R14
+R21
+R0
+R23
+R24
+R2
+R1
+DEx4 work 3 mux 0 22 1NmP=7<B91:HQJ8aFJ4Gl0
+!i122 476
+l55
+L34 44
+VRHGRW]Gz[V:BNTadf[SCI0
+!s100 Km[kmJG^7K=A7jdS1gkf83
+R7
+32
+R8
+!i10b 1
+R9
+R38
+R39
+!i113 1
+R12
+R13
+Esomador
+Z40 w1757534952
+R14
+R21
+R15
+R0
+R23
+R30
+R2
+R1
+!i122 472
+R4
+Z41 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd
+Z42 F/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd
+l0
+L8 1
+VbEO_ohPU7c>c=biCEjn2A2
+!s100 ]dZaO:fIiXiEQJJ?azobH1
+R7
+32
+R8
+!i10b 1
+R9
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd|
+Z44 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd|
 !i113 1
 R12
 R13
@@ -238,11 +314,11 @@ R21
 R15
 R0
 R23
-R34
+R30
 R2
 R1
-DEx4 work 7 somador 0 22 <L9=9]JeCj4jN1<NGgb4m3
-!i122 192
+DEx4 work 7 somador 0 22 bEO_ohPU7c>c=biCEjn2A2
+!i122 472
 l19
 L17 7
 V7T?^z]aQJ7T0<b8X]ncdM1
@@ -252,35 +328,33 @@ R7
 R8
 !i10b 1
 R9
-R42
 R43
+R44
 !i113 1
 R12
 R13
 Etestbench
-Z44 w1757453193
-R14
-R21
+Z45 w1757542463
 R0
 R23
 R24
 R2
 R1
-!i122 194
+!i122 480
 R4
-Z45 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-Z46 F/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
+Z46 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
+Z47 F/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
 l0
 L9 1
-V9;>`YDdiPZQ:CT5a;:]X93
-!s100 N:8BilVG;LR1a=DS?aDRg2
+VHOGAQ1?A9Qf]889I]E]6T2
+!s100 X^mSXhDL0WU5W_0nE^^L82
 R7
 32
-R8
+!s110 1757542469
 !i10b 1
-R9
-Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd|
-Z48 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd|
+!s108 1757542469.000000
+Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd|
+Z49 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd|
 !i113 1
 R12
 R13
@@ -293,23 +367,23 @@ R24
 R2
 R1
 DEx4 work 9 testbench 0 22 9;>`YDdiPZQ:CT5a;:]X93
-!i122 194
-l30
-L12 49
-VI>FMB9IL:Q_dbXYhI^VCF1
-!s100 kZC43SM[aMWYC65DVD3O@1
+!i122 474
+l62
+L12 115
+Vma1YJG;n>T_RhmWAAJC9e0
+!s100 SKFEWY2fiO7Sc>1c5]KQE3
 R7
 32
 R8
 !i10b 1
 R9
-R47
 R48
+R49
 !i113 1
 R12
 R13
 Ewsilupolinomial
-Z49 w1757452188
+Z50 w1757535022
 R14
 R21
 R0
@@ -317,21 +391,21 @@ R23
 R24
 R2
 R1
-!i122 193
+!i122 473
 R4
-Z50 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd
-Z51 F/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd
+Z51 8/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd
+Z52 F/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd
 l0
 L7 1
-VZkC6i8n0QfD?UX=^YKZU43
-!s100 [hD0EDnIW6RLU:@?Y[Sn90
+V0H]`?2O]li@XYB[<zP0XX2
+!s100 =n<likl9FKEKd4ekl[IGC1
 R7
 32
 R8
 !i10b 1
 R9
-Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd|
-Z53 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd|
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd|
+Z54 !s107 /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd|
 !i113 1
 R12
 R13
@@ -343,19 +417,19 @@ R23
 R24
 R2
 R1
-DEx4 work 15 wsilupolinomial 0 22 ZkC6i8n0QfD?UX=^YKZU43
-!i122 193
-l40
-L17 51
-V9];CPEBQS8[3H`LMBciNH0
-!s100 M<HW3T4T=]ZXlU<XF7PC51
+DEx4 work 15 wsilupolinomial 0 22 0H]`?2O]li@XYB[<zP0XX2
+!i122 473
+l80
+L17 101
+V8L7DCK`_?cg2oD51CaBII1
+!s100 FN<TgOP8EbVPnmeQGgCM01
 R7
 32
 R8
 !i10b 1
 R9
-R52
 R53
+R54
 !i113 1
 R12
 R13

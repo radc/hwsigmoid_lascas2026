@@ -125,3 +125,973 @@ noforce sim:/getintervalo/limiteSuperiorS1
 # Usage: noforce <object_name> ...
 force -freeze sim:/getintervalo/x 10111111100000000000000000000000 0
 run
+# Compile of WSiluPolinomial.vhd failed with 2 errors.
+# Compile of getIntervalo.vhd was successful.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of WSiluPolinomial.vhd failed with 2 errors.
+# Compile of WSiluPolinomial.vhd failed with 2 errors.
+# Compile of WSiluPolinomial.vhd failed with 2 errors.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# 7 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.getintervalo(getintervalo_architecture)
+# ** Warning: Design size of 22881 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+add wave -position insertpoint  \
+sim:/getintervalo/x \
+sim:/getintervalo/intervalo \
+sim:/getintervalo/limiteInferiorS1 \
+sim:/getintervalo/limiteSuperiorS1 \
+sim:/getintervalo/limiteInferiorS2 \
+sim:/getintervalo/limiteSuperiorS2 \
+sim:/getintervalo/limiteInferiorS3 \
+sim:/getintervalo/limiteSuperiorS3 \
+sim:/getintervalo/limiteInferiorS4 \
+sim:/getintervalo/limiteSuperiorS4 \
+sim:/getintervalo/limiteInferiorS5 \
+sim:/getintervalo/limiteSuperiorS5 \
+sim:/getintervalo/limiteInferiorS6 \
+sim:/getintervalo/limiteSuperiorS6 \
+sim:/getintervalo/limiteInferiorS7 \
+sim:/getintervalo/limiteSuperiorS7 \
+sim:/getintervalo/limiteInferiorS8 \
+sim:/getintervalo/limiteSuperiorS8 \
+sim:/getintervalo/limiteInferiorS9 \
+sim:/getintervalo/limiteSuperiorS9 \
+sim:/getintervalo/limiteInferiorS10 \
+sim:/getintervalo/limiteSuperiorS10 \
+sim:/getintervalo/limiteInferiorS11 \
+sim:/getintervalo/limiteSuperiorS11 \
+sim:/getintervalo/limiteInferiorS12 \
+sim:/getintervalo/limiteSuperiorS12 \
+sim:/getintervalo/limiteInferiorS13 \
+sim:/getintervalo/limiteSuperiorS13 \
+sim:/getintervalo/limiteInferiorS14 \
+sim:/getintervalo/limiteSuperiorS14 \
+sim:/getintervalo/limiteInferiorS15 \
+sim:/getintervalo/limiteSuperiorS15 \
+sim:/getintervalo/limiteInferiorS16 \
+sim:/getintervalo/limiteSuperiorS16
+run
+vsim work.getintervalo
+# End time: 15:09:25 on Sep 10,2025, Elapsed time: 11:32:33
+# Errors: 0, Warnings: 2
+# vsim work.getintervalo 
+# Start time: 15:09:25 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.getintervalo(getintervalo_architecture)
+# ** Warning: Design size of 22881 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+add wave -position insertpoint  \
+sim:/getintervalo/x \
+sim:/getintervalo/intervalo \
+sim:/getintervalo/limiteInferiorS1 \
+sim:/getintervalo/limiteSuperiorS1 \
+sim:/getintervalo/limiteInferiorS2 \
+sim:/getintervalo/limiteSuperiorS2 \
+sim:/getintervalo/limiteInferiorS3 \
+sim:/getintervalo/limiteSuperiorS3 \
+sim:/getintervalo/limiteInferiorS4 \
+sim:/getintervalo/limiteSuperiorS4 \
+sim:/getintervalo/limiteInferiorS5 \
+sim:/getintervalo/limiteSuperiorS5 \
+sim:/getintervalo/limiteInferiorS6 \
+sim:/getintervalo/limiteSuperiorS6 \
+sim:/getintervalo/limiteInferiorS7 \
+sim:/getintervalo/limiteSuperiorS7 \
+sim:/getintervalo/limiteInferiorS8 \
+sim:/getintervalo/limiteSuperiorS8 \
+sim:/getintervalo/limiteInferiorS9 \
+sim:/getintervalo/limiteSuperiorS9 \
+sim:/getintervalo/limiteInferiorS10 \
+sim:/getintervalo/limiteSuperiorS10 \
+sim:/getintervalo/limiteInferiorS11 \
+sim:/getintervalo/limiteSuperiorS11 \
+sim:/getintervalo/limiteInferiorS12 \
+sim:/getintervalo/limiteSuperiorS12 \
+sim:/getintervalo/limiteInferiorS13 \
+sim:/getintervalo/limiteSuperiorS13 \
+sim:/getintervalo/limiteInferiorS14 \
+sim:/getintervalo/limiteSuperiorS14 \
+sim:/getintervalo/limiteInferiorS15 \
+sim:/getintervalo/limiteSuperiorS15 \
+sim:/getintervalo/limiteInferiorS16 \
+sim:/getintervalo/limiteSuperiorS16
+force -freeze sim:/getintervalo/x 10111111100110011001100110011010 0
+run
+force -freeze sim:/getintervalo/x 1011111110011001100110011001101011000000010000000000000000000000 0
+# Value length (64) does not equal array index length (32).
+# ** UI-Msg: (vsim-4011) Invalid force value: 1011111110011001100110011001101011000000010000000000000000000000 0.
+# 
+run
+run
+force -freeze sim:/getintervalo/x 11000000010000000000000000000000 0
+run
+force -freeze sim:/getintervalo/x 01000000010000000000000000000000 0
+run
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd failed with 1 errors.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd failed with 1 errors.
+# 8 compiles, 2 failed with 2 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd failed with 1 errors.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd failed with 1 errors.
+# 8 compiles, 2 failed with 2 errors.
+# Compile of WSiluPolinomial.vhd failed with 1 errors.
+# Compile of mux.vhd failed with 18 errors.
+# 2 compiles, 2 failed with 19 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd failed with 1 errors.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd failed with 18 errors.
+# 8 compiles, 2 failed with 19 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd failed with 1 errors.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd failed with 2 errors.
+# 8 compiles, 2 failed with 3 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd failed with 1 errors.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd failed with 2 errors.
+# 8 compiles, 2 failed with 3 errors.
+# Compile of WSiluPolinomial.vhd failed with 1 errors.
+# Compile of mux.vhd was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of WSiluPolinomial.vhd failed with 1 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd failed with 1 errors.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 1 failed with 1 error.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+vsim work.mux
+# End time: 15:26:53 on Sep 10,2025, Elapsed time: 0:17:28
+# Errors: 0, Warnings: 14
+# vsim work.mux 
+# Start time: 15:26:53 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.mux(mux_architecture)
+# ** Fatal: (vsim-3350) Generic "c_s1" has not been given a value.
+#    Time: 0 ps  Iteration: 0  Instance: /mux File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd Line: 9
+# FATAL ERROR while loading design
+# Error loading design
+# End time: 15:26:53 on Sep 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vsim work.mux
+# vsim work.mux 
+# Start time: 15:27:00 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.mux(mux_architecture)
+# ** Fatal: (vsim-3350) Generic "c_s1" has not been given a value.
+#    Time: 0 ps  Iteration: 0  Instance: /mux File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd Line: 9
+# FATAL ERROR while loading design
+# Error loading design
+# End time: 15:27:00 on Sep 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+# Compile of WSiluPolinomial.vhd was successful.
+vsim work.mux
+# vsim work.mux 
+# Start time: 15:29:10 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.mux(mux_architecture)
+# ** Fatal: (vsim-3350) Generic "c_s1" has not been given a value.
+#    Time: 0 ps  Iteration: 0  Instance: /mux File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd Line: 9
+# FATAL ERROR while loading design
+# Error loading design
+# End time: 15:29:10 on Sep 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 2
+vsim work.testbench
+# vsim work.testbench 
+# Start time: 15:29:18 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench(testbench_arc)
+# Loading work.wsilupolinomial(wsilupolinomial_arc)
+# Loading work.getintervalo(getintervalo_architecture)
+# Loading work.mux(mux_architecture)
+# Loading ieee.std_logic_signed(body)
+# Loading work.multiplicador(multiplicador_arc)
+# ** Warning: Design size of 23312 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/testbench/DUT/mux1Module/c_s1 \
+sim:/testbench/DUT/mux1Module/c_s2 \
+sim:/testbench/DUT/mux1Module/c_s3 \
+sim:/testbench/DUT/mux1Module/c_s4 \
+sim:/testbench/DUT/mux1Module/c_s5 \
+sim:/testbench/DUT/mux1Module/c_s6 \
+sim:/testbench/DUT/mux1Module/c_s7 \
+sim:/testbench/DUT/mux1Module/c_s8 \
+sim:/testbench/DUT/mux1Module/c_s9 \
+sim:/testbench/DUT/mux1Module/c_s10 \
+sim:/testbench/DUT/mux1Module/c_s11 \
+sim:/testbench/DUT/mux1Module/c_s12 \
+sim:/testbench/DUT/mux1Module/c_s13 \
+sim:/testbench/DUT/mux1Module/c_s14 \
+sim:/testbench/DUT/mux1Module/c_s15 \
+sim:/testbench/DUT/mux1Module/c_s16 \
+sim:/testbench/DUT/mux1Module/intervalo \
+sim:/testbench/DUT/mux1Module/c \
+sim:/testbench/DUT/mux1Module/c_s1_float \
+sim:/testbench/DUT/mux1Module/c_s2_float \
+sim:/testbench/DUT/mux1Module/c_s3_float \
+sim:/testbench/DUT/mux1Module/c_s4_float \
+sim:/testbench/DUT/mux1Module/c_s5_float \
+sim:/testbench/DUT/mux1Module/c_s6_float \
+sim:/testbench/DUT/mux1Module/c_s7_float \
+sim:/testbench/DUT/mux1Module/c_s8_float \
+sim:/testbench/DUT/mux1Module/c_s9_float \
+sim:/testbench/DUT/mux1Module/c_s10_float \
+sim:/testbench/DUT/mux1Module/c_s11_float \
+sim:/testbench/DUT/mux1Module/c_s12_float \
+sim:/testbench/DUT/mux1Module/c_s13_float \
+sim:/testbench/DUT/mux1Module/c_s14_float \
+sim:/testbench/DUT/mux1Module/c_s15_float \
+sim:/testbench/DUT/mux1Module/c_s16_float
+run
+force -freeze sim:/testbench/DUT/mux1Module/intervalo 01010 0
+# ** Warning: (vsim-8780) Forcing /testbench/DUT/intervalo as root of /testbench/DUT/mux1Module/intervalo specified in the force.
+run
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+vsim work.testbench
+# End time: 15:47:29 on Sep 10,2025, Elapsed time: 0:18:11
+# Errors: 0, Warnings: 5
+# vsim work.testbench 
+# Start time: 15:47:29 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench(testbench_arc)
+# Loading work.wsilupolinomial(wsilupolinomial_arc)
+# Loading work.getintervalo(getintervalo_architecture)
+# Loading work.mux(mux_architecture)
+# Loading ieee.std_logic_signed(body)
+# Loading work.multiplicador(multiplicador_arc)
+# Loading work.somador(somador_arc)
+# ** Warning: Design size of 23721 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/testbench/clk \
+sim:/testbench/enable \
+sim:/testbench/reset \
+sim:/testbench/x \
+sim:/testbench/y
+run
+run
+run
+run
+force -freeze sim:/testbench/x 00111110011101011100001010001111 0
+run
+add wave -position insertpoint  \
+sim:/testbench/DUT/clk \
+sim:/testbench/DUT/enable \
+sim:/testbench/DUT/reset \
+sim:/testbench/DUT/xIn \
+sim:/testbench/DUT/yOut \
+sim:/testbench/DUT/x \
+sim:/testbench/DUT/intervalo \
+sim:/testbench/DUT/x_quadrado \
+sim:/testbench/DUT/c_x_quadrado \
+sim:/testbench/DUT/c_times_x_quadrado \
+sim:/testbench/DUT/c_x \
+sim:/testbench/DUT/c_times_x \
+sim:/testbench/DUT/c \
+sim:/testbench/DUT/y
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: Design size of 12051 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+force -freeze sim:/testbench/x 00111110011101011100001010001111 0
+run
+add wave -position insertpoint  \
+sim:/testbench/DUT/getIntervaloModule/x \
+sim:/testbench/DUT/getIntervaloModule/intervalo \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS1 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS1 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS2 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS2 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS3 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS3 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS4 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS4 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS5 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS5 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS6 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS6 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS7 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS7 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS8 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS8 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS9 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS9 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS10 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS10 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS11 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS11 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS12 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS12 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS13 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS13 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS14 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS14 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS15 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS15 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS16 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS16
+restart
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: Design size of 12051 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+force -freeze sim:/testbench/x 00111110011101011100001010001111 0
+run
+# Compile of getIntervalo.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.getintervalo(getintervalo_architecture)
+# ** Warning: Design size of 23771 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+force -freeze sim:/testbench/x 00111110011101011100001010001111 0
+run
+add wave -position insertpoint  \
+sim:/testbench/DUT/getIntervaloModule/x \
+sim:/testbench/DUT/getIntervaloModule/intervalo \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS1 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS1 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS2 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS2 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS3 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS3 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS4 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS4 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS5 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS5 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS6 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS6 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS7 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS7 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS8 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS8 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS9 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS9 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS10 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS10 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS11 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS11 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS12 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS12 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS13 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS13 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS14 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS14 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS15 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS15 \
+sim:/testbench/DUT/getIntervaloModule/limiteInferiorS16 \
+sim:/testbench/DUT/getIntervaloModule/limiteSuperiorS16
+# Compile of getIntervalo.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.getintervalo(getintervalo_architecture)
+# ** Warning: Design size of 23773 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+force -freeze sim:/testbench/DUT/getIntervaloModule/x 10111110011101011100001010001111 0
+# ** Warning: (vsim-8780) Forcing /testbench/DUT/x as root of /testbench/DUT/getIntervaloModule/x specified in the force.
+run
+add wave -position insertpoint  \
+sim:/testbench/clk \
+sim:/testbench/enable \
+sim:/testbench/reset \
+sim:/testbench/x \
+sim:/testbench/y
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: Design size of 12051 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+force -freeze sim:/testbench/x 10111110011101011100001010001111 0
+run
+add wave -position insertpoint  \
+sim:/testbench/DUT/clk \
+sim:/testbench/DUT/enable \
+sim:/testbench/DUT/reset \
+sim:/testbench/DUT/xIn \
+sim:/testbench/DUT/yOut \
+sim:/testbench/DUT/x \
+sim:/testbench/DUT/intervalo \
+sim:/testbench/DUT/x_quadrado \
+sim:/testbench/DUT/c_x_quadrado \
+sim:/testbench/DUT/c_times_x_quadrado \
+sim:/testbench/DUT/c_x \
+sim:/testbench/DUT/c_times_x \
+sim:/testbench/DUT/c \
+sim:/testbench/DUT/y
+force -freeze sim:/testbench/x 00111110011101011100001010001111 0
+run
+# Compile of WSiluPolinomial.vhd failed with 6 errors.
+# Compile of mux.vhd failed with 3 errors.
+# 2 compiles, 2 failed with 9 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd failed with 6 errors.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd failed with 3 errors.
+# 8 compiles, 2 failed with 9 errors.
+# Compile of WSiluPolinomial.vhd failed with 6 errors.
+# Compile of mux.vhd failed with 1 errors.
+# 2 compiles, 2 failed with 7 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd failed with 6 errors.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd failed with 1 errors.
+# 8 compiles, 2 failed with 7 errors.
+# Compile of WSiluPolinomial.vhd failed with 6 errors.
+# Compile of mux.vhd was successful.
+# 2 compiles, 1 failed with 6 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd failed with 6 errors.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 1 failed with 6 errors.
+# Compile of WSiluPolinomial.vhd failed with 6 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd failed with 6 errors.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 1 failed with 6 errors.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench(testbench_arc)
+# Loading work.wsilupolinomial(wsilupolinomial_arc)
+# Loading work.getintervalo(getintervalo_architecture)
+# Loading work.mux(mux_architecture)
+# Loading work.multiplicador(multiplicador_arc)
+# Loading work.somador(somador_arc)
+# ** Warning: Design size of 23787 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+force -freeze sim:/testbench/x 11000000010000000000000000000000 0
+run
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd failed with 68 errors.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 6 compiles, 1 failed with 68 errors.
+# Compile of testbench.vhd failed with 3 errors.
+# Compile of testbench.vhd failed with 1 errors.
+# Compile of testbench.vhd failed with 3 errors.
+# Compile of testbench.vhd failed with 3 errors.
+# Compile of testbench.vhd failed with 2 errors.
+# Compile of testbench.vhd failed with 1 errors.
+# Compile of testbench.vhd failed with 1 errors.
+# Compile of testbench.vhd failed with 2 errors.
+# Compile of testbench.vhd failed with 5 errors.
+# Compile of testbench.vhd failed with 3 errors.
+# Compile of testbench.vhd failed with 1 errors.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of testbench.vhd was successful with warnings.
+# Compile of testbench.vhd was successful.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+vsim work.testbench
+# End time: 17:39:47 on Sep 10,2025, Elapsed time: 1:52:18
+# Errors: 0, Warnings: 20
+# vsim work.testbench 
+# Start time: 17:39:47 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench(testbench_arc)
+# Loading work.wsilupolinomial(wsilupolinomial_arc)
+# Loading work.getintervalo(getintervalo_architecture)
+# ** Fatal: (vsim-3420) Array lengths do not match. Left is 15 (4 downto -10). Right is 21 (5 downto -15).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/DUT/getIntervaloModule File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd Line: 16
+# FATAL ERROR while loading design
+# Error loading design
+# End time: 17:39:47 on Sep 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+vsim work.testbench
+# vsim work.testbench 
+# Start time: 17:41:04 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench(testbench_arc)
+# Loading work.wsilupolinomial(wsilupolinomial_arc)
+# Loading work.getintervalo(getintervalo_architecture)
+# ** Fatal: (vsim-3420) Array lengths do not match. Left is 15 (4 downto -10). Right is 16 (5 downto -10).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/DUT/getIntervaloModule File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd Line: 16
+# FATAL ERROR while loading design
+# Error loading design
+# End time: 17:41:04 on Sep 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 2
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.testbench
+# vsim work.testbench 
+# Start time: 17:42:09 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench(testbench_arc)
+# Loading work.wsilupolinomial(wsilupolinomial_arc)
+# Loading work.getintervalo(getintervalo_architecture)
+# Loading work.mux(mux_architecture)
+# Loading ieee.std_logic_signed(body)
+# Loading work.multiplicador(multiplicador_arc)
+# Loading work.somador(somador_arc)
+# ** Warning: Design size of 23841 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
+run
+# ** Failure: ERRO: Caractere inválido na string binária:  
+#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
+# Break in Process EntradasProcess at /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 53
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+vsim work.testbench
+# End time: 17:43:29 on Sep 10,2025, Elapsed time: 0:01:20
+# Errors: 1, Warnings: 5
+# vsim work.testbench 
+# Start time: 17:43:29 on Sep 10,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench(testbench_arc)
+# Loading work.wsilupolinomial(wsilupolinomial_arc)
+# Loading work.getintervalo(getintervalo_architecture)
+# Loading work.mux(mux_architecture)
+# Loading ieee.std_logic_signed(body)
+# Loading work.multiplicador(multiplicador_arc)
+# Loading work.somador(somador_arc)
+# ** Warning: Design size of 23839 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/testbench/clk \
+sim:/testbench/enable \
+sim:/testbench/reset \
+sim:/testbench/x \
+sim:/testbench/y \
+sim:/testbench/entrada \
+sim:/testbench/saidaEsperada
+run
+# Compile of testbench.vhd was successful with warnings.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench(testbench_arc)
+# ** Warning: Design size of 23935 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+# ** Fatal: (vsim-3475) Type conversion target array length 15 does not match operand length 16.
+#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
+# Fatal error in Process EntradasProcess at /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 58
+# 
+# HDL call sequence:
+# Stopped at /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 58 Subprogram string_to_float16
+# called from  /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 117 Process EntradasProcess
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 58 Subprogram string_to_float16
+# called from  /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 117 Process EntradasProcess
+# 
+# Compile of testbench.vhd was successful with warnings.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench(testbench_arc)
+# ** Warning: Design size of 23939 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+# ** Fatal: (vsim-3738) (vcom-1144) Value -10 (of type std.STANDARD.NATURAL) is out of range 0 to 2147483647.
+#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd Line: 58
+# Fatal error in Process EntradasProcess at /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 58
+# 
+# HDL call sequence:
+# Stopped at /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 58 Subprogram string_to_float16
+# called from  /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 117 Process EntradasProcess
+# 
+# Compile of testbench.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench(testbench_arc)
+# ** Warning: Design size of 23939 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+# ** Failure: ERRO: Caractere inválido na string binária:  
+#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
+# Break in Process EntradasProcess at /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 53
+# Compile of testbench.vhd was successful.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench(testbench_arc)
+# Loading work.wsilupolinomial(wsilupolinomial_arc)
+# Loading work.getintervalo(getintervalo_architecture)
+# Loading work.mux(mux_architecture)
+# Loading work.multiplicador(multiplicador_arc)
+# Loading work.somador(somador_arc)
+# ** Warning: Design size of 23841 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+# ** Failure: ERRO: Caractere inválido na string binária:  
+#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
+# Break in Process EntradasProcess at /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 53
+# Compile of testbench.vhd failed with 1 errors.
+# Compile of testbench.vhd was successful.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+# Compile of testbench.vhd was successful.
+# Compile of testbench.vhd failed with 2 errors.
+# Compile of testbench.vhd failed with 2 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd failed with 2 errors.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 1 failed with 2 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd failed with 2 errors.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 1 failed with 2 errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd failed with 2 errors.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 1 failed with 2 errors.
+# Compile of testbench.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench(testbench_arc)
+# Loading work.wsilupolinomial(wsilupolinomial_arc)
+# Loading work.getintervalo(getintervalo_architecture)
+# Loading work.mux(mux_architecture)
+# Loading work.multiplicador(multiplicador_arc)
+# Loading work.somador(somador_arc)
+# ** Warning: Design size of 23841 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+# ** Failure: ERRO: Caractere inválido na string binária:  
+#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
+# Break in Process EntradasProcess at /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 53
+# Compile of testbench.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench(testbench_arc)
+# ** Warning: Design size of 23939 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+# ** Failure: ERRO: Caractere inválido na string binária:  
+#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
+# Break in Process EntradasProcess at /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 53
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench(testbench_arc)
+# Loading work.wsilupolinomial(wsilupolinomial_arc)
+# Loading work.getintervalo(getintervalo_architecture)
+# Loading work.mux(mux_architecture)
+# Loading work.multiplicador(multiplicador_arc)
+# Loading work.somador(somador_arc)
+# ** Warning: Design size of 23841 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+# ** Failure: ERRO: Caractere inválido na string binária:  
+#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
+# Break in Process EntradasProcess at /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 53
+# Compile of testbench.vhd was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench(testbench_arc)
+# ** Warning: Design size of 23939 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+run
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of multiplicador.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench.vhd was successful.
+# Compile of getIntervalo.vhd was successful.
+# Compile of mux.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench(testbench_arc)
+# Loading work.wsilupolinomial(wsilupolinomial_arc)
+# Loading work.getintervalo(getintervalo_architecture)
+# Loading work.mux(mux_architecture)
+# Loading work.multiplicador(multiplicador_arc)
+# Loading work.somador(somador_arc)
+# ** Warning: Design size of 23841 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+# Compile of testbench.vhd failed with 3 errors.
+# Compile of testbench.vhd failed with 3 errors.
+# Compile of testbench.vhd failed with 3 errors.
+# Compile of testbench.vhd failed with 11 errors.

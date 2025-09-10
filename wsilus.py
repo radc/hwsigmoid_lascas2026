@@ -661,3 +661,74 @@ class WSiLU(nn.Module):
             y[mid] = ym
 
         return y
+
+
+
+#SAVE INPUTS
+class WSiLU(nn.Module):
+    def __init__(
+        self,
+        alpha: float = 4.0,
+        log_path: str = "wsilu_inputs.log",
+        buffer_capacity: int = 32,
+        buffer_device: str | torch.device = "cuda:0",  # <<< buffer na GPU
+        enable_logging: bool = True,
+    ):
+        """
+        alpha: coeficiente do WSiLU (y = x * sigmoid(alpha * x))
+        log_path: arquivo único de log (modo append binário no flush)
+        buffer_capacity: número de batches acumulados antes de gravar
+        buffer_device: dispositivo onde o buffer fica residente (e.g., 'cuda:0')
+        enable_logging: permite desligar/ligar o log sem trocar a classe
+        """
+        super().__init__()
+        self.alpha = alpha
+        self.log_path = log_path
+        self.buffer_capacity = int(buffer_capacity)
+        self.buffer_device = torch.device(buffer_device)
+        self.enable_logging = enable_logging
+
+        self._buffer = []        # lista de tensores (batches) no buffer_device
+        self._lock = threading.Lock()
+        atexit.register(self.flush)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        if self.enable_logging:
+            self._append_to_buffer(x)
+        # WSiLU
+        return x * torch.sigmoid(self.alpha * x)
+
+    @torch.no_grad()
+    def _append_to_buffer(self, x: torch.Tensor):
+        # Garantir que a cópia para o buffer não cria dependência de grad
+        x_buf = x.detach()
+        # Mover para o dispositivo do buffer se necessário (normalmente já estará na GPU)
+        if x_buf.device != self.buffer_device:
+            x_buf = x_buf.to(self.buffer_device, non_blocking=True)
+        with self._lock:
+            self._buffer.append(x_buf)
+            if len(self._buffer) >= self.buffer_capacity:
+                self._flush_locked()
+
+    @torch.no_grad()
+    def flush(self):
+        """Flush manual do buffer para disco."""
+        with self._lock:
+            self._flush_locked()
+
+    def _flush_locked(self):
+        if not self._buffer:
+            return
+        # Empilha no MESMO dispositivo do buffer (GPU por padrão)
+        chunk_gpu = torch.stack(self._buffer, dim=0)  # shape: (N, *input_shape)
+        # Opcional: você pode salvar direto o tensor CUDA. O torch.save
+        # serializa corretamente o device. Isso evita transferências frequentes
+        # CPU↔GPU — a transferência ocorre apenas no momento do save.
+        with open(self.log_path, "ab") as f:
+            torch.save(chunk_gpu, f)
+        # Limpa o buffer GPU
+        self._buffer.clear()
+
+    # Utilidades
+    def set_logging(self, enabled: bool):
+        self.enable_logging = bool(enabled)

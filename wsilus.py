@@ -589,7 +589,7 @@ class WSiLU(nn.Module):
 
 
 
-#DENIS COM 25 INTERVALOS E GRAU 2 (poly_25int_deg2)
+#DENIS COM 25 INTERVALOS E GRAU 2 (poly_25int_deg2_32)
 class WSiLU(nn.Module):
     def __init__(self):
         super().__init__()
@@ -732,3 +732,169 @@ class WSiLU(nn.Module):
     # Utilidades
     def set_logging(self, enabled: bool):
         self.enable_logging = bool(enabled)
+
+
+
+
+#WSiLU com bufferização de entrada
+import atexit
+import threading
+import math
+import json
+import time
+import os
+from typing import Optional, Union
+
+class WSiLU(nn.Module):
+    def __init__(
+        self,
+        alpha: float = 4.0,
+        log_path: str = "/home/ruhan/hwsigmoid_lascas2026/coding_outputs/wsilu_inputs.jsonl",
+        buffer_capacity: int = 4,
+        buffer_device: Union[str, torch.device] = "cuda:0",
+        enable_logging: bool = True,
+        sample_ratio: float = 0.01,
+        min_samples: int = 1,
+        random_seed: Optional[int] = None,
+        log_prob: float = 0.01,  # probabilidade de adicionar um batch ao buffer
+        float_precision: Optional[int] = None,  # ex.: 6 para limitar casas decimais no JSON
+    ):
+        """
+        y = x * sigmoid(alpha * x)
+
+        buffer_capacity: nº de batches acumulados antes de flush
+        buffer_device: dispositivo do buffer (ex.: 'cuda:0')
+        sample_ratio: fração do buffer gravada em cada flush (0..1)
+        min_samples: mínimo de batches gravados por flush (>=0)
+        random_seed: se definido, torna a amostragem reprodutível
+        log_prob: probabilidade de armazenar um batch no buffer (0..1)
+        float_precision: se definido, arredonda floats antes de serializar (reduz tamanho do JSON)
+        """
+        super().__init__()
+        self.alpha = float(alpha)
+        self.log_path = str(log_path)
+        self.buffer_capacity = int(buffer_capacity)
+        self.buffer_device = torch.device(buffer_device)
+        self.enable_logging = bool(enable_logging)
+        self.sample_ratio = float(sample_ratio)
+        self.min_samples = int(min_samples)
+        self.random_seed = random_seed
+        self.log_prob = float(log_prob)
+        self.float_precision = float_precision
+
+        self._buffer = []  # lista de tensores em buffer_device
+        self._lock = threading.Lock()
+        atexit.register(self.flush)
+
+        # RNG opcional para reprodutibilidade
+        self._g = None
+        if self.random_seed is not None:
+            self._g = torch.Generator(device=self.buffer_device)
+            self._g.manual_seed(self.random_seed)
+
+        # Cria pasta do log se necessário
+        os.makedirs(os.path.dirname(self.log_path), exist_ok=True)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        if self.enable_logging:
+            # Decide estocasticamente se loga este batch
+            if self._rand() < self.log_prob:
+                self._append_to_buffer(x)
+        return x * torch.sigmoid(self.alpha * x)
+
+    # ---------- utilidades internas ----------
+
+    def _rand(self) -> float:
+        """Retorna um float em [0,1). Usa gerador próprio se existir."""
+        if self._g is not None:
+            return torch.rand(1, generator=self._g, device=self.buffer_device).item()
+        else:
+            return torch.rand(1, device=self.buffer_device).item()
+
+    @torch.no_grad()
+    def _append_to_buffer(self, x: torch.Tensor):
+        x_buf = x.detach()  # remove grad
+        if x_buf.device != self.buffer_device:
+            x_buf = x_buf.to(self.buffer_device, non_blocking=True)
+        with self._lock:
+            self._buffer.append(x_buf)
+            if len(self._buffer) >= self.buffer_capacity:
+                self._flush_locked()
+
+    @torch.no_grad()
+    def flush(self):
+        with self._lock:
+            self._flush_locked()
+
+    def _flush_locked(self):
+        if not self._buffer:
+            return
+
+        # Empilha os batches do buffer (permanece no device do buffer)
+        chunk = torch.stack(self._buffer, dim=0)  # (N, *shape)
+        N = chunk.shape[0]
+
+        # Amostragem de batches: seleciona k entre N
+        k = max(math.ceil(N * max(0.0, min(1.0, self.sample_ratio))), self.min_samples)
+        k = min(k, N)
+
+        if k == N:
+            sampled = chunk
+        else:
+            if self._g is not None:
+                idx = torch.randperm(N, generator=self._g, device=self.buffer_device)[:k]
+            else:
+                idx = torch.randperm(N, device=self.buffer_device)[:k]
+            sampled = chunk.index_select(0, idx)
+
+        # Serializa em JSONL (texto). Para isso, movemos para CPU.
+        sampled_cpu = sampled.detach().to("cpu")
+
+        # Abre em modo append texto
+        with open(self.log_path, "a", encoding="utf-8") as f:
+            ts = time.time()
+            for i in range(sampled_cpu.shape[0]):
+                entry = sampled_cpu[i]
+                json_obj = self._tensor_to_json_obj(entry, ts)
+                f.write(json.dumps(json_obj, ensure_ascii=False) + "\n")
+
+        # Limpa buffer
+        self._buffer.clear()
+
+    def _tensor_to_json_obj(self, t: torch.Tensor, ts: float) -> dict:
+        """Converte um tensor em um objeto JSON-serializável."""
+        # Opcionalmente limitar precisão para reduzir tamanho
+        if self.float_precision is not None and t.is_floating_point():
+            t = t.round(decimals=int(self.float_precision))
+        # Converte para Python list (aninhada) de forma segura
+        data_list = t.tolist()
+
+        return {
+            "timestamp": ts,
+            "alpha": self.alpha,
+            "shape": list(t.shape),
+            "dtype": str(t.dtype).replace("torch.", ""),
+            "device_logged": str(self.buffer_device),
+            "data": data_list,  # cuidado: pode ser grande!
+        }
+
+    # ---------- setters dinâmicos ----------
+    def set_logging(self, enabled: bool):
+        self.enable_logging = bool(enabled)
+
+    def set_sample_ratio(self, ratio: float):
+        self.sample_ratio = float(ratio)
+
+    def set_min_samples(self, n: int):
+        self.min_samples = int(n)
+
+    def set_seed(self, seed: Optional[int]):
+        self.random_seed = seed
+        if seed is None:
+            self._g = None
+        else:
+            self._g = torch.Generator(device=self.buffer_device)
+            self._g.manual_seed(seed)
+
+    def set_log_prob(self, p: float):
+        self.log_prob = float(p)

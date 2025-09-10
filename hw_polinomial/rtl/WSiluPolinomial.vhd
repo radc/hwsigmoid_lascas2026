@@ -16,6 +16,13 @@ end WSiluPolinomial;
 
 architecture WSiluPolinomial_arc of WSiluPolinomial is
 
+	component getIntervalo
+		port(
+			x        : in  float32;
+			intervalo: out std_logic_vector(3 downto 0)
+		);
+	end component;
+
 	component multiplicador
 		port (
 			a			:	in 	float32;
@@ -34,12 +41,14 @@ architecture WSiluPolinomial_arc of WSiluPolinomial is
 	end component;
 
 	signal	x			: float32;
+	signal	intervalo	: std_logic_vector(4 downto 0);
 	signal	x_quadrado	: float32;
 	signal	y			: float32;
 
 begin
 
-	Multiplicador1Module: multiplicador port map(x, x, x_quadrado);
+	getIntervalo: getIntervalo port map(x, intervalo);
+	multiplicador1Module: multiplicador port map(x, x, x_quadrado);
 	-- Multiplicador2Module: multiplicador port map(m, k1, mk1);
 	-- Multiplicador3Module: multiplicador port map(m, k1, mk1);
 	-- somadorModule: somador port map(m, k1, mk1);

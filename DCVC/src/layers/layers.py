@@ -19,62 +19,64 @@ from typing import List, Tuple
 ##COLOQUE A WSILU AQUI
 
 class WSiLU(nn.Module):
-    def __init__(self):
+    """
+    Simulação em float16 (fp16) com LUT 2^16 em [-2.5, +2.5].
+    Regras:
+      - x < -2.5  -> 0
+      - x > +2.5  -> identidade (x)
+      - caso contrário -> LUT[index(x)]
+    Todas as operações de ponto flutuante internas usam fp16.
+    Sempre roda em CUDA.
+    """
+
+    def __init__(self, return_fp16: bool = True):
         super().__init__()
-        # Quebras dos intervalos [bk[i], bk[i+1]) (17 pontos -> 16 intervalos)
-        bk = [-2.000, -1.500, -1.000, -0.750, -0.500, -0.250,  0.000,
-               0.250,  0.500,  0.750,  1.000,  1.250,  1.312,  1.375,
-               1.438,  1.500,  2.000]
-        # Coeficientes (a, b, c) para cada intervalo, na mesma ordem
-        a = [-0.00947, -0.03964, -0.07245, -0.01180,  0.31836,  0.87061,
-              0.87061,  0.31787, -0.01367, -0.07178, -0.07483,  0.27051,
-              0.26294,  0.24866,  0.22717,  0.01075]
-        b = [-0.03897, -0.12683, -0.19702, -0.11218,  0.20410,  0.48315,
-              0.51709,  0.79639,  1.11426,  1.19531,  1.20508,  0.33130,
-              0.33179,  0.33203,  0.33252,  0.96826]
-        c = [-0.04077, -0.10498, -0.14258, -0.11292, -0.03668, -0.00039,
-             -0.00039, -0.03674, -0.11359, -0.14172, -0.14819,  0.40454,
-              0.41650,  0.44238,  0.48633,  0.02046]
+        self.return_fp16 = return_fp16
 
-        # Buffers em float16 para evitar alocações no forward
-        self.register_buffer("bk", torch.tensor(bk, dtype=torch.float16), persistent=False)  # (17,)
-        self.register_buffer("a",  torch.tensor(a,  dtype=torch.float16), persistent=False)  # (16,)
-        self.register_buffer("b",  torch.tensor(b,  dtype=torch.float16), persistent=False)  # (16,)
-        self.register_buffer("c",  torch.tensor(c,  dtype=torch.float16), persistent=False)  # (16,)
+        # força CUDA
+        device = torch.device("cuda")
+        dtype = torch.float16
 
-    @torch.no_grad()  # remova se precisar de gradiente (treino). Mantém mais rápido em inferência.
+        # ----- Constantes -----
+        xmin = torch.tensor(-2.5, dtype=dtype, device=device)
+        xmax = torch.tensor( 2.5, dtype=dtype, device=device)
+        scale = torch.tensor(65535.0/5.0, dtype=dtype, device=device)
+
+        self.register_buffer("XMIN", xmin, persistent=False)
+        self.register_buffer("XMAX", xmax, persistent=False)
+        self.register_buffer("SCALE", scale, persistent=False)
+        self.register_buffer("ZERO", torch.tensor(0.0, dtype=dtype, device=device), persistent=False)
+
+        # ----- Geração automática da LUT -----
+        with torch.no_grad():
+            grid = torch.linspace(float(xmin), float(xmax), steps=65536,
+                                  dtype=dtype, device=device)
+            vals = torch.sigmoid(torch.tensor(4.0, dtype=dtype, device=device) * grid) * grid
+            lut_fp16 = vals.to(dtype)
+        self.register_buffer("lut", lut_fp16, persistent=False)
+
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        # Computa em float16 e retorna no dtype original
-        out_dtype = x.dtype
-        xh = x.to(torch.float16)
+        # força CUDA + fp16
+        xh = x.to(dtype=torch.float16, device="cuda")
 
-        # Saída base: identidade (para x >= 2.0)
-        y = xh.clone()
+        # Máscaras
+        m_low  = xh < self.XMIN
+        m_high = xh > self.XMAX
+        m_mid  = ~(m_low | m_high)
 
-        # Máscaras de regiões
-        mask_low  = xh <  self.bk[0]      # x < -2.0
-        mask_mid  = (xh >= self.bk[0]) & (xh < self.bk[-1])  # [-2.0, 2.0)
+        # Índices
+        idx_f16 = torch.floor((xh - self.XMIN) * self.SCALE)
+        idx = idx_f16.to(torch.int32).clamp_(0, self.lut.numel() - 1).to(torch.long)
 
-        # x < -2.0 -> 0.0
-        if mask_low.any():
-            y[mask_low] = 0.0
+        # Valores da LUT
+        y_lut = self.lut[idx]
 
-        # Para [-2, 2): localizar intervalo com searchsorted (O(log N)) e aplicar polinômio
-        if mask_mid.any():
-            xm = xh[mask_mid]
-            # idx_intervalo em [0, 15]; para bk[idx] <= x < bk[idx+1]
-            idx = torch.searchsorted(self.bk, xm, right=False) - 1
-            idx.clamp_(0, self.a.numel() - 1)
+        # Base: identidade
+        y = xh
+        y = torch.where(m_mid,  y_lut, y)
+        y = torch.where(m_low, self.ZERO, y)
 
-            a = self.a.index_select(0, idx)
-            b = self.b.index_select(0, idx)
-            c = self.c.index_select(0, idx)
-
-            y_mid = a * xm * xm + b * xm + c
-            y[mask_mid] = y_mid
-
-        return y.to(out_dtype)
-
+        return y if self.return_fp16 else y.to(x.dtype, device=x.device)
 
 ##FIM DA WSILU AQUI
 

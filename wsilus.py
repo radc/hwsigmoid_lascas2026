@@ -1245,3 +1245,74 @@ class WSiLU(nn.Module):
         assert fmt in {"float16", "float32", "float64"}
         self.binary_format = fmt
 
+
+
+#RUHAN INT Q4.12 (integer)
+import torch
+import torch.nn as nn
+
+class WSiLUFloat16(nn.Module):
+    """
+    Simulação em float16 (fp16) com LUT 2^16 em [-2.5, +2.5].
+    Regras:
+      - x < -2.5  -> 0
+      - x > +2.5  -> identidade (x)
+      - caso contrário -> LUT[index(x)]
+    Todas as operações de ponto flutuante internas usam fp16.
+    """
+
+    def __init__(self, return_fp16: bool = True, device: str = "cuda:0"):
+        """
+        return_fp16: se True, retorna em fp16; se False, converte de volta para o dtype do input.
+        device: 'cpu' ou 'cuda'.
+        """
+        super().__init__()
+        self.return_fp16 = return_fp16
+
+        # ----- Constantes em fp16 (buffers: sem alocações no forward) -----
+        xmin = torch.tensor(-2.5, dtype=torch.float16, device=device)
+        xmax = torch.tensor( 2.5, dtype=torch.float16, device=device)
+        # escala linear p/ mapear [-2.5, 2.5] -> [0, 65535]
+        # scale = 65535 / (xmax - xmin) = 65535 / 5
+        scale = torch.tensor(65535.0/5.0, dtype=torch.float16, device=device)
+
+        self.register_buffer("XMIN", xmin)
+        self.register_buffer("XMAX", xmax)
+        self.register_buffer("SCALE", scale)
+        self.register_buffer("ZERO", torch.tensor(0.0, dtype=torch.float16, device=device))
+
+        # ----- Geração automática da LUT 2^16 em fp16 -----
+        with torch.no_grad():
+            grid = torch.linspace(float(xmin), float(xmax), steps=65536,
+                                  dtype=torch.float16, device=device)  # amostra em fp16
+            # Curva alvo (troque aqui se quiser outra função)
+            vals = torch.sigmoid(torch.tensor(4.0, dtype=torch.float16, device=device) * grid) * grid
+            lut_fp16 = vals.to(torch.float16)
+        self.register_buffer("lut", lut_fp16)  # (65536,) fp16
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # Computa tudo em fp16
+        xh = x.to(torch.float16)
+
+        # Máscaras
+        m_low  = xh < self.XMIN     # x < -2.5
+        m_high = xh > self.XMAX     # x >  2.5
+        m_mid  = ~(m_low | m_high)  # [-2.5, 2.5]
+
+        # Índices para TODOS (em fp16 → inteiro no fim)
+        idx_f16 = torch.floor((xh - self.XMIN) * self.SCALE)   # fp16
+        idx = idx_f16.to(torch.int32).clamp_(0, self.lut.numel() - 1).to(torch.long)
+
+        # Valores por LUT (fp16)
+        y_lut = self.lut[idx]
+
+        # Base: identidade
+        y = xh
+
+        # Aplica regiões (ordem importa)
+        y = torch.where(m_mid,  y_lut, y)   # região média pega LUT
+        y = torch.where(m_low, self.ZERO, y)  # abaixo do mínimo vira 0
+        # m_high já é identidade (yh = xh)
+
+        # Saída
+        return y if self.return_fp16 else y.to(x.dtype)

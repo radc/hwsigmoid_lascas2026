@@ -404,6 +404,79 @@ class WSiLU(nn.Module):
         return xq * y_sigmoid
     
 
+#VANESSA LUT ASSIMETRICO 4 INTERVALOS 256 (lut_asyn_4int_512entries)
+import struct
+import numpy as np
+import torch
+import torch.nn as nn
+
+class WSiLU(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+        # ----- LUT em float16 (4 faixas, 256 amostras) -----
+        lut_hex = [
+            0x3800, 0x3808, 0x3810, 0x3818, 0x3820, 0x3828, 0x3830, 0x3838, 0x3840, 0x3848, 0x3850, 0x3858, 0x3860, 0x3868, 0x386f, 0x3877, 0x387f, 0x3887, 0x388f, 0x3897, 0x389f, 0x38a6, 0x38ae, 0x38b6, 0x38be, 0x38c5, 0x38cd, 0x38d5, 0x38dd, 0x38e4, 0x38ec, 0x38f3, 0x38fb, 0x3902, 0x390a, 0x3912, 0x3918, 0x3920, 0x3927, 0x392f, 0x3936, 0x393d, 0x3945, 0x394c, 0x3953, 0x395a, 0x3961, 0x3968, 0x396f, 0x3976, 0x397d, 0x3983, 0x398b, 0x3992, 0x3998, 0x399e, 0x39a5, 0x39ac, 0x39b2, 0x39ba, 0x39c0, 0x39c6, 0x39cc, 0x39d3, 0x39d9, 0x39df, 0x39e6, 0x39eb, 0x39f2, 0x39f9, 0x39fe, 0x3a04, 0x3a0b, 0x3a10, 0x3a16, 0x3a1c, 0x3a22, 0x3a26, 0x3a2c, 0x3a32, 0x3a37, 0x3a3d, 0x3a43, 0x3a48, 0x3a4d, 0x3a53, 0x3a58, 0x3a5d, 0x3a63, 0x3a68, 0x3a6d, 0x3a72, 0x3a77, 0x3a7b, 0x3a80, 0x3a86, 0x3a8b, 0x3a8f, 0x3a93, 0x3a99, 0x3a9d, 0x3aa2, 0x3aa6, 0x3aaa, 0x3aaf, 0x3ab4, 0x3ab8, 0x3abd, 0x3ac1, 0x3ac5, 0x3ac8, 0x3acc, 0x3ad1, 0x3ad5, 0x3ad9, 0x3adc, 0x3ae1, 0x3ae4, 0x3ae8, 0x3aeb, 0x3af0, 0x3af3, 0x3af7, 0x3afa, 0x3afd, 0x3b02, 0x3b05, 0x3b08, 0x3b0b, 0x3b13, 0x3b19, 0x3b20, 0x3b26, 0x3b2b, 0x3b31, 0x3b38, 0x3b3d, 0x3b42, 0x3b48, 0x3b4d, 0x3b52, 0x3b57, 0x3b5b, 0x3b60, 0x3b65, 0x3b68, 0x3b6d, 0x3b71, 0x3b76, 0x3b79, 0x3b7d, 0x3b80, 0x3b86, 0x3b89, 0x3b8b, 0x3b8f, 0x3b92, 0x3b96, 0x3b99, 0x3b9b, 0x3b9f, 0x3ba2, 0x3ba4, 0x3ba8, 0x3baa, 0x3bac, 0x3baf, 0x3bb1, 0x3bb3, 0x3bb7, 0x3bb9, 0x3bba, 0x3bbc, 0x3bbe, 0x3bc0, 0x3bc2, 0x3bc4, 0x3bc6, 0x3bc8, 0x3bc9, 0x3bcb, 0x3bcd, 0x3bcd, 0x3bcf, 0x3bd1, 0x3bd3, 0x3bd3, 0x3bd5, 0x3bd7, 0x3bd7, 0x3bd9, 0x3bdb, 0x3bdb, 0x3bdd, 0x3bdf, 0x3be0, 0x3be2, 0x3be4, 0x3be6, 0x3be8, 0x3bea, 0x3bea, 0x3bec, 0x3bee, 0x3bee, 0x3bf0, 0x3bf0, 0x3bf2, 0x3bf2, 0x3bf4, 0x3bf4, 0x3bf4, 0x3bf6, 0x3bf6, 0x3bf6, 0x3bf8, 0x3bf8, 0x3bf8, 0x3bf8, 0x3bfa, 0x3bfa, 0x3bfa, 0x3bfa, 0x3bfa, 0x3bfa, 0x3bfc, 0x3bfc, 0x3bfc, 0x3bfc, 0x3bfc, 0x3bfc, 0x3bfc, 0x3bfc, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3c00, 0x3c00, 0x3c00, 0x3c00, 0x3c00, 0x3c00
+        ]
+
+        lut_float16 = np.array(
+            [struct.unpack('>e', struct.pack('>H', v))[0] for v in lut_hex],
+            dtype=np.float16
+        )
+        self.register_buffer("lut", torch.from_numpy(lut_float16))  # float16
+
+        # --- Constantes do VHDL / esquema 4-256 ---
+        self.LIMIT_1 = 0.5
+        self.LIMIT_2 = 1.0
+        self.LIMIT_3 = 1.5
+        self.LIMIT_4 = 2.0
+        self.N_1 = 128
+        self.N_2 = 64
+        self.N_3 = 32
+        self.N_4 = 32
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        device, dtype = x.device, x.dtype
+
+        lut = self.lut.to(device=device, dtype=dtype)
+        lut_size = lut.numel()
+
+        xq = x
+        absx = xq.abs()
+
+        idx = torch.empty_like(xq, dtype=torch.long)
+
+        m1 = absx <= self.LIMIT_1
+        m2 = (absx > self.LIMIT_1) & (absx <= self.LIMIT_2)
+        m3 = (absx > self.LIMIT_2) & (absx <= self.LIMIT_3)
+        m4 = (absx > self.LIMIT_3) & (absx <= self.LIMIT_4)
+        m5 = absx > self.LIMIT_4
+
+        if m1.any():
+            idx[m1] = torch.floor((absx[m1] / self.LIMIT_1) * self.N_1).to(torch.long)
+        if m2.any():
+            idx[m2] = ( self.N_1
+                        + torch.floor(((absx[m2] - self.LIMIT_1) / (self.LIMIT_2 - self.LIMIT_1)) * self.N_2).to(torch.long) )
+        if m3.any():
+            idx[m3] = ( self.N_1 + self.N_2
+                        + torch.floor(((absx[m3] - self.LIMIT_2) / (self.LIMIT_3 - self.LIMIT_2)) * self.N_3).to(torch.long) )
+        if m4.any():
+            idx[m4] = ( self.N_1 + self.N_2 + self.N_3
+                        + torch.floor(((absx[m4] - self.LIMIT_3) / (self.LIMIT_4 - self.LIMIT_3)) * self.N_4).to(torch.long) )
+        if m5.any():
+            idx[m5] = lut_size - 1
+
+        idx.clamp_(min=0, max=lut_size - 1)
+
+        sig_val = lut[idx]
+
+        one = torch.tensor(1.0, dtype=dtype, device=device)
+        y_sigmoid = torch.where(xq < 0, one - sig_val, sig_val)
+        y_sigmoid = torch.where(xq < -self.LIMIT_4, torch.zeros_like(y_sigmoid), y_sigmoid)
+
+        return xq * y_sigmoid
+
+
 #LUT SYMETRIC
 # class WSiLU(torch.nn.Module):
 #     """
@@ -589,7 +662,7 @@ class WSiLU(nn.Module):
 
 
 
-#DENIS COM 25 INTERVALOS E GRAU 2 (poly_25int_deg2_32)
+#DENIS COM 25 INTERVALOS E GRAU 2 (poly_25int_deg2_32) FP32
 class WSiLU(nn.Module):
     def __init__(self):
         super().__init__()
@@ -661,6 +734,65 @@ class WSiLU(nn.Module):
             y[mid] = ym
 
         return y
+
+
+#DENIS COM 16 INTERVALOS E GRAU 2 (poly_16int_deg2_16)
+class WSiLU(nn.Module):
+    def __init__(self):
+        super().__init__()
+        # Quebras dos intervalos [bk[i], bk[i+1]) (17 pontos -> 16 intervalos)
+        bk = [-2.000, -1.500, -1.000, -0.750, -0.500, -0.250,  0.000,
+               0.250,  0.500,  0.750,  1.000,  1.250,  1.312,  1.375,
+               1.438,  1.500,  2.000]
+        # Coeficientes (a, b, c) para cada intervalo, na mesma ordem
+        a = [-0.00947, -0.03964, -0.07245, -0.01180,  0.31836,  0.87061,
+              0.87061,  0.31787, -0.01367, -0.07178, -0.07483,  0.27051,
+              0.26294,  0.24866,  0.22717,  0.01075]
+        b = [-0.03897, -0.12683, -0.19702, -0.11218,  0.20410,  0.48315,
+              0.51709,  0.79639,  1.11426,  1.19531,  1.20508,  0.33130,
+              0.33179,  0.33203,  0.33252,  0.96826]
+        c = [-0.04077, -0.10498, -0.14258, -0.11292, -0.03668, -0.00039,
+             -0.00039, -0.03674, -0.11359, -0.14172, -0.14819,  0.40454,
+              0.41650,  0.44238,  0.48633,  0.02046]
+
+        # Buffers em float16 para evitar alocações no forward
+        self.register_buffer("bk", torch.tensor(bk, dtype=torch.float16))  # (17,)
+        self.register_buffer("a",  torch.tensor(a,  dtype=torch.float16))  # (16,)
+        self.register_buffer("b",  torch.tensor(b,  dtype=torch.float16))  # (16,)
+        self.register_buffer("c",  torch.tensor(c,  dtype=torch.float16))  # (16,)
+
+    @torch.no_grad()  # remova se precisar de gradiente (treino). Mantém mais rápido em inferência.
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # Computa em float16 e retorna no dtype original
+        out_dtype = x.dtype
+        xh = x.to(torch.float16)
+
+        # Saída base: identidade (para x >= 2.0)
+        y = xh.clone()
+
+        # Máscaras de regiões
+        mask_low  = xh <  self.bk[0]      # x < -2.0
+        mask_mid  = (xh >= self.bk[0]) & (xh < self.bk[-1])  # [-2.0, 2.0)
+
+        # x < -2.0 -> 0.0
+        if mask_low.any():
+            y[mask_low] = 0.0
+
+        # Para [-2, 2): localizar intervalo com searchsorted (O(log N)) e aplicar polinômio
+        if mask_mid.any():
+            xm = xh[mask_mid]
+            # idx_intervalo em [0, 15]; para bk[idx] <= x < bk[idx+1]
+            idx = torch.searchsorted(self.bk, xm, right=False) - 1
+            idx.clamp_(0, self.a.numel() - 1)
+
+            a = self.a.index_select(0, idx)
+            b = self.b.index_select(0, idx)
+            c = self.c.index_select(0, idx)
+
+            y_mid = a * xm * xm + b * xm + c
+            y[mask_mid] = y_mid
+
+        return y.to(out_dtype)
 
 
 
@@ -898,3 +1030,218 @@ class WSiLU(nn.Module):
 
     def set_log_prob(self, p: float):
         self.log_prob = float(p)
+
+#WSilu bufferização com txt
+
+import atexit
+import threading
+import math
+import json
+import time
+import os
+from typing import Optional, Union
+
+class WSiLU(nn.Module):
+    def __init__(
+        self,
+        alpha: float = 4.0,
+        # NOVOS caminhos:
+        txt_pairs_path: str = "/home/ruhan/hwsigmoid_lascas2026/coding_outputs/wsilu_pairs.txt",
+        txt_bins_path: str = "/home/ruhan/hwsigmoid_lascas2026/coding_outputs/wsilu_pairs_bin.txt",
+        # Buffer / amostragem:
+        buffer_capacity: int = 4,
+        buffer_device: Union[str, torch.device] = "cuda:0",
+        enable_logging: bool = True,
+        sample_ratio: float = 0.01,
+        min_samples: int = 1,
+        log_prob: float = 0.001,  # prob. de armazenar um batch no buffer
+        random_seed: Optional[int] = None,
+        # Formatação:
+        float_precision: Optional[int] = None,  # ex.: 6 -> 6 casas no TXT
+        binary_format: str = "float16",  # "float16" | "float32" | "float64"
+    ):
+        """
+        y = x * sigmoid(alpha * x)
+
+        txt_pairs_path: arquivo texto com linhas "x y"
+        txt_bins_path:  arquivo texto com linhas "<bin(x)> <bin(y)>"
+        buffer_capacity: nº de batches acumulados antes de flush
+        buffer_device: dispositivo do buffer (ex.: 'cuda:0')
+        sample_ratio: fração do buffer gravada em cada flush (0..1)
+        min_samples: mínimo de batches gravados por flush (>=0)
+        log_prob: probabilidade de armazenar um batch no buffer (0..1)
+        float_precision: se definido, arredonda/formatará os floats no TXT
+        binary_format: precisão IEEE-754 para o arquivo binário (16/32/64)
+        """
+        super().__init__()
+        self.alpha = float(alpha)
+
+        self.txt_pairs_path = str(txt_pairs_path)
+        self.txt_bins_path = str(txt_bins_path)
+
+        self.buffer_capacity = int(buffer_capacity)
+        self.buffer_device = torch.device(buffer_device)
+        self.enable_logging = bool(enable_logging)
+        self.sample_ratio = float(sample_ratio)
+        self.min_samples = int(min_samples)
+        self.random_seed = random_seed
+        self.log_prob = float(log_prob)
+
+        self.float_precision = float_precision
+        self.binary_format = binary_format.lower()
+        assert self.binary_format in {"float16", "float32", "float64"}
+
+        self._buffer = []  # lista de tensores no buffer_device
+        self._lock = threading.Lock()
+        atexit.register(self.flush)
+
+        # RNG opcional para reprodutibilidade
+        self._g = None
+        if self.random_seed is not None:
+            self._g = torch.Generator(device=self.buffer_device)
+            self._g.manual_seed(self.random_seed)
+
+        # Cria pastas dos logs se necessário
+        os.makedirs(os.path.dirname(self.txt_pairs_path), exist_ok=True)
+        os.makedirs(os.path.dirname(self.txt_bins_path), exist_ok=True)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        if self.enable_logging and self._rand() < self.log_prob:
+            self._append_to_buffer(x)
+        return x * torch.sigmoid(self.alpha * x)
+
+    # ---------- utilidades internas ----------
+
+    def _rand(self) -> float:
+        if self._g is not None:
+            return torch.rand(1, generator=self._g, device=self.buffer_device).item()
+        else:
+            return torch.rand(1, device=self.buffer_device).item()
+
+    @torch.no_grad()
+    def _append_to_buffer(self, x: torch.Tensor):
+        x_buf = x.detach()
+        if x_buf.device != self.buffer_device:
+            x_buf = x_buf.to(self.buffer_device, non_blocking=True)
+        with self._lock:
+            self._buffer.append(x_buf)
+            if len(self._buffer) >= self.buffer_capacity:
+                self._flush_locked()
+
+    @torch.no_grad()
+    def flush(self):
+        with self._lock:
+            self._flush_locked()
+
+    # ---------- binários ----------
+
+    @staticmethod
+    def _float_to_bin(val: float, binary_format: str) -> str:
+        """Converte float Python para string binária IEEE-754 (sem '0b')."""
+        import struct
+
+        if binary_format == "float16":
+            # usar float32 -> float16 via numpy para manter IEEE-754 half
+            import numpy as np
+            arr = np.float16(val)
+            # .tobytes() -> 2 bytes; formatar MSB..LSB
+            b = arr.tobytes()
+            # garantir ordem consistente (little-endian na maioria)
+            u = int.from_bytes(b, byteorder="little", signed=False)
+            return format(u, "016b")
+        elif binary_format == "float32":
+            b = struct.pack("<f", float(val))     # little-endian 32-bit float
+            u = struct.unpack("<I", b)[0]
+            return format(u, "032b")
+        elif binary_format == "float64":
+            b = struct.pack("<d", float(val))     # little-endian 64-bit double
+            u = struct.unpack("<Q", b)[0]
+            return format(u, "064b")
+        else:
+            raise ValueError("binary_format inválido")
+
+    def _fmt_float(self, v: float) -> str:
+        if self.float_precision is None:
+            return str(float(v))
+        return f"{float(v):.{int(self.float_precision)}f}"
+
+    # ---------- flush lógico ----------
+
+    def _flush_locked(self):
+        if not self._buffer:
+            return
+
+        # Empilha (permanece no device do buffer)
+        chunk = torch.stack(self._buffer, dim=0)  # (N, *shape)
+        N = chunk.shape[0]
+
+        # Amostragem de batches: seleciona k entre N
+        k = max(math.ceil(N * max(0.0, min(1.0, self.sample_ratio))), self.min_samples)
+        k = min(k, N)
+
+        if k == N:
+            sampled = chunk
+        else:
+            if self._g is not None:
+                idx = torch.randperm(N, generator=self._g, device=self.buffer_device)[:k]
+            else:
+                idx = torch.randperm(N, device=self.buffer_device)[:k]
+            sampled = chunk.index_select(0, idx)
+
+        # Move para CPU para serialização e computa a saída correspondente
+        x_cpu = sampled.detach().to("cpu")  # (k, *shape)
+        # y = x * sigmoid(alpha*x) (no CPU, sem grad)
+        y_cpu = x_cpu * torch.sigmoid(self.alpha * x_cpu)
+
+        # Flattens (valores em sequência, independente da forma original)
+        x_flat = x_cpu.reshape(-1).tolist()
+        y_flat = y_cpu.reshape(-1).tolist()
+
+        # (opcional) arredonda apenas para o TXT de pares
+        if self.float_precision is not None:
+            # a formatação é aplicada na escrita; listas mantêm float “cheio”
+            pass
+
+        # Abre arquivos em modo append texto
+        with open(self.txt_pairs_path, "a", encoding="utf-8") as f_pairs, \
+             open(self.txt_bins_path, "a", encoding="utf-8") as f_bins:
+
+            # Escreve linha a linha: "x y" e "<bin(x)> <bin(y)>"
+            for xv, yv in zip(x_flat, y_flat):
+                # TXT “legível”:
+                f_pairs.write(f"{self._fmt_float(xv)} {self._fmt_float(yv)}\n")
+
+                # TXT “binários”:
+                bx = self._float_to_bin(xv, self.binary_format)
+                by = self._float_to_bin(yv, self.binary_format)
+                f_bins.write(f"{bx} {by}\n")
+
+        # Limpa buffer
+        self._buffer.clear()
+
+    # ---------- setters dinâmicos ----------
+    def set_logging(self, enabled: bool):
+        self.enable_logging = bool(enabled)
+
+    def set_sample_ratio(self, ratio: float):
+        self.sample_ratio = float(ratio)
+
+    def set_min_samples(self, n: int):
+        self.min_samples = int(n)
+
+    def set_seed(self, seed: Optional[int]):
+        self.random_seed = seed
+        if seed is None:
+            self._g = None
+        else:
+            self._g = torch.Generator(device=self.buffer_device)
+            self._g.manual_seed(seed)
+
+    def set_log_prob(self, p: float):
+        self.log_prob = float(p)
+
+    def set_binary_format(self, fmt: str):
+        fmt = fmt.lower()
+        assert fmt in {"float16", "float32", "float64"}
+        self.binary_format = fmt
+

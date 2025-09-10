@@ -18,218 +18,62 @@ from typing import List, Tuple
 
 ##COLOQUE A WSILU AQUI
 
-import atexit
-import threading
-import math
-import json
-import time
-import os
-from typing import Optional, Union
-
 class WSiLU(nn.Module):
-    def __init__(
-        self,
-        alpha: float = 4.0,
-        # NOVOS caminhos:
-        txt_pairs_path: str = "/home/ruhan/hwsigmoid_lascas2026/coding_outputs/wsilu_pairs.txt",
-        txt_bins_path: str = "/home/ruhan/hwsigmoid_lascas2026/coding_outputs/wsilu_pairs_bin.txt",
-        # Buffer / amostragem:
-        buffer_capacity: int = 4,
-        buffer_device: Union[str, torch.device] = "cuda:0",
-        enable_logging: bool = True,
-        sample_ratio: float = 0.01,
-        min_samples: int = 1,
-        log_prob: float = 0.001,  # prob. de armazenar um batch no buffer
-        random_seed: Optional[int] = None,
-        # Formatação:
-        float_precision: Optional[int] = None,  # ex.: 6 -> 6 casas no TXT
-        binary_format: str = "float16",  # "float16" | "float32" | "float64"
-    ):
-        """
-        y = x * sigmoid(alpha * x)
-
-        txt_pairs_path: arquivo texto com linhas "x y"
-        txt_bins_path:  arquivo texto com linhas "<bin(x)> <bin(y)>"
-        buffer_capacity: nº de batches acumulados antes de flush
-        buffer_device: dispositivo do buffer (ex.: 'cuda:0')
-        sample_ratio: fração do buffer gravada em cada flush (0..1)
-        min_samples: mínimo de batches gravados por flush (>=0)
-        log_prob: probabilidade de armazenar um batch no buffer (0..1)
-        float_precision: se definido, arredonda/formatará os floats no TXT
-        binary_format: precisão IEEE-754 para o arquivo binário (16/32/64)
-        """
+    def __init__(self):
         super().__init__()
-        self.alpha = float(alpha)
+        # Quebras dos intervalos [bk[i], bk[i+1]) (17 pontos -> 16 intervalos)
+        bk = [-2.000, -1.500, -1.000, -0.750, -0.500, -0.250,  0.000,
+               0.250,  0.500,  0.750,  1.000,  1.250,  1.312,  1.375,
+               1.438,  1.500,  2.000]
+        # Coeficientes (a, b, c) para cada intervalo, na mesma ordem
+        a = [-0.00947, -0.03964, -0.07245, -0.01180,  0.31836,  0.87061,
+              0.87061,  0.31787, -0.01367, -0.07178, -0.07483,  0.27051,
+              0.26294,  0.24866,  0.22717,  0.01075]
+        b = [-0.03897, -0.12683, -0.19702, -0.11218,  0.20410,  0.48315,
+              0.51709,  0.79639,  1.11426,  1.19531,  1.20508,  0.33130,
+              0.33179,  0.33203,  0.33252,  0.96826]
+        c = [-0.04077, -0.10498, -0.14258, -0.11292, -0.03668, -0.00039,
+             -0.00039, -0.03674, -0.11359, -0.14172, -0.14819,  0.40454,
+              0.41650,  0.44238,  0.48633,  0.02046]
 
-        self.txt_pairs_path = str(txt_pairs_path)
-        self.txt_bins_path = str(txt_bins_path)
+        # Buffers em float16 para evitar alocações no forward
+        self.register_buffer("bk", torch.tensor(bk, dtype=torch.float16), persistent=False)  # (17,)
+        self.register_buffer("a",  torch.tensor(a,  dtype=torch.float16), persistent=False)  # (16,)
+        self.register_buffer("b",  torch.tensor(b,  dtype=torch.float16), persistent=False)  # (16,)
+        self.register_buffer("c",  torch.tensor(c,  dtype=torch.float16), persistent=False)  # (16,)
 
-        self.buffer_capacity = int(buffer_capacity)
-        self.buffer_device = torch.device(buffer_device)
-        self.enable_logging = bool(enable_logging)
-        self.sample_ratio = float(sample_ratio)
-        self.min_samples = int(min_samples)
-        self.random_seed = random_seed
-        self.log_prob = float(log_prob)
-
-        self.float_precision = float_precision
-        self.binary_format = binary_format.lower()
-        assert self.binary_format in {"float16", "float32", "float64"}
-
-        self._buffer = []  # lista de tensores no buffer_device
-        self._lock = threading.Lock()
-        atexit.register(self.flush)
-
-        # RNG opcional para reprodutibilidade
-        self._g = None
-        if self.random_seed is not None:
-            self._g = torch.Generator(device=self.buffer_device)
-            self._g.manual_seed(self.random_seed)
-
-        # Cria pastas dos logs se necessário
-        os.makedirs(os.path.dirname(self.txt_pairs_path), exist_ok=True)
-        os.makedirs(os.path.dirname(self.txt_bins_path), exist_ok=True)
-
+    @torch.no_grad()  # remova se precisar de gradiente (treino). Mantém mais rápido em inferência.
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        if self.enable_logging and self._rand() < self.log_prob:
-            self._append_to_buffer(x)
-        return x * torch.sigmoid(self.alpha * x)
+        # Computa em float16 e retorna no dtype original
+        out_dtype = x.dtype
+        xh = x.to(torch.float16)
 
-    # ---------- utilidades internas ----------
+        # Saída base: identidade (para x >= 2.0)
+        y = xh.clone()
 
-    def _rand(self) -> float:
-        if self._g is not None:
-            return torch.rand(1, generator=self._g, device=self.buffer_device).item()
-        else:
-            return torch.rand(1, device=self.buffer_device).item()
+        # Máscaras de regiões
+        mask_low  = xh <  self.bk[0]      # x < -2.0
+        mask_mid  = (xh >= self.bk[0]) & (xh < self.bk[-1])  # [-2.0, 2.0)
 
-    @torch.no_grad()
-    def _append_to_buffer(self, x: torch.Tensor):
-        x_buf = x.detach()
-        if x_buf.device != self.buffer_device:
-            x_buf = x_buf.to(self.buffer_device, non_blocking=True)
-        with self._lock:
-            self._buffer.append(x_buf)
-            if len(self._buffer) >= self.buffer_capacity:
-                self._flush_locked()
+        # x < -2.0 -> 0.0
+        if mask_low.any():
+            y[mask_low] = 0.0
 
-    @torch.no_grad()
-    def flush(self):
-        with self._lock:
-            self._flush_locked()
+        # Para [-2, 2): localizar intervalo com searchsorted (O(log N)) e aplicar polinômio
+        if mask_mid.any():
+            xm = xh[mask_mid]
+            # idx_intervalo em [0, 15]; para bk[idx] <= x < bk[idx+1]
+            idx = torch.searchsorted(self.bk, xm, right=False) - 1
+            idx.clamp_(0, self.a.numel() - 1)
 
-    # ---------- binários ----------
+            a = self.a.index_select(0, idx)
+            b = self.b.index_select(0, idx)
+            c = self.c.index_select(0, idx)
 
-    @staticmethod
-    def _float_to_bin(val: float, binary_format: str) -> str:
-        """Converte float Python para string binária IEEE-754 (sem '0b')."""
-        import struct
+            y_mid = a * xm * xm + b * xm + c
+            y[mask_mid] = y_mid
 
-        if binary_format == "float16":
-            # usar float32 -> float16 via numpy para manter IEEE-754 half
-            import numpy as np
-            arr = np.float16(val)
-            # .tobytes() -> 2 bytes; formatar MSB..LSB
-            b = arr.tobytes()
-            # garantir ordem consistente (little-endian na maioria)
-            u = int.from_bytes(b, byteorder="little", signed=False)
-            return format(u, "016b")
-        elif binary_format == "float32":
-            b = struct.pack("<f", float(val))     # little-endian 32-bit float
-            u = struct.unpack("<I", b)[0]
-            return format(u, "032b")
-        elif binary_format == "float64":
-            b = struct.pack("<d", float(val))     # little-endian 64-bit double
-            u = struct.unpack("<Q", b)[0]
-            return format(u, "064b")
-        else:
-            raise ValueError("binary_format inválido")
-
-    def _fmt_float(self, v: float) -> str:
-        if self.float_precision is None:
-            return str(float(v))
-        return f"{float(v):.{int(self.float_precision)}f}"
-
-    # ---------- flush lógico ----------
-
-    def _flush_locked(self):
-        if not self._buffer:
-            return
-
-        # Empilha (permanece no device do buffer)
-        chunk = torch.stack(self._buffer, dim=0)  # (N, *shape)
-        N = chunk.shape[0]
-
-        # Amostragem de batches: seleciona k entre N
-        k = max(math.ceil(N * max(0.0, min(1.0, self.sample_ratio))), self.min_samples)
-        k = min(k, N)
-
-        if k == N:
-            sampled = chunk
-        else:
-            if self._g is not None:
-                idx = torch.randperm(N, generator=self._g, device=self.buffer_device)[:k]
-            else:
-                idx = torch.randperm(N, device=self.buffer_device)[:k]
-            sampled = chunk.index_select(0, idx)
-
-        # Move para CPU para serialização e computa a saída correspondente
-        x_cpu = sampled.detach().to("cpu")  # (k, *shape)
-        # y = x * sigmoid(alpha*x) (no CPU, sem grad)
-        y_cpu = x_cpu * torch.sigmoid(self.alpha * x_cpu)
-
-        # Flattens (valores em sequência, independente da forma original)
-        x_flat = x_cpu.reshape(-1).tolist()
-        y_flat = y_cpu.reshape(-1).tolist()
-
-        # (opcional) arredonda apenas para o TXT de pares
-        if self.float_precision is not None:
-            # a formatação é aplicada na escrita; listas mantêm float “cheio”
-            pass
-
-        # Abre arquivos em modo append texto
-        with open(self.txt_pairs_path, "a", encoding="utf-8") as f_pairs, \
-             open(self.txt_bins_path, "a", encoding="utf-8") as f_bins:
-
-            # Escreve linha a linha: "x y" e "<bin(x)> <bin(y)>"
-            for xv, yv in zip(x_flat, y_flat):
-                # TXT “legível”:
-                f_pairs.write(f"{self._fmt_float(xv)} {self._fmt_float(yv)}\n")
-
-                # TXT “binários”:
-                bx = self._float_to_bin(xv, self.binary_format)
-                by = self._float_to_bin(yv, self.binary_format)
-                f_bins.write(f"{bx} {by}\n")
-
-        # Limpa buffer
-        self._buffer.clear()
-
-    # ---------- setters dinâmicos ----------
-    def set_logging(self, enabled: bool):
-        self.enable_logging = bool(enabled)
-
-    def set_sample_ratio(self, ratio: float):
-        self.sample_ratio = float(ratio)
-
-    def set_min_samples(self, n: int):
-        self.min_samples = int(n)
-
-    def set_seed(self, seed: Optional[int]):
-        self.random_seed = seed
-        if seed is None:
-            self._g = None
-        else:
-            self._g = torch.Generator(device=self.buffer_device)
-            self._g.manual_seed(seed)
-
-    def set_log_prob(self, p: float):
-        self.log_prob = float(p)
-
-    def set_binary_format(self, fmt: str):
-        fmt = fmt.lower()
-        assert fmt in {"float16", "float32", "float64"}
-        self.binary_format = fmt
-
+        return y.to(out_dtype)
 
 
 ##FIM DA WSILU AQUI

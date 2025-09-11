@@ -13,53 +13,53 @@ end getIntervalo;
 
 architecture getIntervalo_architecture of getIntervalo is
 
-    constant limiteInferiorS1 : float16 := to_float(-2, 4, 10);
-    constant limiteSuperiorS1 : float16 := to_float(-1.5, 4, 10);
+    constant limiteInferiorS1 : float16 := to_float(-2, 5, 10);
+    constant limiteSuperiorS1 : float16 := to_float(-1.5, 5, 10);
 
-    constant limiteInferiorS2 : float16 := to_float(-1.5, 4, 10);
-    constant limiteSuperiorS2 : float16 := to_float(-1, 4, 10);
+    constant limiteInferiorS2 : float16 := to_float(-1.5, 5, 10);
+    constant limiteSuperiorS2 : float16 := to_float(-1, 5, 10);
 
-    constant limiteInferiorS3 : float16 := to_float(-1, 4, 10);
-    constant limiteSuperiorS3 : float16 := to_float(-0.75, 4, 10);
+    constant limiteInferiorS3 : float16 := to_float(-1, 5, 10);
+    constant limiteSuperiorS3 : float16 := to_float(-0.75, 5, 10);
 
-    constant limiteInferiorS4 : float16 := to_float(-0.75, 4, 10);
-    constant limiteSuperiorS4 : float16 := to_float(-0.5, 4, 10);
+    constant limiteInferiorS4 : float16 := to_float(-0.75, 5, 10);
+    constant limiteSuperiorS4 : float16 := to_float(-0.5, 5, 10);
 
-    constant limiteInferiorS5 : float16 := to_float(-0.5, 4, 10);
-    constant limiteSuperiorS5 : float16 := to_float(-0.25, 4, 10);
+    constant limiteInferiorS5 : float16 := to_float(-0.5, 5, 10);
+    constant limiteSuperiorS5 : float16 := to_float(-0.25, 5, 10);
     
-    constant limiteInferiorS6 : float16 := to_float(-0.25, 4, 10);
-    constant limiteSuperiorS6 : float16 := to_float(0, 4, 10);
+    constant limiteInferiorS6 : float16 := to_float(-0.25, 5, 10);
+    constant limiteSuperiorS6 : float16 := to_float(0, 5, 10);
 
-    constant limiteInferiorS7 : float16 := to_float(0, 4, 10);
-    constant limiteSuperiorS7 : float16 := to_float(0.25, 4, 10);
+    constant limiteInferiorS7 : float16 := to_float(0, 5, 10);
+    constant limiteSuperiorS7 : float16 := to_float(0.25, 5, 10);
     
-    constant limiteInferiorS8 : float16 := to_float(0.25, 4, 10);
-    constant limiteSuperiorS8 : float16 := to_float(0.5, 4, 10);
+    constant limiteInferiorS8 : float16 := to_float(0.25, 5, 10);
+    constant limiteSuperiorS8 : float16 := to_float(0.5, 5, 10);
 
-    constant limiteInferiorS9 : float16 := to_float(0.5, 4, 10);
-    constant limiteSuperiorS9 : float16 := to_float(0.75, 4, 10);
+    constant limiteInferiorS9 : float16 := to_float(0.5, 5, 10);
+    constant limiteSuperiorS9 : float16 := to_float(0.75, 5, 10);
     
-    constant limiteInferiorS10 : float16 := to_float(0.75, 4, 10);
-    constant limiteSuperiorS10 : float16 := to_float(1, 4, 10);
+    constant limiteInferiorS10 : float16 := to_float(0.75, 5, 10);
+    constant limiteSuperiorS10 : float16 := to_float(1, 5, 10);
 
-    constant limiteInferiorS11 : float16 := to_float(1, 4, 10);
-    constant limiteSuperiorS11 : float16 := to_float(1.25, 4, 10);
+    constant limiteInferiorS11 : float16 := to_float(1, 5, 10);
+    constant limiteSuperiorS11 : float16 := to_float(1.25, 5, 10);
     
-    constant limiteInferiorS12 : float16 := to_float(1.25, 4, 10);
-    constant limiteSuperiorS12 : float16 := to_float(1.312, 4, 10);
+    constant limiteInferiorS12 : float16 := to_float(1.25, 5, 10);
+    constant limiteSuperiorS12 : float16 := to_float(1.312, 5, 10);
 
-    constant limiteInferiorS13 : float16 := to_float(1.312, 4, 10);
-    constant limiteSuperiorS13 : float16 := to_float(1.375, 4, 10);
+    constant limiteInferiorS13 : float16 := to_float(1.312, 5, 10);
+    constant limiteSuperiorS13 : float16 := to_float(1.375, 5, 10);
     
-    constant limiteInferiorS14 : float16 := to_float(1.375, 4, 10);
-    constant limiteSuperiorS14 : float16 := to_float(1.438, 4, 10);
+    constant limiteInferiorS14 : float16 := to_float(1.375, 5, 10);
+    constant limiteSuperiorS14 : float16 := to_float(1.438, 5, 10);
 
-    constant limiteInferiorS15 : float16 := to_float(1.438, 4, 10);
-    constant limiteSuperiorS15 : float16 := to_float(1.5, 4, 10);
+    constant limiteInferiorS15 : float16 := to_float(1.438, 5, 10);
+    constant limiteSuperiorS15 : float16 := to_float(1.5, 5, 10);
     
-    constant limiteInferiorS16 : float16 := to_float(1.5, 4, 10);
-    constant limiteSuperiorS16 : float16 := to_float(2, 4, 10);
+    constant limiteInferiorS16 : float16 := to_float(1.5, 5, 10);
+    constant limiteSuperiorS16 : float16 := to_float(2, 5, 10);
 
 begin
 

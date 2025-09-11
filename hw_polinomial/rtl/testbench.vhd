@@ -17,8 +17,8 @@ architecture testbench_arc of testbench is
 	signal x		: 	 float16;
 	signal y		: 	 float16;
 
-	signal entrada: float16;
-	signal saidaEsperada: float16;
+	signal nTestes: integer := 0;
+	signal acabou: integer := 0;
 
 	component WSiluPolinomial is
 		port (
@@ -29,35 +29,40 @@ architecture testbench_arc of testbench is
 			yOut	: 	out float16
 			);
 	end component;
-
-	function string_to_float16 (s: string) return float16 is
-		-- Variável para montar o vetor de bits intermediário
-		variable result_slv : std_logic_vector(15 downto 0);
+--------------------------------------------------------------
+	function string_to_float (s: string) return float16 is
+		variable slv : std_logic_vector(15 downto 0);
+		variable fp16 : float16;
 	begin
-
-		-- 2. Loop para converter cada caractere da string em um bit
-		for i in 2 to 16 loop
-			-- O 'range da string é tipicamente (1 to 16).
-			-- Mapeia string(1..16) para slv(15..0)
-			-- O índice do vetor será: (s'length - i) + s'low - 1
-			-- Para uma string(1 to 16), s'length=16, s'low=1, i=1..16 -> (16-i)+1-1 = 16-i
-			-- Para uma string(0 to 15), s'length=16, s'low=0, i=0..15 -> (16-i)+0-1 = 15-i
-			-- Vamos usar a forma mais simples (16 - i) assumindo range (1 to 16) por padrão.
-			
-			if s(i) = '1' then
-				result_slv(16 - i) := '1'; -- Corrigido: operador '=' e aspas simples
-			elsif s(i) = '0' then          -- Corrigido: 'elsif', '=', e aspas simples
-				result_slv(16 - i) := '0';
-			else
-				-- Adiciona um erro para caracteres inválidos
-				report "ERRO: Caractere inválido na string binária: " & s(i) severity failure;
+		for i in 1 to 16 loop
+			if(s(i) = '1') then
+				slv(16-i) := '1';
+			elsif(s(i) = '0') then
+				slv(16-i) := '0';
 			end if;
 		end loop;
-		
-		-- 3. Faz o type cast (conversão de tipo) do std_logic_vector para float16 e retorna
-		return to_float(unsigned(result_slv), 4, 10);
-		
-	end function string_to_float16;
+		for i in 0 to 15 loop
+			fp16(5-i) := slv(15-i);
+		end loop;
+		return fp16; 
+	end function string_to_float;
+-------------------------------------------------------------
+	function float_to_string(inp: float16) return string is
+		variable temp: string(16 downto 1);
+		variable slv: std_logic_vector(15 downto 0);
+	begin
+		for i in 0 to 15 loop
+			slv(15-i) := inp(5-i);
+		end loop;
+		for i in 0 to 15 loop
+			if (slv(i) = '1') then
+				temp(i+1) := '1';
+			elsif (slv(i) = '0') then
+				temp(i+1) := '0';
+			end if;
+		end loop;
+		return temp;
+	end function float_to_string;
 
 begin
 
@@ -87,20 +92,14 @@ begin
 
 	EntradasProcess: process (clk)
 
-		-- file saidaEsperada: text open write_mode is "saidaEsperada.txt";
-		-- variable outEsperada: std_logic_vector(15 downto 0);
-		-- variable str_outEsperada: string(18 downto 1);
-		-- variable outlineEsperada: line;	
+		file saidaEsperada: text open write_mode is "saidaEsperada.txt";
+		variable str_outEsperada: string(16 downto 1);
+		variable outlineEsperada: line;	
 
-		-- file saidaGerada: text open write_mode is "saidaGerada.txt";
-		-- variable outGerada: std_logic_vector(15 downto 0);
-		-- variable str_outGerada: string(18 downto 1);
-		-- variable outlineGerada: line;	
-
-		file arquivo: text open read_mode is "entradasReais/entradasBin_10inputs.txt";
+		file arquivo: text open read_mode is "entradasReais/entradasBin.txt";
 		variable linha: line;
 		variable amostra: string(1 to 16);
-		variable amostraTesteReal: real;
+		variable char: character;
 		variable hexvalUnsigned : unsigned(63 downto 0);
 		variable hexvalSigned : signed(63 downto 0);
 		variable bitvec : std_logic_vector(63 downto 0);
@@ -108,20 +107,54 @@ begin
 		begin
 
 			if (rising_edge(clk)) then
-
 				if not(endfile(arquivo)) then		-- enquanto exixtirem linhas no arquivo atual
-
 					readline(arquivo, linha);	-- lê uma linha e armazena em uma string/line (linha)
 					-- lê os valores da linhas e passa para as entradas do circuito
 						read(linha, amostra);
-							--entrada <= string_to_float16(amostra);
-							entrada <= std_logic_vector(to_unsigned(amostra, 16));
+							x <= string_to_float(amostra); 
+						read(linha, char);
 						read(linha, amostra);
-							saidaEsperada <= string_to_float16(amostra);
+							str_outEsperada := amostra;
+							write(outlineEsperada, str_outEsperada);
+							writeline(saidaEsperada, outlineEsperada);	
+						nTestes <= nTestes + 1;
+				elsif (endfile(arquivo)) then
+				--	assert false report "o arquivo acabou" severity failure;
+					acabou <= acabou + 1;
 				end if;
-
 			end if;
 
 	end process EntradasProcess;
 
+	SaidaProcess: process(clk)
+
+		file saidaGerada: text open write_mode is "saidaGerada.txt";
+		variable str_outGerada: string(16 downto 1);
+		variable outlineGerada: line;	
+
+		begin
+
+			if (rising_edge(clk) and acabou < 3) then
+				if (nTestes > 2) then
+					str_outGerada := float_to_string(y);
+					write(outlineGerada, str_outGerada);
+					writeline(saidaGerada, outlineGerada);
+				end if;
+			elsif (acabou = 3) then 
+				assert false report "o arquivo acabou" severity failure;
+			end if;
+
+	end process SaidaProcess;
+
 end testbench_arc;
+
+				--read(linha, amostra);
+				--deltaMVEsperado3 <= hexToStd(amostra)(17 downto 0);
+				--outEsperada := deltaMVEsperado3;
+				--str_outEsperada := stdvec_to_str(outEsperada);
+				
+
+				-- outgerada := deltaMV1;
+				-- str_outGerada := stdvec_to_str(outGerada);
+				-- write(outlineGerada, str_outGerada);
+				-- writeline(saidaGerada, outlineGerada);

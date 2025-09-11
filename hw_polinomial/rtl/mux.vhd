@@ -33,24 +33,24 @@ end mux;
 
 architecture mux_architecture of mux is
 
-    constant c_s0_float : float16 := to_float(c_s0, 4, 10);
-    constant c_s1_float : float16 := to_float(c_s1, 4, 10);
-    constant c_s2_float : float16 := to_float(c_s2, 4, 10);
-    constant c_s3_float : float16 := to_float(c_s3, 4, 10);
-    constant c_s4_float : float16 := to_float(c_s4, 4, 10);
-    constant c_s5_float : float16 := to_float(c_s5, 4, 10);
-    constant c_s6_float : float16 := to_float(c_s6, 4, 10);
-    constant c_s7_float : float16 := to_float(c_s7, 4, 10);
-    constant c_s8_float : float16 := to_float(c_s8, 4, 10);
-    constant c_s9_float : float16 := to_float(c_s9, 4, 10);
-    constant c_s10_float : float16 := to_float(c_s10, 4, 10);
-    constant c_s11_float : float16 := to_float(c_s11, 4, 10);
-    constant c_s12_float : float16 := to_float(c_s12, 4, 10);
-    constant c_s13_float : float16 := to_float(c_s13, 4, 10);
-    constant c_s14_float : float16 := to_float(c_s14, 4, 10);
-    constant c_s15_float : float16 := to_float(c_s15, 4, 10);
-    constant c_s16_float : float16 := to_float(c_s16, 4, 10);
-    constant c_sx_float : float16 := to_float(c_sx, 4, 10);
+    constant c_s0_float : float16 := to_float(c_s0, 5, 10);
+    constant c_s1_float : float16 := to_float(c_s1, 5, 10);
+    constant c_s2_float : float16 := to_float(c_s2, 5, 10);
+    constant c_s3_float : float16 := to_float(c_s3, 5, 10);
+    constant c_s4_float : float16 := to_float(c_s4, 5, 10);
+    constant c_s5_float : float16 := to_float(c_s5, 5, 10);
+    constant c_s6_float : float16 := to_float(c_s6, 5, 10);
+    constant c_s7_float : float16 := to_float(c_s7, 5, 10);
+    constant c_s8_float : float16 := to_float(c_s8, 5, 10);
+    constant c_s9_float : float16 := to_float(c_s9, 5, 10);
+    constant c_s10_float : float16 := to_float(c_s10, 5, 10);
+    constant c_s11_float : float16 := to_float(c_s11, 5, 10);
+    constant c_s12_float : float16 := to_float(c_s12, 5, 10);
+    constant c_s13_float : float16 := to_float(c_s13, 5, 10);
+    constant c_s14_float : float16 := to_float(c_s14, 5, 10);
+    constant c_s15_float : float16 := to_float(c_s15, 5, 10);
+    constant c_s16_float : float16 := to_float(c_s16, 5, 10);
+    constant c_sx_float : float16 := to_float(c_sx, 5, 10);
     
 begin
     

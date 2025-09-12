@@ -7,10 +7,10 @@ use work.float_pkg.all;
 
 entity somador is
 	port (
-		a: in float32;
-		b: in float32;
-        c: in float32;
-		x: out float32
+		a: in float16;
+		b: in float16;
+        c: in float16;
+		x: out float16
 	);
 end somador;
 

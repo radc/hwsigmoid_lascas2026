@@ -71,9 +71,9 @@ package float_pkg is
   -----------------------------------------------------------------------------
 
   -- IEEE 754 half precision
-subtype UNRESOLVED_float16 is UNRESOLVED_float (4 downto -10);
+subtype UNRESOLVED_float16 is UNRESOLVED_float (5 downto -10);
 alias U_float16 is UNRESOLVED_float16;
-subtype float16 is float (4 downto -10);
+subtype float16 is float (5 downto -10);
 -----------------------------------------------------------------------------
 -- IEEE-754 half-precision floating point. Usado em GPUs e em aplicações
 -- de IA para economizar memória e largura de banda. O expoente tem 5 bits,

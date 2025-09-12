@@ -1,18 +1,44 @@
-/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd
+C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\getIntervalo.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
--- Loading package STD_LOGIC_SIGNED
+-- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
--- Loading package MATH_REAL
 -- Loading package fixed_pkg
 -- Loading package float_pkg
--- Compiling entity multiplicador
--- Compiling architecture multiplicador_arc of multiplicador
+-- Compiling entity getIntervalo
+-- Compiling architecture getIntervalo_architecture of getIntervalo
 
-} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd
+} {} {}} C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\WSiluPolinomial.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package fixed_pkg
+-- Loading package float_pkg
+-- Compiling entity WSiluPolinomial
+-- Compiling architecture WSiluPolinomial_arc of WSiluPolinomial
+
+} {} {}} C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/float_pkg_c.vhd {2 {vcom -work work -2002 -explicit -stats=none {C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\float_pkg_c.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package fixed_pkg
+-- Compiling package float_pkg
+-- Compiling package body float_pkg
+-- Loading package float_pkg
+** Warning: C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\float_pkg_c.vhd(1055): (vcom-1246) Range 0 downto 1 is null.
+** Warning: C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\float_pkg_c.vhd(1056): (vcom-1246) Range 0 downto 1 is null.
+** Warning: C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\float_pkg_c.vhd(6241): (vcom-1246) Range 2 to 1 is null.
+
+} {} {}} C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\somador.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -26,36 +52,21 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity somador
 -- Compiling architecture somador_arc of somador
 
-} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/float_pkg_c.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/float_pkg_c.vhd
+} {} {}} C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\multiplicador.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
 -- Loading package NUMERIC_STD
--- Loading package fixed_pkg
--- Compiling package float_pkg
--- Compiling package body float_pkg
--- Loading package float_pkg
-** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/float_pkg_c.vhd(1055): (vcom-1246) Range 0 downto 1 is null.
-** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/float_pkg_c.vhd(1056): (vcom-1246) Range 0 downto 1 is null.
-** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/float_pkg_c.vhd(6241): (vcom-1246) Range 2 to 1 is null.
-
-} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling package fixed_pkg
 -- Loading package MATH_REAL
--- Compiling package body fixed_pkg
 -- Loading package fixed_pkg
-** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd(1475): (vcom-1246) Range 0 downto 1 is null.
-** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd(1476): (vcom-1246) Range 0 downto 1 is null.
-** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd(1477): (vcom-1246) Range 0 downto 1 is null.
-** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd(6893): (vcom-1246) Range 2 to 1 is null.
+-- Loading package float_pkg
+-- Compiling entity multiplicador
+-- Compiling architecture multiplicador_arc of multiplicador
 
-} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
+} {} {}} C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\mux.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -65,10 +76,22 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package NUMERIC_STD
 -- Loading package fixed_pkg
 -- Loading package float_pkg
--- Compiling entity testbench
--- Compiling architecture testbench_arc of testbench
-** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd(37): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd(39): (vcom-1207) An abstract literal and an identifier must have a separator between them.
-** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd(53): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+-- Compiling entity mux
+-- Compiling architecture mux_architecture of mux
+
+} {} {}} C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd {2 {vcom -work work -2002 -explicit -stats=none {C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\fixed_pkg_c.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling package fixed_pkg
+-- Loading package MATH_REAL
+-- Compiling package body fixed_pkg
+-- Loading package fixed_pkg
+** Warning: C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\fixed_pkg_c.vhd(1475): (vcom-1246) Range 0 downto 1 is null.
+** Warning: C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\fixed_pkg_c.vhd(1476): (vcom-1246) Range 0 downto 1 is null.
+** Warning: C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\fixed_pkg_c.vhd(1477): (vcom-1246) Range 0 downto 1 is null.
+** Warning: C:\Users\Denis\Desktop\hwsigmoid_lascas2026\hw_polinomial\rtl\fixed_pkg_c.vhd(6893): (vcom-1246) Range 2 to 1 is null.
 
 } {} {}}

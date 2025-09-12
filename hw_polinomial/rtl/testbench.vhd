@@ -147,14 +147,3 @@ begin
 	end process SaidaProcess;
 
 end testbench_arc;
-
-				--read(linha, amostra);
-				--deltaMVEsperado3 <= hexToStd(amostra)(17 downto 0);
-				--outEsperada := deltaMVEsperado3;
-				--str_outEsperada := stdvec_to_str(outEsperada);
-				
-
-				-- outgerada := deltaMV1;
-				-- str_outGerada := stdvec_to_str(outGerada);
-				-- write(outlineGerada, str_outGerada);
-				-- writeline(saidaGerada, outlineGerada);

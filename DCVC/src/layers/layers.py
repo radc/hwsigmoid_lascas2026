@@ -10,73 +10,28 @@ if CUSTOMIZED_CUDA_INFERENCE:
 
 
 
-import torch
-import numpy as np
-import struct
-from typing import List, Tuple
+
 
 
 ##COLOQUE A WSILU AQUI
 
 class WSiLU(nn.Module):
-    """
-    Simulação em float16 (fp16) com LUT 2^16 em [-2.5, +2.5].
-    Regras:
-      - x < -2.5  -> 0
-      - x > +2.5  -> identidade (x)
-      - caso contrário -> LUT[index(x)]
-    Todas as operações de ponto flutuante internas usam fp16.
-    Sempre roda em CUDA.
-    """
+    _id = 1
+    _track = True
 
-    def __init__(self, return_fp16: bool = True):
+    def __init__(self):
         super().__init__()
-        self.return_fp16 = return_fp16
+        self.code = f"id{WSiLU._id}"
+        WSiLU._id += 1        
+        self.counter = 0
 
-        # força CUDA
-        device = torch.device("cuda")
-        dtype = torch.float16
+    def forward(self, x):        
+        if (WSiLU._track):
+            self.counter += 1
+            print(self.code, x.shape[0], x.shape[1], x.shape[2], x.shape[3], self.counter, sep=", ")
 
-        # ----- Constantes -----
-        xmin = torch.tensor(-2.5, dtype=dtype, device=device)
-        xmax = torch.tensor( 2.5, dtype=dtype, device=device)
-        scale = torch.tensor(65535.0/5.0, dtype=dtype, device=device)
-
-        self.register_buffer("XMIN", xmin, persistent=False)
-        self.register_buffer("XMAX", xmax, persistent=False)
-        self.register_buffer("SCALE", scale, persistent=False)
-        self.register_buffer("ZERO", torch.tensor(0.0, dtype=dtype, device=device), persistent=False)
-
-        # ----- Geração automática da LUT -----
-        with torch.no_grad():
-            grid = torch.linspace(float(xmin), float(xmax), steps=65536,
-                                  dtype=dtype, device=device)
-            vals = torch.sigmoid(torch.tensor(4.0, dtype=dtype, device=device) * grid) * grid
-            lut_fp16 = vals.to(dtype)
-        self.register_buffer("lut", lut_fp16, persistent=False)
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        # força CUDA + fp16
-        xh = x.to(dtype=torch.float16, device="cuda")
-
-        # Máscaras
-        m_low  = xh < self.XMIN
-        m_high = xh > self.XMAX
-        m_mid  = ~(m_low | m_high)
-
-        # Índices
-        idx_f16 = torch.floor((xh - self.XMIN) * self.SCALE)
-        idx = idx_f16.to(torch.int32).clamp_(0, self.lut.numel() - 1).to(torch.long)
-
-        # Valores da LUT
-        y_lut = self.lut[idx]
-
-        # Base: identidade
-        y = xh
-        y = torch.where(m_mid,  y_lut, y)
-        y = torch.where(m_low, self.ZERO, y)
-
-        return y if self.return_fp16 else y.to(x.dtype, device=x.device)
+        y = torch.sigmoid(4.0 * x) * x
+        return y
 
 ##FIM DA WSILU AQUI
 

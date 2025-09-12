@@ -6,6 +6,21 @@ class WSiLU(nn.Module):
         return y
 
 
+#VERIFICAR USOS
+class WSiLU(nn.Module):
+    def __init__(self, track=False):
+        self.track = track
+        self.counter = 0
+
+    def forward(self, x):
+        self.counter += 1
+        if (self.track):
+            print(x.shape, self.track)
+
+        y = torch.sigmoid(4.0 * x) * x
+        return y
+
+
 #NOISEY
 class WSiLU(nn.Module):
     # ===== Class-level (static) attributes =====
@@ -150,7 +165,11 @@ class WSiLU(nn.Module):
     
     # def forward_polinomial(self, x): #GRAU 6
     # def forward(self, x):
-    #     # parte polinomial
+    #     # parte polinomial  def __init__(self, in_ch, out_ch, kernel_size, padding=0):
+        super().__init__()
+        self.conv = nn.Sequential(
+            nn.Conv2d(in_ch, out_ch * 4, kernel_size=kernel_size, padding=padding),
+            nn.PixelShuffle(2),
     #     poly = (
     #         0.004546
     #         + 0.5 * x
@@ -1316,3 +1335,100 @@ class WSiLUFloat16(nn.Module):
 
         # Saída
         return y if self.return_fp16 else y.to(x.dtype)
+
+
+#INTEGER LUT RUHAN (integer_lut_N) (WSiLU Config tem que ir junto)
+
+class WSiLUConfig:
+    """Configuração global do WSiLU."""
+    _N_BITS: int = 16   # valor padrão privado
+
+    @staticmethod
+    def set_nbits(n: int) -> None:
+        if n <= 0:
+            raise ValueError("N_BITS deve ser positivo")
+        WSiLUConfig._N_BITS = int(n)
+        print(f"\n\n\nWSILU PRECISION:: {n}\n\n\n")
+
+    @staticmethod
+    def get_nbits() -> int:
+        return WSiLUConfig._N_BITS
+
+
+
+class WSiLU(nn.Module):
+
+    def __init__(self, alpha: float = 4.0):
+        super().__init__()
+        self.alpha = float(alpha)
+
+        # pega N_BITS da configuração estática
+        n_bits = WSiLUConfig.get_nbits()        
+
+        N = 1 << n_bits
+        halfN = N // 2
+        min_int = -halfN
+        max_int = halfN - 1
+
+        # escala e limites
+        scale_f16 = torch.tensor(5.0 / float(N), dtype=torch.float16)
+        limit_hi_f16 = torch.tensor(2.5, dtype=torch.float16)
+        limit_lo_f16 = torch.tensor(-2.5, dtype=torch.float16)
+
+        self.register_buffer("_scale", scale_f16, persistent=False)
+        self.register_buffer("_limit_hi", limit_hi_f16, persistent=False)
+        self.register_buffer("_limit_lo", limit_lo_f16, persistent=False)
+
+        self.register_buffer("_halfN", torch.tensor(halfN, dtype=torch.int64), persistent=False)
+        self.register_buffer("_min_int", torch.tensor(min_int, dtype=torch.int64), persistent=False)
+        self.register_buffer("_max_int", torch.tensor(max_int, dtype=torch.int64), persistent=False)
+        self.register_buffer("_lut_offset", torch.tensor(-min_int, dtype=torch.int64), persistent=False)
+
+        # constrói LUT
+        x_int = torch.arange(min_int, max_int + 1, dtype=torch.int64)
+        x_fp = (x_int.to(torch.float16)) * self._scale
+        y_fp = x_fp * torch.sigmoid(torch.tensor(self.alpha, dtype=torch.float16) * x_fp)
+
+        y_div = torch.trunc(y_fp / self._scale)
+        y_int = torch.where(y_fp < self._limit_lo, self._min_int.to(torch.float16), y_div)
+        y_int = torch.where(y_fp >= self._limit_hi, self._max_int.to(torch.float16), y_int)
+        y_int = y_int.to(torch.int32)
+
+        self.register_buffer("lut_int", y_int, persistent=False)
+
+    @torch.no_grad()
+    def _fp2intrep(self, x: torch.Tensor) -> torch.Tensor:
+        x16 = x.to(torch.float16)
+        base = torch.trunc(x16 / self._scale)
+        out16 = torch.where(x16 < self._limit_lo, self._min_int.to(torch.float16), base)
+        out16 = torch.where(x16 >= self._limit_hi, self._max_int.to(torch.float16), out16)
+        return out16.to(torch.int64)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        if x.numel() == 0:
+            return x
+
+        dev = x.device
+        if self.lut_int.device != dev:
+            # move buffers na primeira chamada
+            self.lut_int = self.lut_int.to(dev)
+            self._scale = self._scale.to(dev)
+            self._limit_hi = self._limit_hi.to(dev)
+            self._limit_lo = self._limit_lo.to(dev)
+            self._halfN = self._halfN.to(dev)
+            self._min_int = self._min_int.to(dev)
+            self._max_int = self._max_int.to(dev)
+            self._lut_offset = self._lut_offset.to(dev)
+
+        out_dtype = x.dtype
+        mask_hi = x >= self._limit_hi.to(dtype=out_dtype)
+
+        idx_int = self._fp2intrep(x) + self._lut_offset
+        idx_int = idx_int.clamp_(0, self.lut_int.numel() - 1)
+
+        y_int = self.lut_int[idx_int]
+        y_fp16 = (y_int.to(torch.float16) * self._scale)
+
+        out = torch.where(mask_hi, x.to(out_dtype), y_fp16.to(out_dtype))
+        return out
+

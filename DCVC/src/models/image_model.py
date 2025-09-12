@@ -10,6 +10,8 @@ from .common_model import CompressionModel
 from ..layers.layers import DepthConvBlock, ResidualBlockUpsample, ResidualBlockWithStride2
 from ..layers.cuda_inference import CUSTOMIZED_CUDA_INFERENCE, round_and_to_int8
 
+from ..layers.layers import WSiLU
+
 g_ch_src = 3 * 8 * 8
 g_ch_enc_dec = 368
 
@@ -30,11 +32,19 @@ class IntraEncoder(nn.Module):
         )
 
     def forward(self, x, quant_step):
+        # WSiLU._track = False
+        
         out = F.pixel_unshuffle(x, 8)
         if not CUSTOMIZED_CUDA_INFERENCE or not x.is_cuda:
-            return self.forward_torch(out, quant_step)
+            y_apagar = self.forward_torch(out, quant_step)
+            # WSiLU._track = True
+            return y_apagar
+        
 
-        return self.forward_cuda(out, quant_step)
+        y_apagar = self.forward_cuda(out, quant_step)
+        # WSiLU._track = True
+        return y_apagar
+        
 
     def forward_torch(self, out, quant_step):
         out = self.enc_1(out)

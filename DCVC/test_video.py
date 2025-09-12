@@ -25,7 +25,7 @@ from src.utils.video_writer import PNGWriter, YUV420Writer
 from src.utils.metrics import calc_psnr, calc_msssim, calc_msssim_rgb
 from src.utils.transforms import rgb2ycbcr, ycbcr2rgb, yuv_444_to_420, ycbcr420_to_444_np
 
-from src.layers.layers import WSiLU
+from src.layers.layers import WSiLU #, WSiLUConfig
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Example testing script")
@@ -58,6 +58,8 @@ def parse_args():
     parser.add_argument("--wsilu_noise_amp", type=int, default=-1, help="1eN of noise amplitude")
     parser.add_argument("--wsilu_noise_low_interval", type=int, default=-100)
     parser.add_argument("--wsilu_noise_high_interval", type=int, default=+100)
+
+    parser.add_argument("--wsilu_bw", type=int, default=16)
 
     args = parser.parse_args()
     return args
@@ -387,6 +389,8 @@ def worker(args):
 def init_func(args, gpu_num):
     set_torch_env()
 
+    # WSiLUConfig.set_nbits(args.wsilu_bw)
+
     process_name = multiprocessing.current_process().name
     process_idx = int(process_name[process_name.rfind('-') + 1:])
     gpu_id = -1
@@ -418,7 +422,9 @@ def init_func(args, gpu_num):
         p_frame_net.eval()
         p_frame_net.update(args.force_zero_thres)
         p_frame_net.half()
-
+   
+    
+    
     if args.wsilu_inject_noise:
         WSiLU.enable_noise()
         WSiLU.set_promote_activations(False)
@@ -427,9 +433,10 @@ def init_func(args, gpu_num):
 
 
 def main():
-    begin_time = time.time()
+    begin_time = time.time()    
 
     args = parse_args()
+      
 
     if args.force_zero_thres is not None and args.force_zero_thres < 0:
         args.force_zero_thres = None
@@ -543,10 +550,10 @@ def main():
     with open(args.output_path, 'w') as fp:
         dump_json(log_result, fp, float_digits=6, indent=2)
 
-    total_minutes = (time.time() - begin_time) / 60
-    print('Test finished')
-    print(f'Tested {count_frames} frames from {count_sequences} sequences')
-    print(f'Total elapsed time: {total_minutes:.1f} min')
+    # total_minutes = (time.time() - begin_time) / 60
+    # print('Test finished')
+    # print(f'Tested {count_frames} frames from {count_sequences} sequences')
+    # print(f'Total elapsed time: {total_minutes:.1f} min')
 
 
 if __name__ == "__main__":

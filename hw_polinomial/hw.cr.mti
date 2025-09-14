@@ -1,17 +1,4 @@
-/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench_x15.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench_x15.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Loading package fixed_pkg
--- Loading package float_pkg
--- Compiling entity testbench_x15
--- Compiling architecture testbench_arc of testbench_x15
-
-} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd
+/home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/somador.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -25,19 +12,83 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity somador
 -- Compiling architecture somador_arc of somador
 
-} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd
+} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x15.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x15.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
--- Loading package STD_LOGIC_SIGNED
+-- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
--- Loading package MATH_REAL
 -- Loading package fixed_pkg
 -- Loading package float_pkg
--- Compiling entity multiplicador
--- Compiling architecture multiplicador_arc of multiplicador
+-- Compiling entity wsiluPolinomial_x15
+-- Compiling architecture wsiluPolinomial_x15_arch of wsiluPolinomial_x15
+
+} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package fixed_pkg
+-- Loading package float_pkg
+-- Compiling entity WSiluPolinomial
+-- Compiling architecture WSiluPolinomial_arc of WSiluPolinomial
+
+} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package fixed_pkg
+-- Loading package float_pkg
+-- Compiling entity mux
+-- Compiling architecture mux_architecture of mux
+
+} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench_x30.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench_x30.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package fixed_pkg
+-- Loading package float_pkg
+-- Compiling entity testbench_x30
+-- Compiling architecture testbench_arc of testbench_x30
+
+} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench_x15.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench_x15.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package fixed_pkg
+-- Loading package float_pkg
+-- Compiling entity testbench_x15
+-- Compiling architecture testbench_arc of testbench_x15
+
+} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package fixed_pkg
+-- Loading package float_pkg
+-- Compiling entity testbench
+-- Compiling architecture testbench_arc of testbench
 
 } {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/float_pkg_c.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/float_pkg_c.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -53,7 +104,21 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 ** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/float_pkg_c.vhd(1056): (vcom-1246) Range 0 downto 1 is null.
 ** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/float_pkg_c.vhd(6241): (vcom-1246) Range 2 to 1 is null.
 
-} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/mux.vhd
+} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/multiplicador.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Loading package fixed_pkg
+-- Loading package float_pkg
+-- Compiling entity multiplicador
+-- Compiling architecture multiplicador_arc of multiplicador
+
+} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -63,8 +128,8 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package NUMERIC_STD
 -- Loading package fixed_pkg
 -- Loading package float_pkg
--- Compiling entity mux
--- Compiling architecture mux_architecture of mux
+-- Compiling entity wsiluPolinomial_x30
+-- Compiling architecture wsiluPolinomial_x30_arch of wsiluPolinomial_x30
 
 } {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -80,32 +145,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 ** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd(1476): (vcom-1246) Range 0 downto 1 is null.
 ** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd(1477): (vcom-1246) Range 0 downto 1 is null.
 ** Warning: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/fixed_pkg_c.vhd(6893): (vcom-1246) Range 2 to 1 is null.
-
-} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/WSiluPolinomial.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Loading package fixed_pkg
--- Loading package float_pkg
--- Compiling entity WSiluPolinomial
--- Compiling architecture WSiluPolinomial_arc of WSiluPolinomial
-
-} {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Loading package fixed_pkg
--- Loading package float_pkg
--- Compiling entity testbench
--- Compiling architecture testbench_arc of testbench
 
 } {} {}} /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/getIntervalo.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020

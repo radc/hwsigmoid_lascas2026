@@ -1,35 +1,27 @@
-# 0 compiles, 8 failed with no errors.
+# Loading project hw
+# reading /home/pc-platao/intelFPGA/20.1/modelsim_ase/linuxaloem/../modelsim.ini
+# Loading project hw
 # Compile of fixed_pkg_c.vhd was successful with warnings.
 # Compile of float_pkg_c.vhd was successful with warnings.
 # Compile of getIntervalo.vhd was successful.
 # Compile of multiplicador.vhd was successful.
 # Compile of mux.vhd was successful.
 # Compile of somador.vhd was successful.
-# Compile of testbench.vhd failed with 3 errors.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 1 failed with 3 errors.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd failed with 3 errors.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 1 failed with 3 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
+# Compile of testbench_x30.vhd was successful.
+# Compile of wsiluPolinomial_x30.vhd was successful.
 # 8 compiles, 0 failed with no errors.
-vsim -gui work.testbench
-# vsim -gui work.testbench 
-# Start time: 20:00:06 on Sep 10,2025
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of multiplicador.vhd was successful.
+# Compile of mux.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of testbench_x30.vhd was successful.
+# Compile of wsiluPolinomial_x30.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+vsim work.wsilupolinomial_x30
+# vsim work.wsilupolinomial_x30 
+# Start time: 02:46:22 on Sep 14,2025
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -39,1079 +31,205 @@ vsim -gui work.testbench
 # Loading ieee.math_real(body)
 # Loading work.fixed_pkg(body)
 # Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading ieee.std_logic_signed(body)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: (vsim-7) Failed to open VHDL file "entradasReais/entradasBin_10inputs.txt" in rb mode.
-# No such file or directory. (errno = ENOENT)
-#    Time: 0 ps  Iteration: 0  Instance: /testbench
-# ** Warning: Design size of 23839 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Loading work.wsilupolinomial_x30(wsilupolinomial_x30_arch)
+# ** Warning: (vsim-3473) Component instance "wsilu1 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu2 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu3 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu4 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu5 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu6 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu7 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu8 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu9 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu10 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu11 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu12 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu13 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu14 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu15 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu16 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu17 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu18 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu19 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu20 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu21 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu22 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu23 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu24 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu25 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu26 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu27 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu28 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu29 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu30 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /wsilupolinomial_x30 File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: Design size of 23829 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
 add wave -position insertpoint  \
-sim:/testbench/clk \
-sim:/testbench/enable \
-sim:/testbench/reset \
-sim:/testbench/x \
-sim:/testbench/y \
-sim:/testbench/entrada \
-sim:/testbench/saidaEsperada
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: pc-platao  Hostname: pc-platao  ProcessID: 104159
-#           Attempting to use alternate WLF file "./wlftv6y239".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftv6y239
+sim:/wsilupolinomial_x30/clk \
+sim:/wsilupolinomial_x30/enable \
+sim:/wsilupolinomial_x30/reset \
+sim:/wsilupolinomial_x30/xIn1 \
+sim:/wsilupolinomial_x30/xIn2 \
+sim:/wsilupolinomial_x30/xIn3 \
+sim:/wsilupolinomial_x30/xIn4 \
+sim:/wsilupolinomial_x30/xIn5 \
+sim:/wsilupolinomial_x30/xIn6 \
+sim:/wsilupolinomial_x30/xIn7 \
+sim:/wsilupolinomial_x30/xIn8 \
+sim:/wsilupolinomial_x30/xIn9 \
+sim:/wsilupolinomial_x30/xIn10 \
+sim:/wsilupolinomial_x30/xIn11 \
+sim:/wsilupolinomial_x30/xIn12 \
+sim:/wsilupolinomial_x30/xIn13 \
+sim:/wsilupolinomial_x30/xIn14 \
+sim:/wsilupolinomial_x30/xIn15 \
+sim:/wsilupolinomial_x30/xIn16 \
+sim:/wsilupolinomial_x30/xIn17 \
+sim:/wsilupolinomial_x30/xIn18 \
+sim:/wsilupolinomial_x30/xIn19 \
+sim:/wsilupolinomial_x30/xIn20 \
+sim:/wsilupolinomial_x30/xIn21 \
+sim:/wsilupolinomial_x30/xIn22 \
+sim:/wsilupolinomial_x30/xIn23 \
+sim:/wsilupolinomial_x30/xIn24 \
+sim:/wsilupolinomial_x30/xIn25 \
+sim:/wsilupolinomial_x30/xIn26 \
+sim:/wsilupolinomial_x30/xIn27 \
+sim:/wsilupolinomial_x30/xIn28 \
+sim:/wsilupolinomial_x30/xIn29 \
+sim:/wsilupolinomial_x30/xIn30 \
+sim:/wsilupolinomial_x30/yOut1 \
+sim:/wsilupolinomial_x30/yOut2 \
+sim:/wsilupolinomial_x30/yOut3 \
+sim:/wsilupolinomial_x30/yOut4 \
+sim:/wsilupolinomial_x30/yOut5 \
+sim:/wsilupolinomial_x30/yOut6 \
+sim:/wsilupolinomial_x30/yOut7 \
+sim:/wsilupolinomial_x30/yOut8 \
+sim:/wsilupolinomial_x30/yOut9 \
+sim:/wsilupolinomial_x30/yOut10 \
+sim:/wsilupolinomial_x30/yOut11 \
+sim:/wsilupolinomial_x30/yOut12 \
+sim:/wsilupolinomial_x30/yOut13 \
+sim:/wsilupolinomial_x30/yOut14 \
+sim:/wsilupolinomial_x30/yOut15 \
+sim:/wsilupolinomial_x30/yOut16 \
+sim:/wsilupolinomial_x30/yOut17 \
+sim:/wsilupolinomial_x30/yOut18 \
+sim:/wsilupolinomial_x30/yOut19 \
+sim:/wsilupolinomial_x30/yOut20 \
+sim:/wsilupolinomial_x30/yOut21 \
+sim:/wsilupolinomial_x30/yOut22 \
+sim:/wsilupolinomial_x30/yOut23 \
+sim:/wsilupolinomial_x30/yOut24 \
+sim:/wsilupolinomial_x30/yOut25 \
+sim:/wsilupolinomial_x30/yOut26 \
+sim:/wsilupolinomial_x30/yOut27 \
+sim:/wsilupolinomial_x30/yOut28 \
+sim:/wsilupolinomial_x30/yOut29 \
+sim:/wsilupolinomial_x30/yOut30 \
+sim:/wsilupolinomial_x30/x1 \
+sim:/wsilupolinomial_x30/x2 \
+sim:/wsilupolinomial_x30/x3 \
+sim:/wsilupolinomial_x30/x4 \
+sim:/wsilupolinomial_x30/x5 \
+sim:/wsilupolinomial_x30/x6 \
+sim:/wsilupolinomial_x30/x7 \
+sim:/wsilupolinomial_x30/x8 \
+sim:/wsilupolinomial_x30/x9 \
+sim:/wsilupolinomial_x30/x10 \
+sim:/wsilupolinomial_x30/x11 \
+sim:/wsilupolinomial_x30/x12 \
+sim:/wsilupolinomial_x30/x13 \
+sim:/wsilupolinomial_x30/x14 \
+sim:/wsilupolinomial_x30/x15 \
+sim:/wsilupolinomial_x30/x16 \
+sim:/wsilupolinomial_x30/x17 \
+sim:/wsilupolinomial_x30/x18 \
+sim:/wsilupolinomial_x30/x19 \
+sim:/wsilupolinomial_x30/x20 \
+sim:/wsilupolinomial_x30/x21 \
+sim:/wsilupolinomial_x30/x22 \
+sim:/wsilupolinomial_x30/x23 \
+sim:/wsilupolinomial_x30/x24 \
+sim:/wsilupolinomial_x30/x25 \
+sim:/wsilupolinomial_x30/x26 \
+sim:/wsilupolinomial_x30/x27 \
+sim:/wsilupolinomial_x30/x28 \
+sim:/wsilupolinomial_x30/x29 \
+sim:/wsilupolinomial_x30/x30 \
+sim:/wsilupolinomial_x30/y1 \
+sim:/wsilupolinomial_x30/y2 \
+sim:/wsilupolinomial_x30/y3 \
+sim:/wsilupolinomial_x30/y4 \
+sim:/wsilupolinomial_x30/y5 \
+sim:/wsilupolinomial_x30/y6 \
+sim:/wsilupolinomial_x30/y7 \
+sim:/wsilupolinomial_x30/y8 \
+sim:/wsilupolinomial_x30/y9 \
+sim:/wsilupolinomial_x30/y10 \
+sim:/wsilupolinomial_x30/y11 \
+sim:/wsilupolinomial_x30/y12 \
+sim:/wsilupolinomial_x30/y13 \
+sim:/wsilupolinomial_x30/y14 \
+sim:/wsilupolinomial_x30/y15 \
+sim:/wsilupolinomial_x30/y16 \
+sim:/wsilupolinomial_x30/y17 \
+sim:/wsilupolinomial_x30/y18 \
+sim:/wsilupolinomial_x30/y19 \
+sim:/wsilupolinomial_x30/y20 \
+sim:/wsilupolinomial_x30/y21 \
+sim:/wsilupolinomial_x30/y22 \
+sim:/wsilupolinomial_x30/y23 \
+sim:/wsilupolinomial_x30/y24 \
+sim:/wsilupolinomial_x30/y25 \
+sim:/wsilupolinomial_x30/y26 \
+sim:/wsilupolinomial_x30/y27 \
+sim:/wsilupolinomial_x30/y28 \
+sim:/wsilupolinomial_x30/y29 \
+sim:/wsilupolinomial_x30/y30
 run
-# ** Fatal: (vsim-7) Failed to open VHDL file "entradasReais/entradasBin_10inputs.txt" in rb mode.
-# No such file or directory. (errno = ENOENT)
-#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Fatal error in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 111
-# 
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 111 Process EntradasProcess
-# 
 run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 111 Process EntradasProcess
-# 
 run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 111 Process EntradasProcess
-# 
 run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 111 Process EntradasProcess
-# 
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: Design size of 12124 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
 run
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: Design size of 12124 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-vsim -gui work.testbench
-# End time: 20:10:19 on Sep 10,2025, Elapsed time: 0:10:13
-# Errors: 0, Warnings: 2
-# vsim -gui work.testbench 
-# Start time: 20:10:19 on Sep 10,2025
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.math_real(body)
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading ieee.std_logic_signed(body)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23839 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-add wave -position insertpoint  \
-sim:/testbench/clk \
-sim:/testbench/enable \
-sim:/testbench/reset \
-sim:/testbench/x \
-sim:/testbench/y \
-sim:/testbench/entrada \
-sim:/testbench/saidaEsperada
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: pc-platao  Hostname: pc-platao  ProcessID: 104159
-#           Attempting to use alternate WLF file "./wlftvs5d4j".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftvs5d4j
-run
-run
-run
-run
-run
-run
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23942 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-run
-run
-run
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: Design size of 12128 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-# ** Failure: o arquivo acabou
-#    Time: 105 ns  Iteration: 1  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Break in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 120
-# Compile of testbench.vhd failed with 4 errors.
-# Compile of testbench.vhd failed with 3 errors.
-# Compile of testbench.vhd failed with 3 errors.
-# Compile of testbench.vhd failed with 1 errors.
-# Compile of testbench.vhd failed with 1 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23836 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-add wave -position insertpoint  \
-sim:/testbench/bitEntrada
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: Design size of 12124 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: Design size of 12124 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Compile of testbench.vhd failed with 3 errors.
-# Compile of testbench.vhd failed with 3 errors.
-# Compile of testbench.vhd failed with 2 errors.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd failed with 2 errors.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 1 failed with 2 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23842 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-# Warning in wave window restart: (vish-4014) No objects found matching '/testbench/bitEntrada'. 
-add wave -position insertpoint  \
-sim:/testbench/clk \
-sim:/testbench/enable \
-sim:/testbench/reset \
-sim:/testbench/x \
-sim:/testbench/y \
-sim:/testbench/entrada \
-sim:/testbench/entradaSLV \
-sim:/testbench/saidaEsperada
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Compile of testbench.vhd failed with 1 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23867 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-add wave -position insertpoint  \
-sim:/testbench/clk \
-sim:/testbench/enable \
-sim:/testbench/reset \
-sim:/testbench/x \
-sim:/testbench/y \
-sim:/testbench/entrada \
-sim:/testbench/entradaSLV \
-sim:/testbench/entradaFloat \
-sim:/testbench/saidaEsperada
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# ** Fatal: (vsim-3734) Index value 5 is out of range 4 downto -10.
-#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Fatal error in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 53
-# 
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 53 ForLoop loop
-# called from  C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 114 Process EntradasProcess
-# 
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23867 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# ** Fatal: (vsim-3734) Index value 5 is out of range 4 downto -10.
-#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Fatal error in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 53
-# 
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 53 ForLoop loop
-# called from  C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 114 Process EntradasProcess
-# 
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23960 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Compile of testbench.vhd was successful with warnings.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23955 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# ** Fatal: (vsim-3480) Function "std_to_float" did not complete via a RETURN statement.
-#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd Line: 56
-# Fatal error in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 56
-# 
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 56 Subprogram std_to_float
-# called from  C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 114 Process EntradasProcess
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 56 Subprogram std_to_float
-# called from  C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 114 Process EntradasProcess
-# 
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23957 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23865 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23965 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# ** Fatal: (vsim-3734) Index value 5 is out of range 4 downto -10.
-#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Fatal error in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 53
-# 
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 53 ForLoop loop
-# called from  C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 114 Process EntradasProcess
-# 
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23965 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23965 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23867 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# ** Fatal: (vsim-3734) Index value -11 is out of range 4 downto -10.
-#    Time: 5 ns  Iteration: 1  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Fatal error in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 53
-# 
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 53 ForLoop loop
-# called from  C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 114 Process EntradasProcess
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 53 ForLoop loop
-# called from  C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 114 Process EntradasProcess
-# 
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23965 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of testbench.vhd was successful.
-# 4 compiles, 0 failed with no errors.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23867 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Compile of testbench.vhd failed with 1 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23851 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23854 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23857 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-add wave -position insertpoint  \
-sim:/testbench/DUT/clk \
-sim:/testbench/DUT/enable \
-sim:/testbench/DUT/reset \
-sim:/testbench/DUT/xIn \
-sim:/testbench/DUT/yOut \
-sim:/testbench/DUT/x \
-sim:/testbench/DUT/intervalo \
-sim:/testbench/DUT/x_quadrado \
-sim:/testbench/DUT/c_x_quadrado \
-sim:/testbench/DUT/c_times_x_quadrado \
-sim:/testbench/DUT/c_x \
-sim:/testbench/DUT/c_times_x \
-sim:/testbench/DUT/c \
-sim:/testbench/DUT/y
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: Design size of 12135 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: Design size of 12135 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-run
-run
-run
-force -freeze sim:/testbench/DUT/x_quadrado 0010110010100100 0
-force -freeze sim:/testbench/DUT/x 1011010001001111 0
-force -freeze sim:/testbench/DUT/c_x_quadrado 0011010100011000 0
-force -freeze sim:/testbench/DUT/c_times_x_quadrado 0010010111101001 0
-# Compile of testbench.vhd failed with 4 errors.
-# Compile of testbench.vhd failed with 3 errors.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd failed with 3 errors.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 1 failed with 3 errors.
-# Compile of testbench.vhd failed with 2 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23893 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-# Warning in wave window restart: (vish-4014) No objects found matching '/testbench/entrada'. 
-add wave -position insertpoint  \
-sim:/testbench/saida
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# ** Fatal: (vsim-3420) Array lengths do not match. Left is 16 (1 to 16). Right is 6 (6 downto 1).
-#    Time: 0 ps  Iteration: 0  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Fatal error in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 118
-# 
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 118 Process EntradasProcess
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 118 Process EntradasProcess
-# 
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# Design size of 23991 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-# Compile of testbench.vhd failed with 2 errors.
-# Compile of testbench.vhd failed with 5 errors.
-# Compile of testbench.vhd failed with 3 errors.
-# Compile of testbench.vhd failed with 3 errors.
-# Compile of testbench.vhd failed with 2 errors.
-# Compile of testbench.vhd was successful with warnings.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# Design size of 23877 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-# Warning in wave window restart: (vish-4014) No objects found matching '/testbench/entradaFloat'. 
-# Warning in wave window restart: (vish-4014) No objects found matching '/testbench/entradaSLV'. 
-# Warning in wave window restart: (vish-4014) No objects found matching '/testbench/saida'. 
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-# Compile of testbench.vhd failed with 2 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# Design size of 23884 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# ** Fatal: (vsim-3420) Array lengths do not match. Left is 18 (18 downto 1). Right is 16 (16 downto 1).
-#    Time: 5 ns  Iteration: 1  Process: /testbench/SaidaProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Fatal error in Process SaidaProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 135
-# 
-# HDL call sequence:
-# Stopped at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd 135 Process SaidaProcess
-# 
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# Design size of 23884 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-# Compile of testbench.vhd failed with 2 errors.
-# Compile of testbench.vhd failed with 2 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# Design size of 23887 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# Design size of 23891 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-# ** Failure: o arquivo acabou
-#    Time: 105 ns  Iteration: 1  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Break in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 120
-restart
-# Design size of 12158 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-# ** Failure: o arquivo acabou
-#    Time: 105 ns  Iteration: 1  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Break in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 120
-# Compile of testbench.vhd failed with 2 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# Design size of 23891 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-# ** Failure: o arquivo acabou
-#    Time: 105 ns  Iteration: 1  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Break in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 120
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# Design size of 23986 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-# ** Failure: o arquivo acabou
-#    Time: 105 ns  Iteration: 1  Process: /testbench/EntradasProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Break in Process EntradasProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 120
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# Design size of 23982 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-run
-run
-run
-run
-run
-# Compile of testbench.vhd failed with 2 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# Design size of 23883 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-# Warning in wave window restart: (vish-4014) No objects found matching '/testbench/saidaEsperada'. 
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-run
-run
-restart
-# Design size of 12152 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# Design size of 23883 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-run
-# Compile of testbench.vhd was successful with warnings.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful with warnings.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# Design size of 23883 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Break key hit
-# Break in Process SaidaProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 140
-# Compile of testbench.vhd was successful with warnings.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful with warnings.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# Design size of 23883 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Compile of testbench.vhd was successful.
-# Break key hit
-# Break in Process SaidaProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 140
 quit -sim
-# End time: 03:34:25 on Sep 11,2025, Elapsed time: 7:24:06
-# Errors: 0, Warnings: 2
-vsim -gui work.testbench
-# vsim -gui work.testbench 
-# Start time: 03:34:34 on Sep 11,2025
+# End time: 02:47:43 on Sep 14,2025, Elapsed time: 0:01:21
+# Errors: 0, Warnings: 37
+vsim work.testbench_x30
+# vsim work.testbench_x30 
+# Start time: 02:47:54 on Sep 14,2025
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -1121,324 +239,561 @@ vsim -gui work.testbench
 # Loading ieee.math_real(body)
 # Loading work.fixed_pkg(body)
 # Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
+# Loading work.testbench_x30(testbench_arc)
+# Loading work.wsilupolinomial_x30(wsilupolinomial_x30_arch)
+# ** Warning: (vsim-3473) Component instance "wsilu1 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu2 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu3 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu4 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu5 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu6 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu7 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu8 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu9 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu10 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu11 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu12 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu13 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu14 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu15 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu16 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu17 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu18 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu19 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu20 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu21 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu22 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu23 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu24 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu25 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu26 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu27 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu28 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu29 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu30 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: Design size of 24534 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/testbench_x30/clk \
+sim:/testbench_x30/enable \
+sim:/testbench_x30/reset \
+sim:/testbench_x30/xIn1 \
+sim:/testbench_x30/xIn2 \
+sim:/testbench_x30/xIn3 \
+sim:/testbench_x30/xIn4 \
+sim:/testbench_x30/xIn5 \
+sim:/testbench_x30/xIn6 \
+sim:/testbench_x30/xIn7 \
+sim:/testbench_x30/xIn8 \
+sim:/testbench_x30/xIn9 \
+sim:/testbench_x30/xIn10 \
+sim:/testbench_x30/xIn11 \
+sim:/testbench_x30/xIn12 \
+sim:/testbench_x30/xIn13 \
+sim:/testbench_x30/xIn14 \
+sim:/testbench_x30/xIn15 \
+sim:/testbench_x30/xIn16 \
+sim:/testbench_x30/xIn17 \
+sim:/testbench_x30/xIn18 \
+sim:/testbench_x30/xIn19 \
+sim:/testbench_x30/xIn20 \
+sim:/testbench_x30/xIn21 \
+sim:/testbench_x30/xIn22 \
+sim:/testbench_x30/xIn23 \
+sim:/testbench_x30/xIn24 \
+sim:/testbench_x30/xIn25 \
+sim:/testbench_x30/xIn26 \
+sim:/testbench_x30/xIn27 \
+sim:/testbench_x30/xIn28 \
+sim:/testbench_x30/xIn29 \
+sim:/testbench_x30/xIn30 \
+sim:/testbench_x30/yOut1 \
+sim:/testbench_x30/yOut2 \
+sim:/testbench_x30/yOut3 \
+sim:/testbench_x30/yOut4 \
+sim:/testbench_x30/yOut5 \
+sim:/testbench_x30/yOut6 \
+sim:/testbench_x30/yOut7 \
+sim:/testbench_x30/yOut8 \
+sim:/testbench_x30/yOut9 \
+sim:/testbench_x30/yOut10 \
+sim:/testbench_x30/yOut11 \
+sim:/testbench_x30/yOut12 \
+sim:/testbench_x30/yOut13 \
+sim:/testbench_x30/yOut14 \
+sim:/testbench_x30/yOut15 \
+sim:/testbench_x30/yOut16 \
+sim:/testbench_x30/yOut17 \
+sim:/testbench_x30/yOut18 \
+sim:/testbench_x30/yOut19 \
+sim:/testbench_x30/yOut20 \
+sim:/testbench_x30/yOut21 \
+sim:/testbench_x30/yOut22 \
+sim:/testbench_x30/yOut23 \
+sim:/testbench_x30/yOut24 \
+sim:/testbench_x30/yOut25 \
+sim:/testbench_x30/yOut26 \
+sim:/testbench_x30/yOut27 \
+sim:/testbench_x30/yOut28 \
+sim:/testbench_x30/yOut29 \
+sim:/testbench_x30/yOut30 \
+sim:/testbench_x30/nTestes \
+sim:/testbench_x30/acabou
+run
+add wave -position insertpoint  \
+sim:/testbench_x30/DUT/clk \
+sim:/testbench_x30/DUT/enable \
+sim:/testbench_x30/DUT/reset \
+sim:/testbench_x30/DUT/xIn1 \
+sim:/testbench_x30/DUT/xIn2 \
+sim:/testbench_x30/DUT/xIn3 \
+sim:/testbench_x30/DUT/xIn4 \
+sim:/testbench_x30/DUT/xIn5 \
+sim:/testbench_x30/DUT/xIn6 \
+sim:/testbench_x30/DUT/xIn7 \
+sim:/testbench_x30/DUT/xIn8 \
+sim:/testbench_x30/DUT/xIn9 \
+sim:/testbench_x30/DUT/xIn10 \
+sim:/testbench_x30/DUT/xIn11 \
+sim:/testbench_x30/DUT/xIn12 \
+sim:/testbench_x30/DUT/xIn13 \
+sim:/testbench_x30/DUT/xIn14 \
+sim:/testbench_x30/DUT/xIn15 \
+sim:/testbench_x30/DUT/xIn16 \
+sim:/testbench_x30/DUT/xIn17 \
+sim:/testbench_x30/DUT/xIn18 \
+sim:/testbench_x30/DUT/xIn19 \
+sim:/testbench_x30/DUT/xIn20 \
+sim:/testbench_x30/DUT/xIn21 \
+sim:/testbench_x30/DUT/xIn22 \
+sim:/testbench_x30/DUT/xIn23 \
+sim:/testbench_x30/DUT/xIn24 \
+sim:/testbench_x30/DUT/xIn25 \
+sim:/testbench_x30/DUT/xIn26 \
+sim:/testbench_x30/DUT/xIn27 \
+sim:/testbench_x30/DUT/xIn28 \
+sim:/testbench_x30/DUT/xIn29 \
+sim:/testbench_x30/DUT/xIn30 \
+sim:/testbench_x30/DUT/yOut1 \
+sim:/testbench_x30/DUT/yOut2 \
+sim:/testbench_x30/DUT/yOut3 \
+sim:/testbench_x30/DUT/yOut4 \
+sim:/testbench_x30/DUT/yOut5 \
+sim:/testbench_x30/DUT/yOut6 \
+sim:/testbench_x30/DUT/yOut7 \
+sim:/testbench_x30/DUT/yOut8 \
+sim:/testbench_x30/DUT/yOut9 \
+sim:/testbench_x30/DUT/yOut10 \
+sim:/testbench_x30/DUT/yOut11 \
+sim:/testbench_x30/DUT/yOut12 \
+sim:/testbench_x30/DUT/yOut13 \
+sim:/testbench_x30/DUT/yOut14 \
+sim:/testbench_x30/DUT/yOut15 \
+sim:/testbench_x30/DUT/yOut16 \
+sim:/testbench_x30/DUT/yOut17 \
+sim:/testbench_x30/DUT/yOut18 \
+sim:/testbench_x30/DUT/yOut19 \
+sim:/testbench_x30/DUT/yOut20 \
+sim:/testbench_x30/DUT/yOut21 \
+sim:/testbench_x30/DUT/yOut22 \
+sim:/testbench_x30/DUT/yOut23 \
+sim:/testbench_x30/DUT/yOut24 \
+sim:/testbench_x30/DUT/yOut25 \
+sim:/testbench_x30/DUT/yOut26 \
+sim:/testbench_x30/DUT/yOut27 \
+sim:/testbench_x30/DUT/yOut28 \
+sim:/testbench_x30/DUT/yOut29 \
+sim:/testbench_x30/DUT/yOut30 \
+sim:/testbench_x30/DUT/x1 \
+sim:/testbench_x30/DUT/x2 \
+sim:/testbench_x30/DUT/x3 \
+sim:/testbench_x30/DUT/x4 \
+sim:/testbench_x30/DUT/x5 \
+sim:/testbench_x30/DUT/x6 \
+sim:/testbench_x30/DUT/x7 \
+sim:/testbench_x30/DUT/x8 \
+sim:/testbench_x30/DUT/x9 \
+sim:/testbench_x30/DUT/x10 \
+sim:/testbench_x30/DUT/x11 \
+sim:/testbench_x30/DUT/x12 \
+sim:/testbench_x30/DUT/x13 \
+sim:/testbench_x30/DUT/x14 \
+sim:/testbench_x30/DUT/x15 \
+sim:/testbench_x30/DUT/x16 \
+sim:/testbench_x30/DUT/x17 \
+sim:/testbench_x30/DUT/x18 \
+sim:/testbench_x30/DUT/x19 \
+sim:/testbench_x30/DUT/x20 \
+sim:/testbench_x30/DUT/x21 \
+sim:/testbench_x30/DUT/x22 \
+sim:/testbench_x30/DUT/x23 \
+sim:/testbench_x30/DUT/x24 \
+sim:/testbench_x30/DUT/x25 \
+sim:/testbench_x30/DUT/x26 \
+sim:/testbench_x30/DUT/x27 \
+sim:/testbench_x30/DUT/x28 \
+sim:/testbench_x30/DUT/x29 \
+sim:/testbench_x30/DUT/x30 \
+sim:/testbench_x30/DUT/y1 \
+sim:/testbench_x30/DUT/y2 \
+sim:/testbench_x30/DUT/y3 \
+sim:/testbench_x30/DUT/y4 \
+sim:/testbench_x30/DUT/y5 \
+sim:/testbench_x30/DUT/y6 \
+sim:/testbench_x30/DUT/y7 \
+sim:/testbench_x30/DUT/y8 \
+sim:/testbench_x30/DUT/y9 \
+sim:/testbench_x30/DUT/y10 \
+sim:/testbench_x30/DUT/y11 \
+sim:/testbench_x30/DUT/y12 \
+sim:/testbench_x30/DUT/y13 \
+sim:/testbench_x30/DUT/y14 \
+sim:/testbench_x30/DUT/y15 \
+sim:/testbench_x30/DUT/y16 \
+sim:/testbench_x30/DUT/y17 \
+sim:/testbench_x30/DUT/y18 \
+sim:/testbench_x30/DUT/y19 \
+sim:/testbench_x30/DUT/y20 \
+sim:/testbench_x30/DUT/y21 \
+sim:/testbench_x30/DUT/y22 \
+sim:/testbench_x30/DUT/y23 \
+sim:/testbench_x30/DUT/y24 \
+sim:/testbench_x30/DUT/y25 \
+sim:/testbench_x30/DUT/y26 \
+sim:/testbench_x30/DUT/y27 \
+sim:/testbench_x30/DUT/y28 \
+sim:/testbench_x30/DUT/y29 \
+sim:/testbench_x30/DUT/y30
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3473) Component instance "wsilu1 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu2 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu3 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu4 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu5 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu6 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu7 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu8 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu9 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu10 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu11 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu12 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu13 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu14 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu15 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu16 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu17 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu18 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu19 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu20 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu21 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu22 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu23 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu24 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu25 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu26 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu27 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu28 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu29 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: (vsim-3473) Component instance "wsilu30 : WSiluPolinomial" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_x30/DUT File: /home/pc-platao/hwsigmoid_lascas2026/hw_polinomial/rtl/wsiluPolinomial_x30.vhd
+# ** Warning: Design size of 12421 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+run
+add wave -position insertpoint  \
+sim:/testbench_x30/DUT/clk \
+sim:/testbench_x30/DUT/enable \
+sim:/testbench_x30/DUT/reset \
+sim:/testbench_x30/DUT/xIn1 \
+sim:/testbench_x30/DUT/xIn2 \
+sim:/testbench_x30/DUT/xIn3 \
+sim:/testbench_x30/DUT/xIn4 \
+sim:/testbench_x30/DUT/xIn5 \
+sim:/testbench_x30/DUT/xIn6 \
+sim:/testbench_x30/DUT/xIn7 \
+sim:/testbench_x30/DUT/xIn8 \
+sim:/testbench_x30/DUT/xIn9 \
+sim:/testbench_x30/DUT/xIn10 \
+sim:/testbench_x30/DUT/xIn11 \
+sim:/testbench_x30/DUT/xIn12 \
+sim:/testbench_x30/DUT/xIn13 \
+sim:/testbench_x30/DUT/xIn14 \
+sim:/testbench_x30/DUT/xIn15 \
+sim:/testbench_x30/DUT/xIn16 \
+sim:/testbench_x30/DUT/xIn17 \
+sim:/testbench_x30/DUT/xIn18 \
+sim:/testbench_x30/DUT/xIn19 \
+sim:/testbench_x30/DUT/xIn20 \
+sim:/testbench_x30/DUT/xIn21 \
+sim:/testbench_x30/DUT/xIn22 \
+sim:/testbench_x30/DUT/xIn23 \
+sim:/testbench_x30/DUT/xIn24 \
+sim:/testbench_x30/DUT/xIn25 \
+sim:/testbench_x30/DUT/xIn26 \
+sim:/testbench_x30/DUT/xIn27 \
+sim:/testbench_x30/DUT/xIn28 \
+sim:/testbench_x30/DUT/xIn29 \
+sim:/testbench_x30/DUT/xIn30 \
+sim:/testbench_x30/DUT/yOut1 \
+sim:/testbench_x30/DUT/yOut2 \
+sim:/testbench_x30/DUT/yOut3 \
+sim:/testbench_x30/DUT/yOut4 \
+sim:/testbench_x30/DUT/yOut5 \
+sim:/testbench_x30/DUT/yOut6 \
+sim:/testbench_x30/DUT/yOut7 \
+sim:/testbench_x30/DUT/yOut8 \
+sim:/testbench_x30/DUT/yOut9 \
+sim:/testbench_x30/DUT/yOut10 \
+sim:/testbench_x30/DUT/yOut11 \
+sim:/testbench_x30/DUT/yOut12 \
+sim:/testbench_x30/DUT/yOut13 \
+sim:/testbench_x30/DUT/yOut14 \
+sim:/testbench_x30/DUT/yOut15 \
+sim:/testbench_x30/DUT/yOut16 \
+sim:/testbench_x30/DUT/yOut17 \
+sim:/testbench_x30/DUT/yOut18 \
+sim:/testbench_x30/DUT/yOut19 \
+sim:/testbench_x30/DUT/yOut20 \
+sim:/testbench_x30/DUT/yOut21 \
+sim:/testbench_x30/DUT/yOut22 \
+sim:/testbench_x30/DUT/yOut23 \
+sim:/testbench_x30/DUT/yOut24 \
+sim:/testbench_x30/DUT/yOut25 \
+sim:/testbench_x30/DUT/yOut26 \
+sim:/testbench_x30/DUT/yOut27 \
+sim:/testbench_x30/DUT/yOut28 \
+sim:/testbench_x30/DUT/yOut29 \
+sim:/testbench_x30/DUT/yOut30 \
+sim:/testbench_x30/DUT/x1 \
+sim:/testbench_x30/DUT/x2 \
+sim:/testbench_x30/DUT/x3 \
+sim:/testbench_x30/DUT/x4 \
+sim:/testbench_x30/DUT/x5 \
+sim:/testbench_x30/DUT/x6 \
+sim:/testbench_x30/DUT/x7 \
+sim:/testbench_x30/DUT/x8 \
+sim:/testbench_x30/DUT/x9 \
+sim:/testbench_x30/DUT/x10 \
+sim:/testbench_x30/DUT/x11 \
+sim:/testbench_x30/DUT/x12 \
+sim:/testbench_x30/DUT/x13 \
+sim:/testbench_x30/DUT/x14 \
+sim:/testbench_x30/DUT/x15 \
+sim:/testbench_x30/DUT/x16 \
+sim:/testbench_x30/DUT/x17 \
+sim:/testbench_x30/DUT/x18 \
+sim:/testbench_x30/DUT/x19 \
+sim:/testbench_x30/DUT/x20 \
+sim:/testbench_x30/DUT/x21 \
+sim:/testbench_x30/DUT/x22 \
+sim:/testbench_x30/DUT/x23 \
+sim:/testbench_x30/DUT/x24 \
+sim:/testbench_x30/DUT/x25 \
+sim:/testbench_x30/DUT/x26 \
+sim:/testbench_x30/DUT/x27 \
+sim:/testbench_x30/DUT/x28 \
+sim:/testbench_x30/DUT/x29 \
+sim:/testbench_x30/DUT/x30 \
+sim:/testbench_x30/DUT/y1 \
+sim:/testbench_x30/DUT/y2 \
+sim:/testbench_x30/DUT/y3 \
+sim:/testbench_x30/DUT/y4 \
+sim:/testbench_x30/DUT/y5 \
+sim:/testbench_x30/DUT/y6 \
+sim:/testbench_x30/DUT/y7 \
+sim:/testbench_x30/DUT/y8 \
+sim:/testbench_x30/DUT/y9 \
+sim:/testbench_x30/DUT/y10 \
+sim:/testbench_x30/DUT/y11 \
+sim:/testbench_x30/DUT/y12 \
+sim:/testbench_x30/DUT/y13 \
+sim:/testbench_x30/DUT/y14 \
+sim:/testbench_x30/DUT/y15 \
+sim:/testbench_x30/DUT/y16 \
+sim:/testbench_x30/DUT/y17 \
+sim:/testbench_x30/DUT/y18 \
+sim:/testbench_x30/DUT/y19 \
+sim:/testbench_x30/DUT/y20 \
+sim:/testbench_x30/DUT/y21 \
+sim:/testbench_x30/DUT/y22 \
+sim:/testbench_x30/DUT/y23 \
+sim:/testbench_x30/DUT/y24 \
+sim:/testbench_x30/DUT/y25 \
+sim:/testbench_x30/DUT/y26 \
+sim:/testbench_x30/DUT/y27 \
+sim:/testbench_x30/DUT/y28 \
+sim:/testbench_x30/DUT/y29 \
+sim:/testbench_x30/DUT/y30
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of multiplicador.vhd was successful.
+# Compile of mux.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of testbench_x30.vhd was successful.
+# Compile of wsiluPolinomial_x30.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+# Compile of fixed_pkg_c.vhd was successful with warnings.
+# Compile of float_pkg_c.vhd was successful with warnings.
+# Compile of getIntervalo.vhd was successful.
+# Compile of multiplicador.vhd was successful.
+# Compile of mux.vhd was successful.
+# Compile of somador.vhd was successful.
+# Compile of testbench_x30.vhd was successful.
+# Compile of wsiluPolinomial_x30.vhd was successful.
+# Compile of WSiluPolinomial.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+quit -sim
+# End time: 03:12:39 on Sep 14,2025, Elapsed time: 0:24:45
+# Errors: 0, Warnings: 35
+vsim work.testbench_x30
+# vsim work.testbench_x30 
+# Start time: 03:12:49 on Sep 14,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.float_pkg(body)
+# Loading work.testbench_x30(testbench_arc)
+# Loading work.wsilupolinomial_x30(wsilupolinomial_x30_arch)
 # Loading work.wsilupolinomial(wsilupolinomial_arc)
 # Loading work.getintervalo(getintervalo_architecture)
 # Loading work.mux(mux_architecture)
 # Loading ieee.std_logic_signed(body)
 # Loading work.multiplicador(multiplicador_arc)
 # Loading work.somador(somador_arc)
-# ** Warning: Design size of 23883 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# ** Warning: Design size of 44560 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
 add wave -position insertpoint  \
-sim:/testbench/clk \
-sim:/testbench/enable \
-sim:/testbench/reset \
-sim:/testbench/x \
-sim:/testbench/y \
-sim:/testbench/acabou
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: pc-platao  Hostname: pc-platao  ProcessID: 104159
-#           Attempting to use alternate WLF file "./wlft0iq8rj".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft0iq8rj
+sim:/testbench_x30/clk \
+sim:/testbench_x30/enable \
+sim:/testbench_x30/reset \
+sim:/testbench_x30/xIn1 \
+sim:/testbench_x30/xIn2 \
+sim:/testbench_x30/xIn3 \
+sim:/testbench_x30/xIn4 \
+sim:/testbench_x30/xIn5 \
+sim:/testbench_x30/xIn6 \
+sim:/testbench_x30/xIn7 \
+sim:/testbench_x30/xIn8 \
+sim:/testbench_x30/xIn9 \
+sim:/testbench_x30/xIn10 \
+sim:/testbench_x30/xIn11 \
+sim:/testbench_x30/xIn12 \
+sim:/testbench_x30/xIn13 \
+sim:/testbench_x30/xIn14 \
+sim:/testbench_x30/xIn15 \
+sim:/testbench_x30/xIn16 \
+sim:/testbench_x30/xIn17 \
+sim:/testbench_x30/xIn18 \
+sim:/testbench_x30/xIn19 \
+sim:/testbench_x30/xIn20 \
+sim:/testbench_x30/xIn21 \
+sim:/testbench_x30/xIn22 \
+sim:/testbench_x30/xIn23 \
+sim:/testbench_x30/xIn24 \
+sim:/testbench_x30/xIn25 \
+sim:/testbench_x30/xIn26 \
+sim:/testbench_x30/xIn27 \
+sim:/testbench_x30/xIn28 \
+sim:/testbench_x30/xIn29 \
+sim:/testbench_x30/xIn30 \
+sim:/testbench_x30/yOut1 \
+sim:/testbench_x30/yOut2 \
+sim:/testbench_x30/yOut3 \
+sim:/testbench_x30/yOut4 \
+sim:/testbench_x30/yOut5 \
+sim:/testbench_x30/yOut6 \
+sim:/testbench_x30/yOut7 \
+sim:/testbench_x30/yOut8 \
+sim:/testbench_x30/yOut9 \
+sim:/testbench_x30/yOut10 \
+sim:/testbench_x30/yOut11 \
+sim:/testbench_x30/yOut12 \
+sim:/testbench_x30/yOut13 \
+sim:/testbench_x30/yOut14 \
+sim:/testbench_x30/yOut15 \
+sim:/testbench_x30/yOut16 \
+sim:/testbench_x30/yOut17 \
+sim:/testbench_x30/yOut18 \
+sim:/testbench_x30/yOut19 \
+sim:/testbench_x30/yOut20 \
+sim:/testbench_x30/yOut21 \
+sim:/testbench_x30/yOut22 \
+sim:/testbench_x30/yOut23 \
+sim:/testbench_x30/yOut24 \
+sim:/testbench_x30/yOut25 \
+sim:/testbench_x30/yOut26 \
+sim:/testbench_x30/yOut27 \
+sim:/testbench_x30/yOut28 \
+sim:/testbench_x30/yOut29 \
+sim:/testbench_x30/yOut30 \
+sim:/testbench_x30/nTestes \
+sim:/testbench_x30/acabou
 run
-run
-run
-run
-run
-run
-# Compile of multiplicador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23887 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-add wave -position insertpoint  \
-sim:/testbench/nTestes
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23985 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-# Compile of testbench.vhd failed with 1 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23883 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-# Warning in wave window restart: (vish-4014) No objects found matching '/testbench/nTestes'. 
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23988 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23988 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-add wave -position insertpoint  \
-sim:/testbench/nTestes \
-sim:/testbench/acabou
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: Design size of 12156 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23989 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23891 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-run
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: Design size of 12157 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-run
-run
-run
-# Compile of testbench.vhd failed with 1 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23892 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-run
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: Design size of 12158 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-run
-run
-# Compile of testbench.vhd failed with 1 errors.
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23896 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# ** Failure: o arquivo acabou
-#    Time: 5 ns  Iteration: 1  Process: /testbench/SaidaProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Break in Process SaidaProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 143
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23994 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# ** Failure: o arquivo acabou
-#    Time: 0 ps  Iteration: 0  Process: /testbench/SaidaProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Break in Process SaidaProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 144
-# Compile of testbench.vhd was successful.
-# Compile of fixed_pkg_c.vhd was successful with warnings.
-# Compile of float_pkg_c.vhd was successful with warnings.
-# Compile of getIntervalo.vhd was successful.
-# Compile of multiplicador.vhd was successful.
-# Compile of mux.vhd was successful.
-# Compile of somador.vhd was successful.
-# Compile of testbench.vhd was successful.
-# Compile of WSiluPolinomial.vhd was successful.
-# 8 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.fixed_pkg(body)
-# Loading work.float_pkg(body)
-# Loading work.testbench(testbench_arc)
-# Loading work.wsilupolinomial(wsilupolinomial_arc)
-# Loading work.getintervalo(getintervalo_architecture)
-# Loading work.mux(mux_architecture)
-# Loading work.multiplicador(multiplicador_arc)
-# Loading work.somador(somador_arc)
-# ** Warning: Design size of 23897 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-run
-# ** Failure: o arquivo acabou
-#    Time: 130 ns  Iteration: 1  Process: /testbench/SaidaProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Break in Process SaidaProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 144
-# Compile of testbench.vhd was successful.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench(testbench_arc)
-# ** Warning: Design size of 23995 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# Break key hit
-# Simulation stop requested.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: Design size of 12162 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-run
-# GetModuleFileName: Não foi possível encontrar o módulo especificado.
-# 
-# 
-# ** Failure: o arquivo acabou
-#    Time: 1000030 ns  Iteration: 1  Process: /testbench/SaidaProcess File: C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd
-# Break in Process SaidaProcess at C:/Users/Denis/Desktop/hwsigmoid_lascas2026/hw_polinomial/rtl/testbench.vhd line 144

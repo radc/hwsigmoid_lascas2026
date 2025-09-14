@@ -53,22 +53,22 @@ entity wsiluPolinomial_x30 is
         yOut12	: 	out float16;
         yOut13	: 	out float16;
         yOut14	: 	out float16;
-        yOut15	 <= (others => '0');;
-		yOut16	 <= (others => '0');;
-        yOut17	 <= (others => '0');;
-        yOut18	 <= (others => '0');;
-        yOut19	 <= (others => '0');;
-        yOut20	 <= (others => '0');;
-        yOut21	 <= (others => '0');;
-        yOut22	 <= (others => '0');;
-        yOut23	 <= (others => '0');;
-        yOut24	 <= (others => '0');;
-        yOut25	 <= (others => '0');;
-        yOut26	 <= (others => '0');;
-        yOut27	 <= (others => '0');;
-        yOut28	 <= (others => '0');;
-        yOut29	 <= (others => '0');;
-        yOut30	 <= (others => '0');
+        yOut15	: 	out float16;
+		yOut16	: 	out float16;
+        yOut17	: 	out float16;
+        yOut18	: 	out float16;
+        yOut19	: 	out float16;
+        yOut20	: 	out float16;
+        yOut21	: 	out float16;
+        yOut22	: 	out float16;
+        yOut23	: 	out float16;
+        yOut24	: 	out float16;
+        yOut25	: 	out float16;
+        yOut26	: 	out float16;
+        yOut27	: 	out float16;
+        yOut28	: 	out float16;
+        yOut29	: 	out float16;
+        yOut30	: 	out float16
 	);
 end entity wsiluPolinomial_x30;
 

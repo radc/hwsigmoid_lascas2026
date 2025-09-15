@@ -1,0 +1,171 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+use work.float_pkg.all;
+use work.fixed_pkg.all;
+use std.textio.all;
+use work.LUT.all;
+
+entity testbench is
+end testbench;
+
+architecture testbench_arc of testbench is
+
+	signal clk 		:	 std_logic;
+	signal enable	:	 std_logic;
+	signal reset	:	 std_logic;
+	signal x		: 	 float16;
+	signal y		: 	 float16;
+
+	signal nTestes: integer := 0;
+	signal acabou: integer := 0;
+
+component wsilu_lut_512 is
+    generic (
+  	LIMIT_1_W : float16;
+  	LIMIT_2_W : float16;
+  	LIMIT_3_W : float16;
+  	LIMIT_4_W : float16;
+  	N_1_W: integer;
+  	N_2_W: integer;
+  	N_3_W: integer;
+	N_4_W: integer 
+    );
+    port (
+        clk    : in  std_logic;
+        reset    : in  std_logic;
+        enable : in  std_logic;
+        xIn      : in  float16;
+        yOut      : out float16
+    );
+end component;
+--------------------------------------------------------------
+	function string_to_float (s: string) return float16 is
+		variable slv : std_logic_vector(15 downto 0);
+		variable fp16 : float16;
+	begin
+		for i in 1 to 16 loop
+			if(s(i) = '1') then
+				slv(16-i) := '1';
+			elsif(s(i) = '0') then
+				slv(16-i) := '0';
+			end if;
+		end loop;
+		for i in 0 to 15 loop
+			fp16(5-i) := slv(15-i);
+		end loop;
+		return fp16; 
+	end function string_to_float;
+-------------------------------------------------------------
+	function float_to_string(inp: float16) return string is
+		variable temp: string(16 downto 1);
+		variable slv: std_logic_vector(15 downto 0);
+	begin
+		for i in 0 to 15 loop
+			slv(15-i) := inp(5-i);
+		end loop;
+		for i in 0 to 15 loop
+			if (slv(i) = '1') then
+				temp(i+1) := '1';
+			elsif (slv(i) = '0') then
+				temp(i+1) := '0';
+			end if;
+		end loop;
+		return temp;
+	end function float_to_string;
+
+begin
+
+	DUT: wsilu_lut_512 generic map(LIMIT_1, LIMIT_2, LIMIT_3, LIMIT_4,N_1, N_2, N_3, N_4)  port map(clk, reset, enable, x, y);
+
+	clockProcess: process -- process para controlar o clock
+	begin
+		clk <= '0';
+		wait for 5 ns;
+		clk <= '1';
+		wait for 5 ns;
+	end process clockProcess;
+
+	resetProcess: process -- process para controlar o reset
+	begin
+		reset <= '0';
+		wait;
+	end process resetProcess;
+
+	enableProcess: process -- process para controlar o enable
+	begin
+		enable <= '0';
+		wait for 7 ns;
+		enable <= '1';
+		wait;
+	end process enableProcess;
+
+	EntradasProcess: process (clk)
+
+		file saidaEsperada: text open write_mode is "saidaEsperada.txt";
+		variable str_outEsperada: string(16 downto 1);
+		variable outlineEsperada: line;	
+
+		file arquivo: text open read_mode is "entradasReais/entradasBin.txt";
+		variable linha: line;
+		variable amostra: string(1 to 16);
+		variable char: character;
+		variable hexvalUnsigned : unsigned(63 downto 0);
+		variable hexvalSigned : signed(63 downto 0);
+		variable bitvec : std_logic_vector(63 downto 0);
+
+		begin
+
+			if (rising_edge(clk)) then
+				if not(endfile(arquivo)) then		-- enquanto exixtirem linhas no arquivo atual
+					readline(arquivo, linha);	-- lê uma linha e armazena em uma string/line (linha)
+					-- lê os valores da linhas e passa para as entradas do circuito
+						read(linha, amostra);
+							x <= string_to_float(amostra); 
+						read(linha, char);
+						read(linha, amostra);
+							str_outEsperada := amostra;
+							write(outlineEsperada, str_outEsperada);
+							writeline(saidaEsperada, outlineEsperada);	
+						nTestes <= nTestes + 1;
+				elsif (endfile(arquivo)) then
+				--	assert false report "o arquivo acabou" severity failure;
+					acabou <= acabou + 1;
+				end if;
+			end if;
+
+	end process EntradasProcess;
+
+	SaidaProcess: process(clk)
+
+		file saidaGerada: text open write_mode is "saidaGerada.txt";
+		variable str_outGerada: string(16 downto 1);
+		variable outlineGerada: line;	
+
+		begin
+
+			if (rising_edge(clk) and acabou < 3) then
+				if (nTestes > 2) then
+					str_outGerada := float_to_string(y);
+					write(outlineGerada, str_outGerada);
+					writeline(saidaGerada, outlineGerada);
+				end if;
+			elsif (acabou = 3) then 
+				assert false report "o arquivo acabou" severity failure;
+			end if;
+
+	end process SaidaProcess;
+
+end testbench_arc;
+
+				--read(linha, amostra);
+				--deltaMVEsperado3 <= hexToStd(amostra)(17 downto 0);
+				--outEsperada := deltaMVEsperado3;
+				--str_outEsperada := stdvec_to_str(outEsperada);
+				
+
+				-- outgerada := deltaMV1;
+				-- str_outGerada := stdvec_to_str(outGerada);
+				-- write(outlineGerada, str_outGerada);
+				-- writeline(saidaGerada, outlineGerada);

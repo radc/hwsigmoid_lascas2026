@@ -8,14 +8,19 @@ class WSiLU(nn.Module):
 
 #VERIFICAR USOS
 class WSiLU(nn.Module):
-    def __init__(self, track=False):
+    _id = 1
+
+    def __init__(self, track=True):
+        super().__init__()
         self.track = track
         self.counter = 0
+        self.id = WSiLU._id
+        WSiLU._id += 1
 
     def forward(self, x):
         self.counter += 1
         if (self.track):
-            print(x.shape, self.track)
+            print(f"id{self.id}",x.shape[1], x.shape[2], x.shape[3], self.counter, sep=",")
 
         y = torch.sigmoid(4.0 * x) * x
         return y

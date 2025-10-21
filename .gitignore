@@ -13,3 +13,6 @@ DCVC/out_bin/*
 *.json
 
 *.jsonl
+
+*csv
+*txt

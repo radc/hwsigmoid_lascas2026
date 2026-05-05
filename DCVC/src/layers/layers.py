@@ -13,14 +13,58 @@ from .layers_improved import TracedConv2d
 
 
 
-##COLOQUE A WSILU AQUI
+import os
+
+from .wsilu_variants import (
+    WSiLULUTAsyn4Int256Entries,
+    WSiLULUTAsyn4Int512Entries,
+    WSiLUPoly1IntDeg11_16,
+    WSiLUPoly25IntDeg2_32,
+)
+
+WSILU_TYPE = os.getenv("DCVC_WSILU_TYPE", "wsilu4").strip().lower()
+
+
+class _WSiLUReLU(nn.Module):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return torch.relu(x)
+
+
+class _WSiLUSigmoid4(nn.Module):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return torch.sigmoid(4.0 * x) * x
+
+
+class _WSiLUSiLU(nn.Module):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return torch.nn.functional.silu(x)
+
+
+WSILU_IMPLS = {
+    "relu": _WSiLUReLU,
+    "wsilu": _WSiLUSigmoid4,
+    "wsilu4": _WSiLUSigmoid4,
+    "silu": _WSiLUSiLU,
+    "lut_asyn_4int_256entries": WSiLULUTAsyn4Int256Entries,
+    "lut_asyn_4int_512entries": WSiLULUTAsyn4Int512Entries,
+    "poly_25int_deg2_32": WSiLUPoly25IntDeg2_32,
+    "poly_1int_deg11_16": WSiLUPoly1IntDeg11_16,
+}
+
 
 class WSiLU(nn.Module):
-    def forward(self, x):
-        y = torch.relu(x)
-        return y
+    def __init__(self):
+        super().__init__()
+        impl_cls = WSILU_IMPLS.get(WSILU_TYPE)
+        if impl_cls is None:
+            raise ValueError(
+                f"Unsupported DCVC_WSILU_TYPE={WSILU_TYPE!r}. "
+                f"Use one of: {', '.join(sorted(WSILU_IMPLS))}."
+            )
+        self.impl = impl_cls()
 
-
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.impl(x)
 
 
 class WSiLUChunkAdd(nn.Module):

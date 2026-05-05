@@ -1,7 +1,9 @@
 #!/bin/sh
 set -eu pipefail
 
-read -rp "Nome do experimento: " EXP_NAME
+# Configure seu experimento aqui (sem prompt interativo)
+EXP_NAME="baseline_wsilu4"
+WSILU_TYPE="wsilu4"
 
 # Se quiser permitir vazio, remova este bloco
 if [[ -z "${EXP_NAME// }" ]]; then
@@ -20,7 +22,7 @@ mkdir -p "$OUT_DIR"
 OUT_PATH="${OUT_DIR}/${EXP_SAFE}.json"
 echo "Saída: $OUT_PATH"
 
-python test_video.py \
+DCVC_WSILU_TYPE="$WSILU_TYPE" python test_video.py \
   --model_path_i ./checkpoints/cvpr2025_image.pth.tar \
   --model_path_p ./checkpoints/cvpr2025_video.pth.tar \
   --rate_num 4 --test_config ./dataset_config_lascas.json \

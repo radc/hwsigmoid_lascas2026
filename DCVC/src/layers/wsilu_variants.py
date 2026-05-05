@@ -17,8 +17,9 @@ class WSiLULUTAsyn4Int512Entries(nn.Module):
             [struct.unpack('>e', struct.pack('>H', v))[0] for v in lut_hex],
             dtype=np.float16
         )
-        # registra como buffer para mover com .to(device) e salvar no state_dict
-        self.register_buffer("lut", torch.from_numpy(lut_float16))  # float16
+        # Keep LUT out of state_dict to preserve checkpoint compatibility
+        # with models trained using stateless WSiLU implementations.
+        self.register_buffer("lut", torch.from_numpy(lut_float16), persistent=False)  # float16
 
         # Constantes (iguais ao seu VHDL)
         self.LIMIT_1 = 0.5

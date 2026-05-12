@@ -191,15 +191,20 @@ def base_command(args: argparse.Namespace) -> list[str]:
 def launch_job(job: Job, gpu: int, args: argparse.Namespace, project_dir: Path) -> subprocess.Popen:
     env = os.environ.copy()
     env["CUDA_VISIBLE_DEVICES"] = str(gpu)
+    env["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
     env["DCVC_WSILU_CONFIG"] = str(job.config_path)
     env["PYTHONUNBUFFERED"] = "1"
 
-    cmd = base_command(args) + ["--output_path", str(job.output_path)]
+    # test_video.py also manages CUDA_VISIBLE_DEVICES internally when --cuda_idx
+    # is present. Passing the selected GPU here prevents its worker initializer
+    # from overwriting every subprocess back to CUDA_VISIBLE_DEVICES=0.
+    cmd = base_command(args) + ["--cuda_idx", str(gpu), "--output_path", str(job.output_path)]
     stdout_f = job.stdout_path.open("w", encoding="utf-8")
     stderr_f = job.stderr_path.open("w", encoding="utf-8")
     process = subprocess.Popen(cmd, cwd=project_dir, env=env, stdout=stdout_f, stderr=stderr_f)
     print(
         f"[ALLOC] GPU {gpu} -> pid={process.pid} job={job.name} "
+        f"CUDA_VISIBLE_DEVICES={env['CUDA_VISIBLE_DEVICES']} --cuda_idx={gpu} "
         f"stdout={job.stdout_path} stderr={job.stderr_path}",
         flush=True,
     )

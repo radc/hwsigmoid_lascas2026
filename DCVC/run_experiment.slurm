@@ -3,13 +3,13 @@
 #SBATCH --output=/work/ruhan625/logs/dcvc_wsilu_exp_%j.out
 #SBATCH --error=/work/ruhan625/logs/dcvc_wsilu_exp_%j.err
 #SBATCH --account=acd114139
-#SBATCH --partition=gtest
+#SBATCH --partition=gp2d
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:8
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=160G
-#SBATCH --time=08:00:00
+#SBATCH --time=48:00:00
 
 set -euo pipefail
 

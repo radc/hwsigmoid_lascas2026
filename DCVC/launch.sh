@@ -20,7 +20,7 @@ python run_wsilu_module_sweep.py \
     lut_asyn_4int_512entries \
   --include_baseline 1 \
   --worker 1 \
-  --test_config ./dataset_fast.json \
+  --test_config ./dataset_fast_sweep.json \
   --output_dir ../coding_outputs/module_sweep \
   --config_dir generated_wsilu_configs/module_sweep \
   --log_dir ../coding_outputs/module_sweep_logs

@@ -20,14 +20,14 @@ class IntraEncoder(nn.Module):
     def __init__(self, N):
         super().__init__()
 
-        self.enc_1 = DepthConvBlock(g_ch_src, g_ch_enc_dec)
+        self.enc_1 = DepthConvBlock(g_ch_src, g_ch_enc_dec, module_name="i.enc")
         self.enc_2 = nn.Sequential(
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.enc"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.enc"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.enc"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.enc"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.enc"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.enc"),
             nn.Conv2d(g_ch_enc_dec, N, 3, stride=2, padding=1),
         )
 
@@ -61,21 +61,21 @@ class IntraDecoder(nn.Module):
         super().__init__()
 
         self.dec_1 = nn.Sequential(
-            ResidualBlockUpsample(N, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
-            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec),
+            ResidualBlockUpsample(N, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
+            DepthConvBlock(g_ch_enc_dec, g_ch_enc_dec, module_name="i.dec"),
         )
-        self.dec_2 = DepthConvBlock(g_ch_enc_dec, g_ch_src)
+        self.dec_2 = DepthConvBlock(g_ch_enc_dec, g_ch_src, module_name="i.dec")
 
     def forward(self, x, quant_step):
         if not CUSTOMIZED_CUDA_INFERENCE or not x.is_cuda:
@@ -116,32 +116,32 @@ class DMCI(CompressionModel):
         self.enc = IntraEncoder(N)
 
         self.hyper_enc = nn.Sequential(
-            DepthConvBlock(N, z_channel),
-            ResidualBlockWithStride2(z_channel, z_channel),
-            ResidualBlockWithStride2(z_channel, z_channel),
+            DepthConvBlock(N, z_channel, module_name="i.hyper_enc"),
+            ResidualBlockWithStride2(z_channel, z_channel, module_name="i.hyper_enc"),
+            ResidualBlockWithStride2(z_channel, z_channel, module_name="i.hyper_enc"),
         )
 
         self.hyper_dec = nn.Sequential(
-            ResidualBlockUpsample(z_channel, z_channel),
-            ResidualBlockUpsample(z_channel, z_channel),
-            DepthConvBlock(z_channel, N),
+            ResidualBlockUpsample(z_channel, z_channel, module_name="i.hyper_dec"),
+            ResidualBlockUpsample(z_channel, z_channel, module_name="i.hyper_dec"),
+            DepthConvBlock(z_channel, N, module_name="i.hyper_dec"),
         )
 
         self.y_prior_fusion = nn.Sequential(
-            DepthConvBlock(N, N * 2),
-            DepthConvBlock(N * 2, N * 2),
-            DepthConvBlock(N * 2, N * 2),
+            DepthConvBlock(N, N * 2, module_name="i.y_prior_fusion"),
+            DepthConvBlock(N * 2, N * 2, module_name="i.y_prior_fusion"),
+            DepthConvBlock(N * 2, N * 2, module_name="i.y_prior_fusion"),
             nn.Conv2d(N * 2, N * 2 + 2, 1),
         )
 
         self.y_spatial_prior_reduction = nn.Conv2d(N * 2 + 2, N * 1, 1)
-        self.y_spatial_prior_adaptor_1 = DepthConvBlock(N * 2, N * 2, force_adaptor=True)
-        self.y_spatial_prior_adaptor_2 = DepthConvBlock(N * 2, N * 2, force_adaptor=True)
-        self.y_spatial_prior_adaptor_3 = DepthConvBlock(N * 2, N * 2, force_adaptor=True)
+        self.y_spatial_prior_adaptor_1 = DepthConvBlock(N * 2, N * 2, force_adaptor=True, module_name="i.y_spatial_prior_adaptor_1")
+        self.y_spatial_prior_adaptor_2 = DepthConvBlock(N * 2, N * 2, force_adaptor=True, module_name="i.y_spatial_prior_adaptor_2")
+        self.y_spatial_prior_adaptor_3 = DepthConvBlock(N * 2, N * 2, force_adaptor=True, module_name="i.y_spatial_prior_adaptor_3")
         self.y_spatial_prior = nn.Sequential(
-            DepthConvBlock(N * 2, N * 2),
-            DepthConvBlock(N * 2, N * 2),
-            DepthConvBlock(N * 2, N * 2),
+            DepthConvBlock(N * 2, N * 2, module_name="i.y_spatial_prior"),
+            DepthConvBlock(N * 2, N * 2, module_name="i.y_spatial_prior"),
+            DepthConvBlock(N * 2, N * 2, module_name="i.y_spatial_prior"),
             nn.Conv2d(N * 2, N * 2, 1),
         )
 

@@ -13,6 +13,7 @@ from .layers_improved import TracedConv2d
 
 
 
+import json
 import os
 
 from .wsilu_variants import (
@@ -23,6 +24,20 @@ from .wsilu_variants import (
 )
 
 WSILU_TYPE = os.getenv("DCVC_WSILU_TYPE", "wsilu4").strip().lower()
+WSILU_CONFIG_PATH = os.getenv("DCVC_WSILU_CONFIG", "").strip()
+
+
+def _load_wsilu_config():
+    if not WSILU_CONFIG_PATH:
+        return {}
+    with open(WSILU_CONFIG_PATH, "r", encoding="utf-8") as f:
+        cfg = json.load(f)
+    if not isinstance(cfg, dict):
+        raise ValueError("DCVC_WSILU_CONFIG must point to a JSON object mapping module names to WSiLU types.")
+    return {str(k): str(v).strip().lower() for k, v in cfg.items()}
+
+
+WSILU_CONFIG = _load_wsilu_config()
 
 
 class _WSiLUReLU(nn.Module):
@@ -53,12 +68,19 @@ WSILU_IMPLS = {
 
 
 class WSiLU(nn.Module):
-    def __init__(self):
+    def __init__(self, module_name=None):
         super().__init__()
-        impl_cls = WSILU_IMPLS.get(WSILU_TYPE)
+        wsilu_type = WSILU_TYPE
+        if module_name:
+            if module_name in WSILU_CONFIG:
+                wsilu_type = WSILU_CONFIG[module_name]
+            elif "default" in WSILU_CONFIG:
+                wsilu_type = WSILU_CONFIG["default"]
+
+        impl_cls = WSILU_IMPLS.get(wsilu_type)
         if impl_cls is None:
             raise ValueError(
-                f"Unsupported DCVC_WSILU_TYPE={WSILU_TYPE!r}. "
+                f"Unsupported WSiLU type={wsilu_type!r}. "
                 f"Use one of: {', '.join(sorted(WSILU_IMPLS))}."
             )
         self.impl = impl_cls()
@@ -68,9 +90,9 @@ class WSiLU(nn.Module):
 
 
 class WSiLUChunkAdd(nn.Module):
-    def __init__(self):
+    def __init__(self, module_name=None):
         super().__init__()
-        self.silu = WSiLU()
+        self.silu = WSiLU(module_name=module_name)
 
     def forward(self, x):
         x1, x2 = self.silu(x).chunk(2, 1)
@@ -140,7 +162,7 @@ class SubpelConv2x(nn.Module):
 #                     flush_every=20,
 #                     name="id38_dc_0"
 #                 ),
-#                 WSiLU(),
+#                 WSiLU(module_name=f"{module_name}.dc" if module_name else None),
 #                 nn.Conv2d(out_ch, out_ch, 3, padding=1, groups=out_ch),
 #                 nn.Conv2d(out_ch, out_ch, 1),
 #             )
@@ -148,14 +170,14 @@ class SubpelConv2x(nn.Module):
 #         else:
 #             self.dc = nn.Sequential(
 #             nn.Conv2d(out_ch, out_ch, 1),
-#             WSiLU(),
+#             WSiLU(module_name=f"{module_name}.dc" if module_name else None),
 #             nn.Conv2d(out_ch, out_ch, 3, padding=1, groups=out_ch),
 #             nn.Conv2d(out_ch, out_ch, 1),
 #         )
 
 #         self.ffn = nn.Sequential(
 #             nn.Conv2d(out_ch, out_ch * 4, 1),
-#             WSiLUChunkAdd(),
+#             WSiLUChunkAdd(module_name=f"{module_name}.ffn" if module_name else None),
 #             nn.Conv2d(out_ch * 2, out_ch, 1),
 #         )
 
@@ -220,7 +242,7 @@ class SubpelConv2x(nn.Module):
 
 
 class DepthConvBlock(nn.Module):
-    def __init__(self, in_ch, out_ch, shortcut=False, force_adaptor=False):
+    def __init__(self, in_ch, out_ch, shortcut=False, force_adaptor=False, module_name=None):
         super().__init__()
         self.adaptor = None
         if in_ch != out_ch or force_adaptor:
@@ -228,13 +250,13 @@ class DepthConvBlock(nn.Module):
         self.shortcut = shortcut
         self.dc = nn.Sequential(
             nn.Conv2d(out_ch, out_ch, 1),
-            WSiLU(),
+            WSiLU(module_name=f"{module_name}.dc" if module_name else None),
             nn.Conv2d(out_ch, out_ch, 3, padding=1, groups=out_ch),
             nn.Conv2d(out_ch, out_ch, 1),
         )
         self.ffn = nn.Sequential(
             nn.Conv2d(out_ch, out_ch * 4, 1),
-            WSiLUChunkAdd(),
+            WSiLUChunkAdd(module_name=f"{module_name}.ffn" if module_name else None),
             nn.Conv2d(out_ch * 2, out_ch, 1),
         )
 
@@ -290,10 +312,10 @@ class DepthConvBlock(nn.Module):
 
 
 class ResidualBlockWithStride2(nn.Module):
-    def __init__(self, in_ch, out_ch):
+    def __init__(self, in_ch, out_ch, module_name=None):
         super().__init__()
         self.down = nn.Conv2d(in_ch, out_ch, 2, stride=2)
-        self.conv = DepthConvBlock(out_ch, out_ch, shortcut=True)
+        self.conv = DepthConvBlock(out_ch, out_ch, shortcut=True, module_name=f"{module_name}.conv" if module_name else None)
 
     def forward(self, x):
         x = self.down(x)
@@ -302,10 +324,10 @@ class ResidualBlockWithStride2(nn.Module):
 
 
 class ResidualBlockUpsample(nn.Module):
-    def __init__(self, in_ch, out_ch):
+    def __init__(self, in_ch, out_ch, module_name=None):
         super().__init__()
         self.up = SubpelConv2x(in_ch, out_ch, 1)
-        self.conv = DepthConvBlock(out_ch, out_ch, shortcut=True)
+        self.conv = DepthConvBlock(out_ch, out_ch, shortcut=True, module_name=f"{module_name}.conv" if module_name else None)
 
     def forward(self, x):
         out = self.up(x)

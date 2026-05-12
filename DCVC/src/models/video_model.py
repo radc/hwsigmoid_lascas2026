@@ -26,14 +26,14 @@ class FeatureExtractor(nn.Module):
     def __init__(self):
         super().__init__()
         self.conv1 = nn.Sequential(
-            DepthConvBlock(g_ch_d, g_ch_d),
-            DepthConvBlock(g_ch_d, g_ch_d),
+            DepthConvBlock(g_ch_d, g_ch_d, module_name="p.feature_extractor") ,
+            DepthConvBlock(g_ch_d, g_ch_d, module_name="p.feature_extractor") ,
         )
         self.conv2 = nn.Sequential(
-            DepthConvBlock(g_ch_d, g_ch_d),
-            DepthConvBlock(g_ch_d, g_ch_d),
-            DepthConvBlock(g_ch_d, g_ch_d),
-            DepthConvBlock(g_ch_d, g_ch_d),
+            DepthConvBlock(g_ch_d, g_ch_d, module_name="p.feature_extractor") ,
+            DepthConvBlock(g_ch_d, g_ch_d, module_name="p.feature_extractor") ,
+            DepthConvBlock(g_ch_d, g_ch_d, module_name="p.feature_extractor") ,
+            DepthConvBlock(g_ch_d, g_ch_d, module_name="p.feature_extractor") ,
         )
 
     def forward(self, x, quant):
@@ -56,10 +56,10 @@ class Encoder(nn.Module):
         super().__init__()
         self.conv1 = nn.Conv2d(g_ch_src_d, g_ch_d, 1)
         self.conv2 = nn.Sequential(
-            DepthConvBlock(g_ch_d * 2, g_ch_d),
-            DepthConvBlock(g_ch_d, g_ch_d),
+            DepthConvBlock(g_ch_d * 2, g_ch_d, module_name="p.encoder"),
+            DepthConvBlock(g_ch_d, g_ch_d, module_name="p.encoder") ,
         )
-        self.conv3 = DepthConvBlock(g_ch_d, g_ch_d)
+        self.conv3 = DepthConvBlock(g_ch_d, g_ch_d, module_name="p.encoder")
         self.down = nn.Conv2d(g_ch_d, g_ch_y, 3, stride=2, padding=1)
 
         self.fuse_conv1_flag = False
@@ -102,9 +102,9 @@ class Decoder(nn.Module):
         super().__init__()
         self.up = SubpelConv2x(g_ch_y, g_ch_d, 3, padding=1)
         self.conv1 = nn.Sequential(
-            DepthConvBlock(g_ch_d * 2, g_ch_d),
-            DepthConvBlock(g_ch_d, g_ch_d),
-            DepthConvBlock(g_ch_d, g_ch_d),
+            DepthConvBlock(g_ch_d * 2, g_ch_d, module_name="p.decoder"),
+            DepthConvBlock(g_ch_d, g_ch_d, module_name="p.decoder") ,
+            DepthConvBlock(g_ch_d, g_ch_d, module_name="p.decoder") ,
         )
         self.conv2 = nn.Conv2d(g_ch_d, g_ch_d, 1)
 
@@ -133,10 +133,10 @@ class ReconGeneration(nn.Module):
     def __init__(self):
         super().__init__()
         self.conv = nn.Sequential(
-            DepthConvBlock(g_ch_d,     g_ch_recon),
-            DepthConvBlock(g_ch_recon, g_ch_recon),
-            DepthConvBlock(g_ch_recon, g_ch_recon),
-            DepthConvBlock(g_ch_recon, g_ch_recon),
+            DepthConvBlock(g_ch_d,     g_ch_recon, module_name="p.recon_generation_net"),
+            DepthConvBlock(g_ch_recon, g_ch_recon, module_name="p.recon_generation_net"),
+            DepthConvBlock(g_ch_recon, g_ch_recon, module_name="p.recon_generation_net"),
+            DepthConvBlock(g_ch_recon, g_ch_recon, module_name="p.recon_generation_net"),
         )
         self.head = nn.Conv2d(g_ch_recon, g_ch_src_d, 1)
 
@@ -167,9 +167,9 @@ class HyperEncoder(nn.Module):
     def __init__(self):
         super().__init__()
         self.conv = nn.Sequential(
-            DepthConvBlock(g_ch_y, g_ch_z),
-            ResidualBlockWithStride2(g_ch_z, g_ch_z),
-            ResidualBlockWithStride2(g_ch_z, g_ch_z),
+            DepthConvBlock(g_ch_y, g_ch_z, module_name="p.hyper_encoder"),
+            ResidualBlockWithStride2(g_ch_z, g_ch_z, module_name="p.hyper_encoder"),
+            ResidualBlockWithStride2(g_ch_z, g_ch_z, module_name="p.hyper_encoder"),
         )
 
     def forward(self, x):
@@ -180,9 +180,9 @@ class HyperDecoder(nn.Module):
     def __init__(self):
         super().__init__()
         self.conv = nn.Sequential(
-            ResidualBlockUpsample(g_ch_z, g_ch_z),
-            ResidualBlockUpsample(g_ch_z, g_ch_z),
-            DepthConvBlock(g_ch_z, g_ch_y),
+            ResidualBlockUpsample(g_ch_z, g_ch_z, module_name="p.hyper_decoder"),
+            ResidualBlockUpsample(g_ch_z, g_ch_z, module_name="p.hyper_decoder"),
+            DepthConvBlock(g_ch_z, g_ch_y, module_name="p.hyper_decoder"),
         )
 
     def forward(self, x):
@@ -193,9 +193,9 @@ class PriorFusion(nn.Module):
     def __init__(self):
         super().__init__()
         self.conv = nn.Sequential(
-            DepthConvBlock(g_ch_y * 3, g_ch_y * 3),
-            DepthConvBlock(g_ch_y * 3, g_ch_y * 3),
-            DepthConvBlock(g_ch_y * 3, g_ch_y * 3),
+            DepthConvBlock(g_ch_y * 3, g_ch_y * 3, module_name="p.y_prior_fusion"),
+            DepthConvBlock(g_ch_y * 3, g_ch_y * 3, module_name="p.y_prior_fusion"),
+            DepthConvBlock(g_ch_y * 3, g_ch_y * 3, module_name="p.y_prior_fusion"),
             nn.Conv2d(g_ch_y * 3, g_ch_y * 3, 1),
         )
 
@@ -207,8 +207,8 @@ class SpatialPrior(nn.Module):
     def __init__(self):
         super().__init__()
         self.conv = nn.Sequential(
-            DepthConvBlock(g_ch_y * 4, g_ch_y * 3),
-            DepthConvBlock(g_ch_y * 3, g_ch_y * 3),
+            DepthConvBlock(g_ch_y * 4, g_ch_y * 3, module_name="p.y_spatial_prior"),
+            DepthConvBlock(g_ch_y * 3, g_ch_y * 3, module_name="p.y_spatial_prior"),
             nn.Conv2d(g_ch_y * 3, g_ch_y * 2, 1),
         )
 
@@ -228,14 +228,14 @@ class DMC(CompressionModel):
         super().__init__(z_channel=g_ch_z, extra_qp=extra_qp)
         self.qp_shift = qp_shift
 
-        self.feature_adaptor_i = DepthConvBlock(g_ch_src_d, g_ch_d)
+        self.feature_adaptor_i = DepthConvBlock(g_ch_src_d, g_ch_d, module_name="p.feature_adaptor_i")
         self.feature_adaptor_p = nn.Conv2d(g_ch_d, g_ch_d, 1)
         self.feature_extractor = FeatureExtractor()
 
         self.encoder = Encoder()
         self.hyper_encoder = HyperEncoder()
         self.hyper_decoder = HyperDecoder()
-        self.temporal_prior_encoder = ResidualBlockWithStride2(g_ch_d, g_ch_y * 2)
+        self.temporal_prior_encoder = ResidualBlockWithStride2(g_ch_d, g_ch_y * 2, module_name="p.temporal_prior_encoder")
         self.y_prior_fusion = PriorFusion()
         self.y_spatial_prior = SpatialPrior()
         self.decoder = Decoder()

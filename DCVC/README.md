@@ -359,7 +359,7 @@ Rules:
 - If `default` exists in JSON, it overrides the global fallback.
 - Specific keys (for example `p.encoder.dc` or `i.dec.ffn`) override `default`.
 
-Supported WSiLU types: `relu`, `wsilu`, `wsilu4`, `silu`, `lut_asyn_4int_128entries`, `lut_asyn_4int_256entries`, `lut_asyn_4int_512entries`, `poly_25int_deg2_32`, `poly_1int_deg11_16`.
+Supported WSiLU types: `relu`, `wsilu`, `wsilu4`, `silu`, `lut_asyn_4int_64entries`, `lut_asyn_4int_128entries`, `lut_asyn_4int_256entries`, `lut_asyn_4int_512entries`, `poly_25int_deg2_32`, `poly_1int_deg11_16`.
 
 Suggested grouping keys:
 - Intra: `i.enc`, `i.dec`, `i.hyper_enc`, `i.hyper_dec`, `i.y_prior_fusion`, `i.y_spatial_prior_adaptor_1`, `i.y_spatial_prior_adaptor_2`, `i.y_spatial_prior_adaptor_3`, `i.y_spatial_prior`.

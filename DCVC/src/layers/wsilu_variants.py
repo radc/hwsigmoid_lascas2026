@@ -154,6 +154,36 @@ class WSiLULUTAsyn4Int128Entries(nn.Module):
         return WSiLULUTAsyn4Int512Entries.forward(self, x)
 
 
+class WSiLULUTAsyn4Int64Entries(nn.Module):
+    """Asymmetric four-interval WSiLU LUT with 64 entries.
+
+    This variant keeps the same interval limits used by the larger LUTs while
+    allocating 32 samples for [0, 0.5], 16 for (0.5, 1.0], 8 for (1.0, 1.5],
+    and 8 for (1.5, 2.0].
+    """
+
+    def __init__(self):
+        super().__init__()
+        lut_hex = [
+            0x3800, 0x3820, 0x3840, 0x3860, 0x387f, 0x389f, 0x38be, 0x38dd,
+            0x38fb, 0x3918, 0x3936, 0x3953, 0x396f, 0x398b, 0x39a5, 0x39c0,
+            0x39d9, 0x39f2, 0x3a0b, 0x3a22, 0x3a37, 0x3a4d, 0x3a63, 0x3a77,
+            0x3a8b, 0x3a9d, 0x3aaf, 0x3ac1, 0x3ad1, 0x3ae1, 0x3af0, 0x3afd,
+            0x3b0b, 0x3b26, 0x3b3d, 0x3b52, 0x3b65, 0x3b76, 0x3b86, 0x3b92,
+            0x3b9f, 0x3baa, 0x3bb3, 0x3bbc, 0x3bc4, 0x3bcb, 0x3bd1, 0x3bd7,
+            0x3bdb, 0x3be2, 0x3bea, 0x3bee, 0x3bf2, 0x3bf6, 0x3bf8, 0x3bfa,
+            0x3bfa, 0x3bfc, 0x3bfc, 0x3bfe, 0x3bfe, 0x3bfe, 0x3bfe, 0x3c00,
+        ]
+        _validate_lut_partition(lut_hex, (32, 16, 8, 8))
+        lut = _lut_from_hex(lut_hex)
+        self.register_buffer('lut', torch.from_numpy(lut), persistent=False)
+        self.LIMIT_1, self.LIMIT_2, self.LIMIT_3, self.LIMIT_4 = 0.5, 1.0, 1.5, 2.0
+        self.N_1, self.N_2, self.N_3, self.N_4 = 32, 16, 8, 8
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return WSiLULUTAsyn4Int512Entries.forward(self, x)
+
+
 class WSiLUPoly25IntDeg2_32(nn.Module):
     def __init__(self):
         super().__init__()

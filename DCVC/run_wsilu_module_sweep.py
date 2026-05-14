@@ -20,6 +20,7 @@ from typing import Iterable
 
 
 DEFAULT_VARIANTS = (
+    "lut_asyn_4int_64entries",
     "lut_asyn_4int_128entries",
     "lut_asyn_4int_256entries",
     "lut_asyn_4int_512entries",

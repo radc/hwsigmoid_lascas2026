@@ -15,6 +15,7 @@ python run_wsilu_module_sweep.py \
   --gpus 0 1 2 3 4 5 6 7 \
   --default_activation wsilu4 \
   --variants \
+    lut_asyn_4int_64entries \
     lut_asyn_4int_128entries \
     lut_asyn_4int_256entries \
     lut_asyn_4int_512entries \

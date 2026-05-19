@@ -16,3 +16,6 @@ DCVC/out_bin/*
 
 *csv
 *txt
+
+*.out
+*.err

@@ -341,3 +341,26 @@ The implementation of DCVC-RT is based on [CompressAI](https://github.com/InterD
 
 ## Trademarks
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow [Microsoft’s Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party’s policies.
+
+
+## Model-level WSiLU configuration via JSON
+
+You can select different WSiLU variants per model-level module by setting `DCVC_WSILU_CONFIG` to a JSON file.
+
+Example:
+
+```bash
+export DCVC_WSILU_TYPE=wsilu4
+export DCVC_WSILU_CONFIG=./wsilu_modules_config.example.json
+```
+
+Rules:
+- `DCVC_WSILU_TYPE` is the global fallback.
+- If `default` exists in JSON, it overrides the global fallback.
+- Specific keys (for example `p.encoder.dc` or `i.dec.ffn`) override `default`.
+
+Supported WSiLU types: `relu`, `wsilu`, `wsilu4`, `silu`, `lut_asyn_4int_64entries`, `lut_asyn_4int_128entries`, `lut_asyn_4int_256entries`, `lut_asyn_4int_512entries`, `poly_25int_deg2_32`, `poly_1int_deg11_16`.
+
+Suggested grouping keys:
+- Intra: `i.enc`, `i.dec`, `i.hyper_enc`, `i.hyper_dec`, `i.y_prior_fusion`, `i.y_spatial_prior_adaptor_1`, `i.y_spatial_prior_adaptor_2`, `i.y_spatial_prior_adaptor_3`, `i.y_spatial_prior`.
+- Inter: `p.feature_adaptor_i`, `p.feature_extractor`, `p.encoder`, `p.hyper_encoder`, `p.hyper_decoder`, `p.temporal_prior_encoder`, `p.y_prior_fusion`, `p.y_spatial_prior`, `p.decoder`, `p.recon_generation_net`.

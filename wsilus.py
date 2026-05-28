@@ -8,14 +8,19 @@ class WSiLU(nn.Module):
 
 #VERIFICAR USOS
 class WSiLU(nn.Module):
-    def __init__(self, track=False):
+    _id = 1
+
+    def __init__(self, track=True):
+        super().__init__()
         self.track = track
         self.counter = 0
+        self.id = WSiLU._id
+        WSiLU._id += 1
 
     def forward(self, x):
         self.counter += 1
         if (self.track):
-            print(x.shape, self.track)
+            print(f"id{self.id}",x.shape[1], x.shape[2], x.shape[3], self.counter, sep=",")
 
         y = torch.sigmoid(4.0 * x) * x
         return y
@@ -1431,4 +1436,66 @@ class WSiLU(nn.Module):
 
         out = torch.where(mask_hi, x.to(out_dtype), y_fp16.to(out_dtype))
         return out
+
+
+
+#DENIS COM 1 INTERVALOS E GRAU 11 (poly_1int_deg11_16)
+
+
+class WSiLU(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+        self.register_buffer("xmin", torch.tensor(-2.0, dtype=torch.float16), persistent=False)
+        self.register_buffer("xmax", torch.tensor( 2.0, dtype=torch.float16), persistent=False)
+        self.register_buffer("zero", torch.tensor(0.0, dtype=torch.float16), persistent=False)
+
+        # Coeficientes em float16
+        self.register_buffer("c11", torch.tensor( 2.771615982055664e-05,   dtype=torch.float16), persistent=False)
+        self.register_buffer("c10", torch.tensor( 0.004848480224609375,    dtype=torch.float16), persistent=False)
+        self.register_buffer("c9",  torch.tensor(-0.00024890899658203125,  dtype=torch.float16), persistent=False)
+        self.register_buffer("c8",  torch.tensor(-0.05645751953125,        dtype=torch.float16), persistent=False)
+        self.register_buffer("c7",  torch.tensor( 0.0007786750793457031,   dtype=torch.float16), persistent=False)
+        self.register_buffer("c6",  torch.tensor( 0.25341796875,           dtype=torch.float16), persistent=False)
+        self.register_buffer("c5",  torch.tensor(-0.0009975433349609375,   dtype=torch.float16), persistent=False)
+        self.register_buffer("c4",  torch.tensor(-0.56982421875,           dtype=torch.float16), persistent=False)
+        self.register_buffer("c3",  torch.tensor( 0.0004525184631347656,   dtype=torch.float16), persistent=False)
+        self.register_buffer("c2",  torch.tensor( 0.84716796875,           dtype=torch.float16), persistent=False)
+        self.register_buffer("c1",  torch.tensor( 0.5,                     dtype=torch.float16), persistent=False)
+        self.register_buffer("c0",  torch.tensor( 0.005859375,             dtype=torch.float16), persistent=False)
+
+    @torch.no_grad()
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        out_dtype = x.dtype
+        xh = x.to(torch.float16)
+
+        # Base:
+        # x < -2  -> 0
+        # x >= 2  -> x
+        y = torch.where(xh < self.xmin, self.zero, xh)
+
+        # Região polinomial: -2 <= x < 2
+        mask_mid = (xh >= self.xmin) & (xh < self.xmax)
+
+        if mask_mid.any():
+            xm = xh[mask_mid]
+
+            # Horner manual:
+            y_mid = self.c11
+            y_mid = y_mid * xm + self.c10
+            y_mid = y_mid * xm + self.c9
+            y_mid = y_mid * xm + self.c8
+            y_mid = y_mid * xm + self.c7
+            y_mid = y_mid * xm + self.c6
+            y_mid = y_mid * xm + self.c5
+            y_mid = y_mid * xm + self.c4
+            y_mid = y_mid * xm + self.c3
+            y_mid = y_mid * xm + self.c2
+            y_mid = y_mid * xm + self.c1
+            y_mid = y_mid * xm + self.c0
+
+            y[mask_mid] = y_mid
+
+        return y.to(out_dtype)
+##FIM DA WSILU AQUI
 

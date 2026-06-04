@@ -2,7 +2,7 @@
 #SBATCH --job-name=dcvc_wsilu_fullbaseline
 #SBATCH --output=/work/ruhan625/logs/dcvc_wsilu_exp_%j.out
 #SBATCH --error=/work/ruhan625/logs/dcvc_wsilu_exp_%j.err
-#SBATCH --account=acd114139
+#SBATCH --account=mst108318
 #SBATCH --partition=gp1d
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -25,8 +25,8 @@ export CONTAINER_IMG="${PROJECT_DIR}/aimet_ubuntu2204.sif"
 
 
 
-# export DCVC_WSILU_TYPE="poly_1int_deg11_16"
-export EXP_NAME="baseline"
+export DCVC_WSILU_TYPE="lut_asyn_4int_32entries"
+export EXP_NAME="lut_asyn_4int_32entries"
 export OUT_DIR="../coding_outputs/complete"
 # export DCVC_WSILU_CONFIG="/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/${EXP_NAME}.json"
 

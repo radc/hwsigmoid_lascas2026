@@ -44,7 +44,7 @@ echo "Saída: $OUT_PATH"
 #   --force_intra_period -1 --reset_interval 64 --force_frame_num -1 --check_existing 0
 
 
-DCVC_WSILU_TYPE="wsilu4" python test_video.py \
+python test_video.py \
   --model_path_i ./checkpoints/cvpr2025_image.pth.tar \
   --model_path_p ./checkpoints/cvpr2025_video.pth.tar \
   --rate_num 4 --test_config ./dataset_test.json \

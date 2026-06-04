@@ -17,6 +17,8 @@ import json
 import os
 
 from .wsilu_variants import (
+    WSiLULUTAsyn4Int1024Entries,
+    WSiLULUTAsyn4Int32Entries,
     WSiLULUTAsyn4Int64Entries,
     WSiLULUTAsyn4Int128Entries,
     WSiLULUTAsyn4Int256Entries,
@@ -62,10 +64,12 @@ WSILU_IMPLS = {
     "wsilu": _WSiLUSigmoid4,
     "wsilu4": _WSiLUSigmoid4,
     "silu": _WSiLUSiLU,
+    "lut_asyn_4int_32entries": WSiLULUTAsyn4Int32Entries,
     "lut_asyn_4int_64entries": WSiLULUTAsyn4Int64Entries,
     "lut_asyn_4int_128entries": WSiLULUTAsyn4Int128Entries,
     "lut_asyn_4int_256entries": WSiLULUTAsyn4Int256Entries,
     "lut_asyn_4int_512entries": WSiLULUTAsyn4Int512Entries,
+    "lut_asyn_4int_1024entries": WSiLULUTAsyn4Int1024Entries,
     "poly_25int_deg2_32": WSiLUPoly25IntDeg2_32,
     "poly_1int_deg11_16": WSiLUPoly1IntDeg11_16,
 }

@@ -15,11 +15,9 @@ python run_wsilu_module_sweep.py \
   --gpus 0 1 2 3 4 5 6 7 \
   --default_activation wsilu4 \
   --variants \
-    lut_asyn_4int_64entries \
-    lut_asyn_4int_128entries \
-    lut_asyn_4int_256entries \
-    lut_asyn_4int_512entries \
-  --include_baseline 1 \
+    lut_asyn_4int_32entries \
+    lut_asyn_4int_1024entries \
+  --include_baseline 0 \
   --worker 1 \
   --test_config ./dataset_fast_sweep.json \
   --output_dir ../coding_outputs/module_sweep \

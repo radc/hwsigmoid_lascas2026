@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "i.y_spatial_prior_adaptor_2.conv.dc": "lut_asyn_4int_32entries",
+  "i.y_spatial_prior_adaptor_2.conv.ffn": "lut_asyn_4int_32entries",
+  "i.y_spatial_prior_adaptor_2.dc": "lut_asyn_4int_32entries",
+  "i.y_spatial_prior_adaptor_2.ffn": "lut_asyn_4int_32entries"
+}

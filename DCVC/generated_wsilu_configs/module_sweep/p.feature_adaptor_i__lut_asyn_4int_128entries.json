@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "p.feature_adaptor_i.conv.dc": "lut_asyn_4int_128entries",
+  "p.feature_adaptor_i.conv.ffn": "lut_asyn_4int_128entries",
+  "p.feature_adaptor_i.dc": "lut_asyn_4int_128entries",
+  "p.feature_adaptor_i.ffn": "lut_asyn_4int_128entries"
+}

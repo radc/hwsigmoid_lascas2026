@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "i.enc.conv.dc": "lut_asyn_4int_64entries",
+  "i.enc.conv.ffn": "lut_asyn_4int_64entries",
+  "i.enc.dc": "lut_asyn_4int_64entries",
+  "i.enc.ffn": "lut_asyn_4int_64entries"
+}

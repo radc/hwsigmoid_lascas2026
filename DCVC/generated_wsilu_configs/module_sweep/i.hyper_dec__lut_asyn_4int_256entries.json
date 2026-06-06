@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "i.hyper_dec.conv.dc": "lut_asyn_4int_256entries",
+  "i.hyper_dec.conv.ffn": "lut_asyn_4int_256entries",
+  "i.hyper_dec.dc": "lut_asyn_4int_256entries",
+  "i.hyper_dec.ffn": "lut_asyn_4int_256entries"
+}

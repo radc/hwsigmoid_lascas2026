@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "i.y_prior_fusion.conv.dc": "lut_asyn_4int_32entries",
+  "i.y_prior_fusion.conv.ffn": "lut_asyn_4int_32entries",
+  "i.y_prior_fusion.dc": "lut_asyn_4int_32entries",
+  "i.y_prior_fusion.ffn": "lut_asyn_4int_32entries"
+}

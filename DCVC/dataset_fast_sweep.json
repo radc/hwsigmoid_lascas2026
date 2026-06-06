@@ -1,0 +1,31 @@
+{
+    "root_path": "/work/ruhan625/TestVideo/raw_video_1080/",
+    "test_classes": {
+        "UVG": {
+            "test": 1,
+            "base_path": "UVG",
+            "src_type": "png",
+            "sequences": {
+                "Beauty_1920x1080_120":        {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "Bosphorus_1920x1080_120":     {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "HoneyBee_1920x1080_120":      {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "Jockey_1920x1080_120":        {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "ReadySteadyGo_1920x1080_120": {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "ShakeNDry_1920x1080_120":     {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "YachtRide_1920x1080_120":     {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32}
+            }
+        },        
+        "HEVC_B": {
+            "test": 1,
+            "base_path": "HEVC-B",
+            "src_type": "png",
+            "sequences": {
+                "BQTerrace_1920x1080_60":       {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "BasketballDrive_1920x1080_50": {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "Cactus_1920x1080_50":          {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "Kimono1_1920x1080_24":         {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32},
+                "ParkScene_1920x1080_24":       {"width": 1920, "height": 1080, "frames": 32, "intra_period": 32}
+            }
+        }
+    }
+}

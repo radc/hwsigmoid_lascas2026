@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "p.recon_generation_net.conv.dc": "lut_asyn_4int_512entries",
+  "p.recon_generation_net.conv.ffn": "lut_asyn_4int_512entries",
+  "p.recon_generation_net.dc": "lut_asyn_4int_512entries",
+  "p.recon_generation_net.ffn": "lut_asyn_4int_512entries"
+}

@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "i.hyper_enc.conv.dc": "lut_asyn_4int_128entries",
+  "i.hyper_enc.conv.ffn": "lut_asyn_4int_128entries",
+  "i.hyper_enc.dc": "lut_asyn_4int_128entries",
+  "i.hyper_enc.ffn": "lut_asyn_4int_128entries"
+}

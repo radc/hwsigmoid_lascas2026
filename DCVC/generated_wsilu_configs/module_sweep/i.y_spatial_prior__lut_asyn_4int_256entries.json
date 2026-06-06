@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "i.y_spatial_prior.conv.dc": "lut_asyn_4int_256entries",
+  "i.y_spatial_prior.conv.ffn": "lut_asyn_4int_256entries",
+  "i.y_spatial_prior.dc": "lut_asyn_4int_256entries",
+  "i.y_spatial_prior.ffn": "lut_asyn_4int_256entries"
+}

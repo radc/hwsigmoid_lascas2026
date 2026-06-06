@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "p.hyper_encoder.conv.dc": "lut_asyn_4int_512entries",
+  "p.hyper_encoder.conv.ffn": "lut_asyn_4int_512entries",
+  "p.hyper_encoder.dc": "lut_asyn_4int_512entries",
+  "p.hyper_encoder.ffn": "lut_asyn_4int_512entries"
+}

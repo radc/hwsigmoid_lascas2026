@@ -1,0 +1,372 @@
+{
+  "default_activation": "wsilu4",
+  "variants": [
+    "lut_asyn_4int_32entries",
+    "lut_asyn_4int_1024entries"
+  ],
+  "modules": [
+    "i.enc",
+    "i.dec",
+    "i.hyper_enc",
+    "i.hyper_dec",
+    "i.y_prior_fusion",
+    "i.y_spatial_prior_adaptor_1",
+    "i.y_spatial_prior_adaptor_2",
+    "i.y_spatial_prior_adaptor_3",
+    "i.y_spatial_prior",
+    "p.feature_extractor",
+    "p.encoder",
+    "p.decoder",
+    "p.recon_generation_net",
+    "p.hyper_encoder",
+    "p.hyper_decoder",
+    "p.y_prior_fusion",
+    "p.y_spatial_prior",
+    "p.feature_adaptor_i",
+    "p.temporal_prior_encoder"
+  ],
+  "jobs": [
+    {
+      "name": "i.enc__lut_asyn_4int_32entries",
+      "module": "i.enc",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.enc__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.enc__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.enc__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.enc__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "i.enc__lut_asyn_4int_1024entries",
+      "module": "i.enc",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.enc__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.enc__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.enc__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.enc__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "i.dec__lut_asyn_4int_32entries",
+      "module": "i.dec",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.dec__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.dec__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.dec__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.dec__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "i.dec__lut_asyn_4int_1024entries",
+      "module": "i.dec",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.dec__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.dec__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.dec__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.dec__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "i.hyper_enc__lut_asyn_4int_32entries",
+      "module": "i.hyper_enc",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.hyper_enc__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.hyper_enc__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.hyper_enc__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.hyper_enc__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "i.hyper_enc__lut_asyn_4int_1024entries",
+      "module": "i.hyper_enc",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.hyper_enc__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.hyper_enc__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.hyper_enc__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.hyper_enc__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "i.hyper_dec__lut_asyn_4int_32entries",
+      "module": "i.hyper_dec",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.hyper_dec__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.hyper_dec__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.hyper_dec__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.hyper_dec__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "i.hyper_dec__lut_asyn_4int_1024entries",
+      "module": "i.hyper_dec",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.hyper_dec__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.hyper_dec__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.hyper_dec__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.hyper_dec__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "i.y_prior_fusion__lut_asyn_4int_32entries",
+      "module": "i.y_prior_fusion",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.y_prior_fusion__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.y_prior_fusion__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_prior_fusion__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_prior_fusion__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "i.y_prior_fusion__lut_asyn_4int_1024entries",
+      "module": "i.y_prior_fusion",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.y_prior_fusion__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.y_prior_fusion__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_prior_fusion__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_prior_fusion__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "i.y_spatial_prior_adaptor_1__lut_asyn_4int_32entries",
+      "module": "i.y_spatial_prior_adaptor_1",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.y_spatial_prior_adaptor_1__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.y_spatial_prior_adaptor_1__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_1__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_1__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "i.y_spatial_prior_adaptor_1__lut_asyn_4int_1024entries",
+      "module": "i.y_spatial_prior_adaptor_1",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.y_spatial_prior_adaptor_1__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.y_spatial_prior_adaptor_1__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_1__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_1__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "i.y_spatial_prior_adaptor_2__lut_asyn_4int_32entries",
+      "module": "i.y_spatial_prior_adaptor_2",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.y_spatial_prior_adaptor_2__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.y_spatial_prior_adaptor_2__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_2__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_2__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "i.y_spatial_prior_adaptor_2__lut_asyn_4int_1024entries",
+      "module": "i.y_spatial_prior_adaptor_2",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.y_spatial_prior_adaptor_2__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.y_spatial_prior_adaptor_2__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_2__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_2__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "i.y_spatial_prior_adaptor_3__lut_asyn_4int_32entries",
+      "module": "i.y_spatial_prior_adaptor_3",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.y_spatial_prior_adaptor_3__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.y_spatial_prior_adaptor_3__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_3__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_3__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "i.y_spatial_prior_adaptor_3__lut_asyn_4int_1024entries",
+      "module": "i.y_spatial_prior_adaptor_3",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.y_spatial_prior_adaptor_3__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.y_spatial_prior_adaptor_3__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_3__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior_adaptor_3__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "i.y_spatial_prior__lut_asyn_4int_32entries",
+      "module": "i.y_spatial_prior",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.y_spatial_prior__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.y_spatial_prior__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "i.y_spatial_prior__lut_asyn_4int_1024entries",
+      "module": "i.y_spatial_prior",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/i.y_spatial_prior__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/i.y_spatial_prior__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/i.y_spatial_prior__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "p.feature_extractor__lut_asyn_4int_32entries",
+      "module": "p.feature_extractor",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.feature_extractor__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.feature_extractor__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.feature_extractor__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.feature_extractor__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "p.feature_extractor__lut_asyn_4int_1024entries",
+      "module": "p.feature_extractor",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.feature_extractor__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.feature_extractor__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.feature_extractor__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.feature_extractor__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "p.encoder__lut_asyn_4int_32entries",
+      "module": "p.encoder",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.encoder__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.encoder__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.encoder__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.encoder__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "p.encoder__lut_asyn_4int_1024entries",
+      "module": "p.encoder",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.encoder__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.encoder__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.encoder__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.encoder__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "p.decoder__lut_asyn_4int_32entries",
+      "module": "p.decoder",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.decoder__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.decoder__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.decoder__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.decoder__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "p.decoder__lut_asyn_4int_1024entries",
+      "module": "p.decoder",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.decoder__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.decoder__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.decoder__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.decoder__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "p.recon_generation_net__lut_asyn_4int_32entries",
+      "module": "p.recon_generation_net",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.recon_generation_net__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.recon_generation_net__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.recon_generation_net__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.recon_generation_net__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "p.recon_generation_net__lut_asyn_4int_1024entries",
+      "module": "p.recon_generation_net",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.recon_generation_net__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.recon_generation_net__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.recon_generation_net__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.recon_generation_net__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "p.hyper_encoder__lut_asyn_4int_32entries",
+      "module": "p.hyper_encoder",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.hyper_encoder__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.hyper_encoder__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.hyper_encoder__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.hyper_encoder__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "p.hyper_encoder__lut_asyn_4int_1024entries",
+      "module": "p.hyper_encoder",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.hyper_encoder__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.hyper_encoder__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.hyper_encoder__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.hyper_encoder__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "p.hyper_decoder__lut_asyn_4int_32entries",
+      "module": "p.hyper_decoder",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.hyper_decoder__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.hyper_decoder__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.hyper_decoder__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.hyper_decoder__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "p.hyper_decoder__lut_asyn_4int_1024entries",
+      "module": "p.hyper_decoder",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.hyper_decoder__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.hyper_decoder__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.hyper_decoder__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.hyper_decoder__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "p.y_prior_fusion__lut_asyn_4int_32entries",
+      "module": "p.y_prior_fusion",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.y_prior_fusion__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.y_prior_fusion__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.y_prior_fusion__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.y_prior_fusion__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "p.y_prior_fusion__lut_asyn_4int_1024entries",
+      "module": "p.y_prior_fusion",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.y_prior_fusion__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.y_prior_fusion__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.y_prior_fusion__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.y_prior_fusion__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "p.y_spatial_prior__lut_asyn_4int_32entries",
+      "module": "p.y_spatial_prior",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.y_spatial_prior__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.y_spatial_prior__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.y_spatial_prior__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.y_spatial_prior__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "p.y_spatial_prior__lut_asyn_4int_1024entries",
+      "module": "p.y_spatial_prior",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.y_spatial_prior__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.y_spatial_prior__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.y_spatial_prior__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.y_spatial_prior__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "p.feature_adaptor_i__lut_asyn_4int_32entries",
+      "module": "p.feature_adaptor_i",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.feature_adaptor_i__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.feature_adaptor_i__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.feature_adaptor_i__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.feature_adaptor_i__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "p.feature_adaptor_i__lut_asyn_4int_1024entries",
+      "module": "p.feature_adaptor_i",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.feature_adaptor_i__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.feature_adaptor_i__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.feature_adaptor_i__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.feature_adaptor_i__lut_asyn_4int_1024entries.err"
+    },
+    {
+      "name": "p.temporal_prior_encoder__lut_asyn_4int_32entries",
+      "module": "p.temporal_prior_encoder",
+      "variant": "lut_asyn_4int_32entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.temporal_prior_encoder__lut_asyn_4int_32entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.temporal_prior_encoder__lut_asyn_4int_32entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.temporal_prior_encoder__lut_asyn_4int_32entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.temporal_prior_encoder__lut_asyn_4int_32entries.err"
+    },
+    {
+      "name": "p.temporal_prior_encoder__lut_asyn_4int_1024entries",
+      "module": "p.temporal_prior_encoder",
+      "variant": "lut_asyn_4int_1024entries",
+      "config_path": "/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/p.temporal_prior_encoder__lut_asyn_4int_1024entries.json",
+      "output_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep/p.temporal_prior_encoder__lut_asyn_4int_1024entries.json",
+      "stdout_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.temporal_prior_encoder__lut_asyn_4int_1024entries.out",
+      "stderr_path": "/home/ruhan625/hwsigmoid_lascas2026/coding_outputs/module_sweep_logs/p.temporal_prior_encoder__lut_asyn_4int_1024entries.err"
+    }
+  ]
+}

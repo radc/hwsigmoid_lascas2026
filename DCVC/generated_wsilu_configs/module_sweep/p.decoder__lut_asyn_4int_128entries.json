@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "p.decoder.conv.dc": "lut_asyn_4int_128entries",
+  "p.decoder.conv.ffn": "lut_asyn_4int_128entries",
+  "p.decoder.dc": "lut_asyn_4int_128entries",
+  "p.decoder.ffn": "lut_asyn_4int_128entries"
+}

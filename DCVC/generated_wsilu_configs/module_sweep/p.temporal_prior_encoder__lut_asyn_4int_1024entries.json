@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "p.temporal_prior_encoder.conv.dc": "lut_asyn_4int_1024entries",
+  "p.temporal_prior_encoder.conv.ffn": "lut_asyn_4int_1024entries",
+  "p.temporal_prior_encoder.dc": "lut_asyn_4int_1024entries",
+  "p.temporal_prior_encoder.ffn": "lut_asyn_4int_1024entries"
+}

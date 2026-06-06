@@ -1,0 +1,7 @@
+{
+  "default": "wsilu4",
+  "p.feature_extractor.conv.dc": "lut_asyn_4int_1024entries",
+  "p.feature_extractor.conv.ffn": "lut_asyn_4int_1024entries",
+  "p.feature_extractor.dc": "lut_asyn_4int_1024entries",
+  "p.feature_extractor.ffn": "lut_asyn_4int_1024entries"
+}

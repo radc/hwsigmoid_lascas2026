@@ -1,10 +1,59 @@
 {
   "default": "wsilu4",
-  "i.enc.dc": "silu",
-  "i.dec.ffn": "lut_asyn_4int_256entries",
-  "i.hyper_dec.dc": "poly_25int_deg2_32",
-  "p.feature_adaptor_i.dc": "wsilu4",
-  "p.encoder.ffn": "relu",
-  "p.decoder.dc": "silu",
-  "p.y_spatial_prior.dc": "lut_asyn_4int_512entries"
+  "i.enc.dc": "lut_asyn_4int_512entries",
+  "i.enc.ffn": "lut_asyn_4int_512entries",
+
+  "i.dec.dc": "lut_asyn_4int_512entries",
+  "i.dec.ffn": "lut_asyn_4int_512entries",
+
+  "i.hyper_enc.dc": "lut_asyn_4int_64entries",
+  "i.hyper_enc.ffn": "lut_asyn_4int_64entries",
+  
+  "i.hyper_dec.dc": "lut_asyn_4int_128entries",
+  "i.hyper_dec.ffn": "lut_asyn_4int_128entries",
+
+  "i.y_prior_fusion.dc": "lut_asyn_4int_64entries",
+  "i.y_prior_fusion.ffn": "lut_asyn_4int_64entries",
+
+  "i.y_spatial_prior_adaptor_1.dc": "lut_asyn_4int_128entries",
+  "i.y_spatial_prior_adaptor_1.ffn": "lut_asyn_4int_128entries",
+  
+  "i.y_spatial_prior_adaptor_2.dc": "lut_asyn_4int_64entries",
+  "i.y_spatial_prior_adaptor_2.ffn": "lut_asyn_4int_64entries",
+  
+  "i.y_spatial_prior_adaptor_3.dc": "lut_asyn_4int_64entries",
+  "i.y_spatial_prior_adaptor_3.ffn": "lut_asyn_4int_64entries",
+
+  "i.y_spatial_prior.dc": "lut_asyn_4int_64entries",
+  "i.y_spatial_prior.ffn": "lut_asyn_4int_64entries",
+
+  "p.feature_extractor.dc": "lut_asyn_4int_64entries",
+  "p.feature_extractor.ffn": "lut_asyn_4int_64entries",
+
+  "p.encoder.dc": "lut_asyn_4int_64entries",
+  "p.encoder.ffn": "lut_asyn_4int_64entries",
+  
+  "p.decoder.dc": "lut_asyn_4int_64entries",
+  "p.decoder.ffn": "lut_asyn_4int_64entries",
+
+  "p.recon_generation_net.dc": "lut_asyn_4int_512entries",
+  "p.recon_generation_net.ffn": "lut_asyn_4int_512entries",
+
+  "p.hyper_encoder.dc": "lut_asyn_4int_64entries",
+  "p.hyper_encoder.ffn": "lut_asyn_4int_64entries",
+
+  "p.hyper_decoder.dc": "lut_asyn_4int_64entries",
+  "p.hyper_decoder.ffn": "lut_asyn_4int_64entries",
+
+  "p.y_prior_fusion.dc": "lut_asyn_4int_64entries",
+  "p.y_prior_fusion.ffn": "lut_asyn_4int_64entries",
+
+  "p.y_spatial_prior.dc": "lut_asyn_4int_64entries",
+  "p.y_spatial_prior.ffn": "lut_asyn_4int_64entries",
+
+  "p.feature_adaptor_i.dc": "lut_asyn_4int_128entries",
+  "p.feature_adaptor_i.ffn": "lut_asyn_4int_128entries",
+
+  "p.temporal_prior_encoder.dc": "lut_asyn_4int_64entries",
+  "p.temporal_prior_encoder.ffn": "lut_asyn_4int_64entries"
 }

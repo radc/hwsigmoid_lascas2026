@@ -25,10 +25,10 @@ export CONTAINER_IMG="${PROJECT_DIR}/aimet_ubuntu2204.sif"
 
 
 
-export DCVC_WSILU_TYPE="lut_asyn_4int_32entries"
-export EXP_NAME="lut_asyn_4int_32entries"
+export DCVC_WSILU_TYPE="wsilu4"
+export EXP_NAME="multiple_precision"
 export OUT_DIR="../coding_outputs/complete"
-# export DCVC_WSILU_CONFIG="/home/ruhan625/hwsigmoid_lascas2026/DCVC/generated_wsilu_configs/module_sweep/${EXP_NAME}.json"
+export DCVC_WSILU_CONFIG="/home/ruhan625/hwsigmoid_lascas2026/DCVC/wsilu_modules_config.example.json"
 
 cd "$PROJECT_DIR" || exit 1
 chmod +x launch_single.sh
